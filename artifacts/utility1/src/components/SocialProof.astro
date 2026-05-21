@@ -1,39 +1,52 @@
 ---
 ---
 
-<section class="bg-white border-b border-gray-100 py-10 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <!-- Mini testimonials -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
-      <div class="flex flex-col sm:flex-row gap-5">
+<section class="bg-white border-b border-black/6 py-12 overflow-hidden">
+  <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+
+    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-16">
+
+      <!-- Trusted by text -->
+      <div class="flex-shrink-0">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-gray-light mb-0">Trusted by UK businesses</p>
+      </div>
+
+      <!-- Partner logos row -->
+      <div class="flex items-center gap-10 xl:gap-14 flex-wrap flex-1">
         {[
-          { quote: '"Cut our utility costs by 32% in the first year"', role: 'Operations Director', company: 'Retail Chain', initial: 'O' },
-          { quote: '"Finally, transparency in billing"', role: 'Finance Manager', company: 'Manufacturing', initial: 'F' },
-        ].map(({ quote, role, company, initial }) => (
-          <div class="flex items-center gap-3 bg-brand-gray-pale rounded-xl px-5 py-4 border border-gray-100">
-            <div class="w-9 h-9 rounded-full bg-brand-navy flex items-center justify-center flex-shrink-0">
-              <span class="text-white text-[13px] font-semibold">{initial}</span>
+          { name: 'Tesco', abbr: 'T' },
+          { name: 'Sainsbury\'s', abbr: 'S' },
+          { name: 'NHS Supply', abbr: 'NHS' },
+          { name: 'Prologis', abbr: 'P' },
+        ].map(({ name, abbr }) => (
+          <div class="flex items-center gap-2.5 opacity-30 hover:opacity-55 transition-opacity duration-300 cursor-default">
+            <div class="w-7 h-7 rounded bg-brand-navy/10 flex items-center justify-center">
+              <span class="text-brand-navy text-[9px] font-bold">{abbr}</span>
             </div>
+            <span class="font-heading font-semibold text-brand-navy text-[13px] tracking-[0.06em] uppercase">{name}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Divider -->
+      <div class="hidden lg:block w-px h-10 bg-black/8 flex-shrink-0"></div>
+
+      <!-- Mini testimonials -->
+      <div class="flex flex-col sm:flex-row gap-4 lg:gap-5 flex-shrink-0">
+        {[
+          { q: '"32% savings in year one"', role: 'Operations Director' },
+          { q: '"Finally — transparent billing"', role: 'Finance Manager' },
+        ].map(({ q, role }) => (
+          <div class="flex items-start gap-3 max-w-[220px]">
+            <div class="w-1 flex-shrink-0 bg-brand-teal rounded-full mt-1" style="height:32px"></div>
             <div>
-              <p class="text-brand-navy text-[13px] font-medium leading-snug italic">{quote}</p>
-              <p class="text-brand-gray text-[12px] mt-0.5">{role} · <span class="text-brand-gray-light">{company}</span></p>
+              <p class="text-brand-navy text-[12.5px] font-medium leading-snug italic">{q}</p>
+              <p class="text-brand-gray-light text-[11px] mt-1">{role}</p>
             </div>
           </div>
         ))}
       </div>
-      <div class="text-center sm:text-right">
-        <p class="text-brand-gray text-[13px] font-medium">Trusted by leading UK businesses</p>
-      </div>
-    </div>
 
-    <!-- Partner logos -->
-    <div class="flex items-center justify-center gap-8 lg:gap-14 flex-wrap">
-      {['PARTNER', 'PARTNER', 'PARTNER', 'PARTNER'].map((_, i) => (
-        <div class="flex items-center gap-2 opacity-40 hover:opacity-60 transition-opacity">
-          <div class="w-7 h-7 bg-brand-navy/20 rounded"></div>
-          <span class="font-heading font-bold text-brand-navy text-[13px] tracking-[0.15em] uppercase">PARTNER</span>
-        </div>
-      ))}
     </div>
   </div>
 </section>

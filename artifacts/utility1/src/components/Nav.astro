@@ -1,26 +1,32 @@
 ---
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="site-nav">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="flex items-center justify-between h-[72px]">
+<header id="nav" class="fixed top-0 left-0 right-0 z-50">
+  <!-- Backdrop -->
+  <div id="nav-bg" class="absolute inset-0 transition-all duration-500"></div>
+
+  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
+    <div class="flex items-center justify-between h-[76px]">
+
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 bg-brand-teal rounded-lg flex items-center justify-center flex-shrink-0">
-          <span class="text-white font-heading font-bold text-sm tracking-tight">U1</span>
+      <a href="/" class="flex items-center gap-3 group flex-shrink-0">
+        <div class="relative w-9 h-9">
+          <div class="absolute inset-0 bg-brand-teal rounded-lg"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-teal-light/30 to-transparent rounded-lg"></div>
+          <span class="absolute inset-0 flex items-center justify-center text-white font-heading font-bold text-[13px] tracking-tight">U1</span>
         </div>
-        <div>
-          <span class="font-heading font-bold text-[15px] tracking-tight text-white block leading-none">UTILITY</span>
-          <span class="font-heading text-[11px] text-white/60 tracking-widest uppercase block leading-none mt-0.5">1 LTD</span>
+        <div class="leading-none">
+          <div class="font-heading font-bold text-[15px] tracking-[-0.02em] text-white">UTILITY</div>
+          <div class="text-[10px] text-white/40 tracking-[0.18em] uppercase">1 LTD</div>
         </div>
       </a>
 
-      <!-- Nav Links -->
-      <nav class="hidden md:flex items-center gap-1">
+      <!-- Nav -->
+      <nav class="hidden lg:flex items-center gap-0">
         {['Home', 'About', 'Services', 'Case Studies', 'Insights'].map((item) => (
           <a
             href={item === 'Home' ? '/' : `#${item.toLowerCase().replace(' ', '-')}`}
-            class="px-4 py-2 text-[14px] font-medium text-white/80 hover:text-white rounded-lg transition-colors duration-150"
+            class="px-5 py-2.5 text-[13.5px] font-medium text-white/60 hover:text-white transition-colors duration-200 tracking-[-0.01em]"
           >
             {item}
           </a>
@@ -28,41 +34,32 @@
       </nav>
 
       <!-- CTA -->
-      <a
-        href="#contact"
-        class="hidden md:inline-flex items-center px-5 py-2.5 bg-brand-navy border border-brand-navy text-white text-[14px] font-semibold rounded-[7px] hover:bg-brand-navy-dark transition-all duration-150 shadow-[0_2px_8px_rgba(27,40,56,0.15),0_4px_16px_rgba(27,40,56,0.08)]"
-      >
+      <a href="#contact" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-navy text-[13px] font-semibold rounded-[7px] hover:bg-brand-ghost transition-all duration-200 tracking-[-0.01em] shadow-[0_2px_8px_rgba(255,255,255,0.1)]">
         Get Free Review
       </a>
 
-      <!-- Mobile menu button -->
-      <button class="md:hidden text-white p-2" id="mobile-menu-btn" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
     </div>
   </div>
 </header>
 
 <script>
-  const nav = document.getElementById('site-nav');
+  const nav = document.getElementById('nav');
+  const navBg = document.getElementById('nav-bg');
   let scrolled = false;
 
-  function updateNav() {
-    const isScrolled = window.scrollY > 40;
-    if (isScrolled !== scrolled) {
-      scrolled = isScrolled;
-      if (isScrolled) {
-        nav?.classList.add('bg-brand-navy/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY > 60;
+    if (s !== scrolled) {
+      scrolled = s;
+      if (s) {
+        navBg!.style.background = 'rgba(10, 16, 24, 0.88)';
+        navBg!.style.backdropFilter = 'blur(20px) saturate(1.4)';
+        navBg!.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
       } else {
-        nav?.classList.remove('bg-brand-navy/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+        navBg!.style.background = '';
+        navBg!.style.backdropFilter = '';
+        navBg!.style.borderBottom = '';
       }
     }
-  }
-
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
+  }, { passive: true });
 </script>

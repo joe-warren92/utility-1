@@ -1,102 +1,112 @@
 ---
 ---
 
-<section class="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-brand-navy-dark">
-  <!-- Background Image -->
-  <div class="absolute inset-0">
+<section class="relative min-h-[100svh] flex flex-col overflow-hidden bg-brand-navy">
+
+  <!-- Background image with cinematic treatment -->
+  <div class="absolute inset-0 overflow-hidden">
     <img
-      src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80"
-      alt="Commercial logistics warehouse operations"
-      class="w-full h-full object-cover object-center"
+      src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=85"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-center scale-[1.03]"
+      id="hero-img"
       loading="eager"
-      decoding="async"
     />
-    <!-- Gradient overlay: strong on left, fades right -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#111d29]/95 via-[#111d29]/80 to-[#111d29]/30"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#111d29]/60 via-transparent to-transparent"></div>
+    <!-- Cinematic multi-layer overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#080e15]/97 via-[#0d1620]/85 to-[#0d1620]/45"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#080e15] via-transparent to-[#080e15]/30"></div>
+    <!-- Teal atmospheric glow -->
+    <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-teal/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-brand-teal/4 rounded-full blur-[100px]"></div>
   </div>
 
   <!-- Content -->
-  <div class="relative flex flex-col justify-center min-h-[100svh] pt-32 pb-40">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full">
-      <div class="max-w-[640px]">
-        <!-- Rating badge -->
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2 mb-10">
-          <div class="flex items-center gap-0.5">
-            {Array(5).fill(null).map(() => (
-              <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            ))}
-          </div>
-          <span class="text-white/80 text-[13px] font-medium">4.9/5 from 500+ UK businesses</span>
-        </div>
+  <div class="relative flex flex-col justify-center flex-1 pt-36 pb-24">
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12 w-full">
 
-        <!-- Headline -->
-        <h1 class="font-heading text-white mb-6 leading-[1.0]">
-          <span class="block text-[4rem] lg:text-[5.5rem] font-bold tracking-tight">Utilities made</span>
-          <span class="block text-[4rem] lg:text-[5.5rem] font-bold tracking-tight text-brand-teal">simple</span>
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="text-white/70 text-[1.125rem] lg:text-[1.25rem] leading-relaxed mb-10 max-w-[520px]">
-          We handle the complexity of your commercial utilities so you can focus on running your business.
-        </p>
-
-        <!-- Bullet points -->
-        <ul class="space-y-3 mb-12">
-          {[
-            'Reduce operational costs across gas, electric, water and waste',
-            'Clear, transparent billing with no hidden surprises',
-            'Expert support when you need it',
-          ].map((item) => (
-            <li class="flex items-start gap-3">
-              <div class="w-1.5 h-1.5 rounded-full bg-brand-teal mt-2.5 flex-shrink-0"></div>
-              <span class="text-white/75 text-[15px]">{item}</span>
-            </li>
+      <!-- Rating badge -->
+      <div data-reveal data-delay="1" class="inline-flex items-center gap-2.5 mb-12">
+        <div class="flex">
+          {Array(5).fill(null).map(() => (
+            <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           ))}
-        </ul>
-
-        <!-- CTAs -->
-        <div class="flex flex-wrap items-center gap-4">
-          <a
-            href="#contact"
-            class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-teal text-white text-[15px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-all duration-200 shadow-[0_2px_12px_rgba(59,169,165,0.4)]"
-          >
-            Get Free Review
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a
-            href="#services"
-            class="inline-flex items-center gap-2 px-7 py-3.5 border border-white/25 text-white text-[15px] font-medium rounded-[12px] hover:border-white/50 hover:bg-white/5 transition-all duration-200"
-          >
-            View Services →
-          </a>
         </div>
+        <span class="text-white/55 text-[12.5px] tracking-wide">4.9/5 from 500+ UK businesses</span>
+        <span class="hidden sm:block w-px h-3.5 bg-white/15"></span>
+        <span class="hidden sm:block text-brand-teal text-[12.5px] font-medium">Trusted since 2012</span>
       </div>
+
+      <!-- Primary headline — large editorial moment -->
+      <div class="mb-8 max-w-[820px]">
+        <h1 data-reveal data-delay="2" class="font-heading font-bold text-white leading-[1.0] tracking-[-0.035em]">
+          <span class="block text-[clamp(3rem,7.5vw,7rem)]">Utilities made</span>
+          <span class="block text-[clamp(3.2rem,8.5vw,8rem)] text-brand-teal mt-[-0.06em]">simple.</span>
+        </h1>
+      </div>
+
+      <!-- Sub -->
+      <p data-reveal data-delay="3" class="text-white/55 text-[1.1rem] leading-relaxed max-w-[440px] mb-12 tracking-[-0.01em]">
+        We handle the complexity of your commercial utilities so you can focus on what matters — running your business.
+      </p>
+
+      <!-- Bullets -->
+      <ul data-reveal data-delay="4" class="space-y-2.5 mb-14">
+        {[
+          'Reduce costs across gas, electric, water and waste',
+          'Transparent billing — no hidden charges, ever',
+          'A dedicated account manager from day one',
+        ].map((item) => (
+          <li class="flex items-center gap-3 text-white/55 text-[13.5px]">
+            <div class="w-1 h-1 rounded-full bg-brand-teal flex-shrink-0"></div>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTAs -->
+      <div data-reveal data-delay="5" class="flex flex-wrap items-center gap-4">
+        <a href="#contact" class="btn-primary text-[14px]">
+          Get Free Review
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn-ghost text-[14px]">
+          Explore services
+        </a>
+      </div>
+
     </div>
   </div>
 
-  <!-- Stats bar at the bottom -->
-  <div class="relative bg-[#0d1820]/80 backdrop-blur-sm border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
+  <!-- Stats row pinned to bottom of hero -->
+  <div class="relative border-t border-white/8">
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+      <div class="grid grid-cols-3 lg:grid-cols-6 divide-x divide-white/8">
         {[
-          { value: '£12,400', label: 'avg. annual savings' },
-          { value: '28%', label: 'cost reduction' },
-          { value: '4.9/5', label: 'Customer Rating' },
-          { value: '500+', label: 'Active Clients' },
-          { value: '12+', label: 'Years Experience' },
-          { value: '£8.2M', label: 'Savings Delivered' },
-        ].map(({ value, label }) => (
-          <div class="text-center lg:px-6">
-            <div class="font-heading font-bold text-[1.5rem] text-white tracking-tight">{value}</div>
-            <div class="text-white/50 text-[12px] mt-0.5 uppercase tracking-wider">{label}</div>
+          { v: '£12,400', l: 'avg. annual saving' },
+          { v: '28%', l: 'cost reduction' },
+          { v: '4.9/5', l: 'client rating' },
+          { v: '500+', l: 'active clients' },
+          { v: '12+', l: 'years experience' },
+          { v: '£8.2M', l: 'savings delivered' },
+        ].map(({ v, l }, i) => (
+          <div data-reveal="fade" data-delay={String(i + 1)} class="py-7 px-4 xl:px-6 text-center">
+            <div class="font-heading font-bold text-white text-[1.6rem] tracking-[-0.03em] leading-none">{v}</div>
+            <div class="text-white/35 text-[11px] uppercase tracking-[0.1em] mt-1.5">{l}</div>
           </div>
         ))}
       </div>
     </div>
   </div>
+
 </section>
+
+<script>
+  // Subtle parallax on hero image
+  const img = document.getElementById('hero-img') as HTMLElement;
+  if (img) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      img.style.transform = `scale(1.03) translateY(${y * 0.15}px)`;
+    }, { passive: true });
+  }
+</script>

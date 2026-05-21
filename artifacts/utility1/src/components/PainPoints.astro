@@ -1,56 +1,70 @@
 ---
 const pains = [
-  { num: '01', text: 'Navigating multiple providers with different systems' },
-  { num: '02', text: 'Missing renewal deadlines and unfavorable auto-renewals' },
-  { num: '03', text: 'Unexpected price increases with no warning' },
-  { num: '04', text: 'Bills with hidden charges and unexplained variations' },
-  { num: '05', text: 'Hours wasted chasing invoices and comparing quotes' },
-  { num: '06', text: 'Juggling gas, electric, water, waste across different contacts' },
+  { n: '01', h: 'Multiple providers, multiple headaches', b: 'Navigating different systems, contacts, and contracts across your entire utility portfolio.' },
+  { n: '02', h: 'Missed renewals, forced auto-renewals', b: 'Renewal deadlines slip past and you end up on unfavourable out-of-contract rates.' },
+  { n: '03', h: 'Prices rise with no warning', b: 'Unexpected increases arrive on your bill long after the industry moved against you.' },
+  { n: '04', h: 'Bills full of unexplained charges', b: 'Line items that no one can explain. Hidden costs buried in complex invoices.' },
+  { n: '05', h: 'Hours lost chasing and comparing', b: 'Your finance or ops team spends hours on supplier calls instead of strategic work.' },
+  { n: '06', h: 'No single view across the business', b: 'Gas, electric, water, and waste all siloed. No consolidated reporting. No control.' },
 ];
 ---
 
-<section class="py-28 bg-brand-navy relative overflow-hidden">
-  <!-- Subtle background texture -->
-  <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+<section class="relative py-36 overflow-hidden bg-brand-navy">
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
-      <!-- Left: Header -->
+  <!-- Deep atmospheric background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 left-0 w-[700px] h-[700px] bg-brand-teal/6 rounded-full blur-[160px]"></div>
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-navy-light/60 rounded-full blur-[100px]"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-[0.025]" style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 80px 80px;"></div>
+  </div>
+
+  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
+
+    <div class="grid lg:grid-cols-[1fr_1.4fr] gap-20 items-start">
+
+      <!-- Left: sticky editorial header -->
       <div class="lg:sticky lg:top-32">
-        <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
-          <div class="w-6 h-px bg-brand-teal"></div>
-          Common Pain Points
-        </div>
-        <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-white tracking-tight mb-6 text-balance">
-          Sound familiar?
+        <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">Common Pain Points</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.6rem,5vw,4.5rem)] text-white tracking-[-0.035em] leading-[1.0] mb-6">
+          Sound<br />familiar?
         </h2>
-        <p class="text-white/60 text-[1.05rem] leading-relaxed mb-10 max-w-[420px]">
+        <p data-reveal data-delay="2" class="text-white/45 text-[15px] leading-relaxed max-w-[340px] mb-10">
           We built Utility 1 because we have seen these frustrations destroy productivity and drain budgets across hundreds of businesses.
         </p>
-        <div class="p-6 rounded-2xl border border-brand-teal/20 bg-brand-teal/5">
-          <p class="text-white font-heading font-semibold text-[1.1rem] mb-4">There is a better way.</p>
-          <div class="flex flex-wrap gap-3">
-            <a href="#how-it-works" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-teal text-white text-[14px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-colors">
-              See How We Help
-            </a>
-            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white text-[14px] font-medium rounded-xl hover:border-white/40 transition-colors">
-              Talk to an Expert →
-            </a>
+
+        <!-- There is a better way CTA card -->
+        <div data-reveal data-delay="3" class="p-7 rounded-2xl border border-brand-teal/20 bg-brand-teal/6">
+          <p class="font-heading font-bold text-white text-[1.15rem] mb-1 tracking-[-0.02em]">There is a better way.</p>
+          <p class="text-white/45 text-[13px] mb-6">One partner. Every utility. Total clarity.</p>
+          <div class="flex flex-col gap-3">
+            <a href="#how-it-works" class="btn-primary text-[13.5px]">See how we help</a>
+            <a href="#contact" class="btn-ghost text-[13.5px]">Talk to an expert →</a>
           </div>
         </div>
       </div>
 
-      <!-- Right: Pain points list -->
+      <!-- Right: pain points list -->
       <div class="space-y-3">
-        {pains.map(({ num, text }) => (
-          <div class="flex items-start gap-5 p-5 rounded-xl border border-white/8 bg-white/3 hover:bg-white/6 hover:border-white/15 transition-all duration-200 group cursor-default">
-            <span class="font-heading font-bold text-[1.5rem] text-brand-teal/40 group-hover:text-brand-teal/70 transition-colors leading-none mt-0.5 flex-shrink-0 w-10">
-              {num}
-            </span>
-            <p class="text-white/70 text-[15px] leading-relaxed group-hover:text-white/90 transition-colors">{text}</p>
+        {pains.map(({ n, h, b }, i) => (
+          <div
+            data-reveal
+            data-delay={String((i % 3) + 1)}
+            class="group flex gap-6 p-6 rounded-xl border border-white/7 hover:border-brand-teal/25 hover:bg-white/4 transition-all duration-300 cursor-default"
+          >
+            <div class="flex-shrink-0 pt-0.5">
+              <span class="font-heading font-bold text-[2rem] text-white/10 group-hover:text-brand-teal/35 transition-colors duration-300 leading-none tabular-nums">
+                {n}
+              </span>
+            </div>
+            <div>
+              <h3 class="font-heading font-bold text-white/85 text-[1rem] tracking-[-0.02em] mb-1.5">{h}</h3>
+              <p class="text-white/40 text-[13.5px] leading-relaxed">{b}</p>
+            </div>
           </div>
         ))}
       </div>
+
     </div>
   </div>
 </section>

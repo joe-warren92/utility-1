@@ -1,67 +1,93 @@
 ---
 ---
 
-<section class="relative py-28 overflow-hidden bg-brand-navy">
-  <!-- Background image with overlay -->
+<section class="relative py-32 overflow-hidden bg-brand-navy">
+
+  <!-- Atmospheric layering -->
   <div class="absolute inset-0">
     <img
-      src="https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?auto=format&fit=crop&w=1400&q=75"
-      alt="Professional warehouse operations manager"
-      class="w-full h-full object-cover opacity-20"
+      src="https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?auto=format&fit=crop&w=1600&q=75"
+      alt=""
+      class="w-full h-full object-cover object-center opacity-15"
       loading="lazy"
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/95 to-brand-navy/80"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#080e15]/98 via-[#080e15]/90 to-[#0d1620]/75"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#080e15]/60 to-transparent"></div>
+    <!-- Teal accent glow -->
+    <div class="absolute top-1/2 left-1/4 w-[600px] h-[400px] bg-brand-teal/8 rounded-full blur-[150px] -translate-y-1/2"></div>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Left: Copy -->
+  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <!-- Left: Large editorial statement -->
       <div>
-        <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-white tracking-tight mb-5 text-balance">
-          Built for businesses that value
-          <span class="block text-brand-teal">clarity over complexity</span>
+        <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">Built for Businesses</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.5rem,5vw,4.5rem)] text-white tracking-[-0.035em] leading-[1.0] mb-6">
+          Clarity over<br /><span class="text-brand-teal">complexity.</span><br />Always.
         </h2>
-        <p class="text-white/60 text-[1.05rem] leading-relaxed mb-10">
-          We do not believe in locking you into contracts you do not understand or charging for services you do not need.
+        <p data-reveal data-delay="2" class="text-white/50 text-[15px] leading-relaxed max-w-[400px] mb-10">
+          We do not believe in contracts you cannot understand, or fees you cannot justify. Every pound saved is visible. Every decision is yours.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-teal text-white text-[15px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-all shadow-lg shadow-brand-teal/25">
-            Get Your Free Review
-          </a>
-          <a href="tel:08001234567" class="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white text-[15px] font-medium rounded-xl hover:border-white/40 hover:bg-white/5 transition-all">
-            Call: 0800 123 4567
-          </a>
+        <div data-reveal data-delay="3" class="flex flex-wrap gap-4">
+          <a href="#contact" class="btn-primary text-[14.5px]">Get your free review</a>
+          <a href="tel:08001234567" class="btn-ghost text-[14px]">0800 123 4567</a>
+        </div>
+
+        <!-- Mini trust indicators -->
+        <div data-reveal data-delay="4" class="flex flex-wrap gap-5 mt-10 pt-10 border-t border-white/8">
+          {[
+            'No hidden fees',
+            'No lock-in contracts',
+            'Dedicated account manager',
+          ].map(item => (
+            <div class="flex items-center gap-2 text-white/45 text-[12.5px]">
+              <svg class="w-3.5 h-3.5 text-brand-teal flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+              {item}
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Right: Value props -->
-      <div class="grid grid-cols-1 gap-4">
+      <!-- Right: Three value propositions -->
+      <div class="space-y-4">
         {[
           {
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
             title: 'Transparency',
-            description: 'Every cost breakdown, clearly explained',
+            body: 'Every cost breakdown is explained in plain English. Nothing buried, nothing hidden.',
+            stat: '100% cost visibility',
           },
           {
             icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>`,
             title: 'Flexibility',
-            description: 'No lock-ins, no hidden fees, no surprises',
+            body: 'No lock-ins. No surprise escalations. Contracts structured around your operational needs.',
+            stat: 'Zero hidden clauses',
           },
           {
-            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>`,
+            icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586"/></svg>`,
             title: 'Support',
-            description: 'Real people, not automated responses',
+            body: 'Real people. Real responses. A named account manager who actually knows your business.',
+            stat: 'Named account manager',
           },
-        ].map(({ icon, title, description }) => (
-          <div class="flex items-center gap-5 p-5 rounded-xl border border-white/10 bg-white/4 hover:bg-white/8 transition-colors">
-            <div class="w-10 h-10 rounded-xl bg-brand-teal/20 flex items-center justify-center text-brand-teal flex-shrink-0" set:html={icon} />
-            <div>
-              <h3 class="font-heading font-semibold text-white text-[15px]">{title}</h3>
-              <p class="text-white/50 text-[13px] mt-0.5">{description}</p>
+        ].map(({ icon, title, body, stat }, i) => (
+          <div
+            data-reveal
+            data-delay={String(i + 1)}
+            class="group flex gap-5 p-6 rounded-xl border border-white/8 bg-white/4 hover:bg-white/8 hover:border-white/16 transition-all duration-300"
+          >
+            <div class="w-10 h-10 rounded-xl bg-brand-teal/15 border border-brand-teal/20 flex items-center justify-center text-brand-teal flex-shrink-0 mt-0.5" set:html={icon} />
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-3 mb-1">
+                <h3 class="font-heading font-semibold text-white text-[15px] tracking-[-0.01em]">{title}</h3>
+                <span class="text-brand-teal text-[11px] font-semibold flex-shrink-0 hidden sm:block">{stat}</span>
+              </div>
+              <p class="text-white/45 text-[13.5px] leading-relaxed">{body}</p>
             </div>
           </div>
         ))}
       </div>
+
     </div>
   </div>
 </section>

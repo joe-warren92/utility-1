@@ -2,95 +2,112 @@
 const services = [
   {
     name: 'Gas',
-    description: 'Reliable supply with flexible contracts tailored to your operations.',
-    badge: 'Core Service',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>`,
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=75',
+    description: 'Reliable supply with flexible contracts engineered around your operational profile.',
+    tag: 'Core Service',
+    stat: '£4,200 avg saving',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
     featured: true,
   },
   {
     name: 'Electric',
-    description: 'Competitive rates and transparent billing for commercial electricity.',
-    badge: 'Core Service',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+    description: 'Competitive rates and absolute transparency for commercial electricity.',
+    tag: 'Core Service',
+    stat: '£5,800 avg saving',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
     featured: true,
   },
   {
     name: 'Water',
-    description: 'Smart management to lower consumption and reduce expenses.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
+    description: 'Smart consumption management to lower spend and reduce waste at source.',
+    stat: '£1,600 avg saving',
   },
   {
     name: 'Waste',
-    description: 'Comprehensive solutions that reduce costs and environmental impact.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>`,
+    description: 'Comprehensive disposal solutions that cut costs and shrink your environmental footprint.',
+    stat: '£2,100 avg saving',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    featured: true,
   },
   {
     name: 'Merchant Services',
-    description: 'Streamlined payment processing with competitive rates.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>`,
+    description: 'Streamlined payment processing with genuinely competitive transaction rates.',
+    stat: '0.4% avg saving',
   },
   {
     name: 'Asset Management',
-    description: 'Optimize your utility assets with expert maintenance and support.',
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-6 h-6"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+    description: 'Expert maintenance and optimisation for all your utility infrastructure.',
+    stat: '18% efficiency gain',
   },
 ];
 ---
 
-<section id="services" class="py-28 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <!-- Header -->
-    <div class="mb-16">
-      <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
-        <div class="w-6 h-px bg-brand-teal"></div>
-        Our Services
+<section id="services" class="py-32 bg-brand-off-white relative overflow-hidden">
+  <!-- Subtle background gradient -->
+  <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-teal/3 rounded-full blur-[160px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+
+  <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+
+    <!-- Header row -->
+    <div class="grid lg:grid-cols-2 gap-12 items-end mb-20">
+      <div>
+        <p data-reveal class="eyebrow">Our Services</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.4rem,4.5vw,4rem)] text-brand-navy tracking-[-0.035em] leading-[1.02]">
+          Everything your<br />business needs
+        </h2>
       </div>
-      <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-brand-navy tracking-tight text-balance">
-        Everything your business needs
-      </h2>
+      <div data-reveal="right" class="lg:text-right">
+        <p class="text-brand-gray text-[15px] leading-relaxed max-w-[400px] lg:ml-auto">
+          One relationship. Every utility. Complete visibility over costs, contracts, and consumption across your entire portfolio.
+        </p>
+        <div class="flex items-center gap-3 mt-5 lg:justify-end">
+          <div class="flex -space-x-1.5">
+            {['S','M','J','L'].map(l => (
+              <div class="w-6 h-6 rounded-full bg-brand-navy border-2 border-brand-off-white flex items-center justify-center text-white text-[9px] font-bold">{l}</div>
+            ))}
+          </div>
+          <span class="text-[12.5px] text-brand-gray">500+ active clients across the UK</span>
+        </div>
+      </div>
     </div>
 
     <!-- Services grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map(({ name, description, badge, image, icon }) => (
-        <div class="group relative bg-brand-gray-pale rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-teal/30 hover:shadow-xl hover:shadow-brand-teal/5 transition-all duration-300">
-          {image && (
-            <div class="relative h-44 overflow-hidden">
-              <img
-                src={image}
-                alt={name}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/50 to-transparent"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {services.map(({ name, description, tag, stat, image, featured }, i) => (
+        <div
+          data-reveal
+          data-delay={String((i % 3) + 1)}
+          class={`card-lift group relative rounded-2xl overflow-hidden border border-black/7 cursor-pointer
+            ${featured ? 'bg-white shadow-[0_2px_16px_rgba(15,25,35,0.06)]' : 'bg-white/60'}`}
+        >
+          {image && featured && (
+            <div class="relative h-48 overflow-hidden">
+              <img src={image} alt={name} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-brand-navy/20 to-transparent"></div>
+              {tag && (
+                <span class="absolute top-4 left-4 px-2.5 py-1 bg-brand-teal text-white text-[10px] font-semibold tracking-wider uppercase rounded-md">
+                  {tag}
+                </span>
+              )}
             </div>
           )}
 
           <div class="p-7">
-            {badge && (
-              <span class="inline-block text-[11px] font-semibold tracking-widest uppercase text-brand-teal mb-3">
-                {badge}
-              </span>
+            {(!image || !featured) && tag && (
+              <span class="inline-block text-brand-teal text-[10px] font-semibold tracking-[0.14em] uppercase mb-2">{tag}</span>
             )}
-
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-xl bg-brand-teal/10 flex items-center justify-center text-brand-teal flex-shrink-0" set:html={icon} />
-              <h3 class="font-heading font-bold text-[1.25rem] text-brand-navy">{name}</h3>
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <h3 class="font-heading font-bold text-[1.2rem] text-brand-navy tracking-[-0.02em]">{name}</h3>
+              <span class="text-brand-teal text-[11.5px] font-semibold flex-shrink-0 mt-0.5">{stat}</span>
             </div>
-
-            <p class="text-brand-gray text-[14px] leading-relaxed mb-5">{description}</p>
-
-            <a href="#contact" class="inline-flex items-center gap-1.5 text-brand-teal text-[13px] font-semibold hover:gap-2.5 transition-all duration-150">
+            <p class="text-brand-gray text-[13.5px] leading-relaxed mb-5">{description}</p>
+            <div class="flex items-center gap-1.5 text-brand-navy text-[12.5px] font-semibold group-hover:text-brand-teal transition-colors duration-200">
               Learn more
-              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
+              <svg class="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
           </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>

@@ -1,84 +1,86 @@
 ---
 const steps = [
   {
-    num: '01',
+    n: '01',
     title: 'Free Review',
-    description: 'We analyze your current utilities setup, contracts, and spending to identify opportunities.',
+    body: 'We analyse your current contracts, spending, and consumption across every utility. No obligation. Just clarity.',
+    time: '24–48 hours',
   },
   {
-    num: '02',
+    n: '02',
     title: 'Tailored Proposal',
-    description: 'Get a clear, jargon-free breakdown of how we can reduce your costs and simplify operations.',
+    body: 'A clear, jargon-free breakdown of exactly how we reduce your costs and simplify your operations.',
+    time: '2–3 days',
   },
   {
-    num: '03',
+    n: '03',
     title: 'Seamless Switch',
-    description: 'We handle the entire transition — paperwork, provider coordination, and setup while you focus on your business.',
+    body: 'We handle every detail — paperwork, provider coordination, setup. You carry on running your business.',
+    time: '2–4 weeks',
   },
   {
-    num: '04',
+    n: '04',
     title: 'Ongoing Support',
-    description: 'Continuous monitoring, proactive renewals, and expert advice whenever you need it.',
+    body: 'Continuous monitoring, proactive renewal management, and expert advice. We never disappear after contract sign.',
+    time: 'Always on',
   },
 ];
 ---
 
-<section id="how-it-works" class="py-28 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+<section id="how-it-works" class="py-36 bg-brand-off-white relative overflow-hidden">
+  <!-- Teal glow bottom left -->
+  <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-brand-teal/4 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
+
     <!-- Header -->
-    <div class="text-center mb-20">
-      <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
-        <div class="w-6 h-px bg-brand-teal"></div>
-        How It Works
-        <div class="w-6 h-px bg-brand-teal"></div>
-      </div>
-      <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-brand-navy tracking-tight mb-4">
-        Four simple steps
+    <div class="max-w-[680px] mb-20">
+      <p data-reveal class="eyebrow">How It Works</p>
+      <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.4rem,4.5vw,4rem)] text-brand-navy tracking-[-0.035em] leading-[1.02] mb-4">
+        Four simple steps<br />to total clarity
       </h2>
-      <p class="text-brand-gray text-[1.05rem] max-w-lg mx-auto">
-        A streamlined process designed to minimize disruption and maximize results
+      <p data-reveal data-delay="2" class="text-brand-gray text-[15px] leading-relaxed">
+        Designed to be painless. Most clients are fully onboarded with costs already reduced within four weeks.
       </p>
     </div>
 
-    <!-- Steps grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-      {steps.map(({ num, title, description }, i) => (
-        <div class="relative group">
-          <!-- Connector line between steps (not on last) -->
-          {i < steps.length - 1 && (
-            <div class="hidden lg:block absolute top-8 left-[calc(100%+16px)] right-0 h-px w-8 bg-brand-teal/20 z-10 translate-x-[-32px]" style="width: calc(100% - 100% + 2rem)">
-            </div>
-          )}
+    <!-- Steps — large editorial numbered layout -->
+    <div class="space-y-0 divide-y divide-black/6">
+      {steps.map(({ n, title, body, time }, i) => (
+        <div
+          data-reveal="fade"
+          data-delay={String((i % 2) + 1)}
+          class="group grid grid-cols-[80px_1fr_auto] lg:grid-cols-[120px_1fr_280px] items-center gap-6 lg:gap-12 py-9 hover:bg-white transition-colors duration-300 -mx-8 px-8 xl:-mx-12 xl:px-12 rounded-xl cursor-default"
+        >
+          <!-- Number -->
+          <div class="font-heading font-bold text-[2.8rem] lg:text-[4rem] text-black/8 group-hover:text-brand-teal/25 transition-colors duration-300 leading-none tabular-nums tracking-[-0.04em]">
+            {n}
+          </div>
 
-          <div class="p-8 rounded-2xl border border-gray-100 bg-brand-gray-pale hover:border-brand-teal/30 hover:bg-white hover:shadow-xl hover:shadow-brand-teal/5 transition-all duration-300 h-full">
-            <!-- Number -->
-            <div class="flex items-center justify-between mb-6">
-              <span class="font-heading font-bold text-[2.5rem] text-brand-teal/20 group-hover:text-brand-teal/40 transition-colors leading-none">{num}</span>
-              <div class="w-9 h-9 rounded-full bg-brand-teal/10 group-hover:bg-brand-teal/20 flex items-center justify-center transition-colors">
-                <svg class="w-4 h-4 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20,6 9,17 4,12"/>
-                </svg>
-              </div>
-            </div>
+          <!-- Content -->
+          <div>
+            <h3 class="font-heading font-bold text-[1.3rem] lg:text-[1.5rem] text-brand-navy tracking-[-0.025em] mb-2 group-hover:text-brand-teal transition-colors duration-300">{title}</h3>
+            <p class="text-brand-gray text-[14px] leading-relaxed max-w-[520px]">{body}</p>
+          </div>
 
-            <h3 class="font-heading font-bold text-[1.2rem] text-brand-navy mb-3">{title}</h3>
-            <p class="text-brand-gray text-[14px] leading-relaxed">{description}</p>
+          <!-- Time badge -->
+          <div class="hidden lg:flex flex-col items-end">
+            <span class="text-[11px] uppercase tracking-[0.12em] text-brand-gray-light mb-1">Timeline</span>
+            <span class="font-heading font-semibold text-brand-navy text-[15px] tracking-[-0.01em]">{time}</span>
+            <div class="w-8 h-px bg-brand-teal/40 mt-2 transition-all duration-300 group-hover:w-16 group-hover:bg-brand-teal"></div>
           </div>
         </div>
       ))}
     </div>
 
     <!-- CTA -->
-    <div class="text-center mt-14">
-      <a
-        href="#contact"
-        class="inline-flex items-center gap-2 px-8 py-4 bg-brand-teal text-white text-[15px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-colors shadow-lg shadow-brand-teal/25"
-      >
-        Start Your Free Review
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
+    <div data-reveal class="mt-16 flex flex-wrap items-center gap-5">
+      <a href="#contact" class="btn-primary">
+        Start your free review
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
+      <span class="text-brand-gray-light text-[13px]">No commitment required</span>
     </div>
+
   </div>
 </section>

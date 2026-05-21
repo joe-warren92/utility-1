@@ -1,42 +1,216 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-navy: #1B2838;
-  --color-brand-navy-dark: #111d29;
+  --color-brand-navy: #0f1923;
+  --color-brand-navy-mid: #1a2838;
   --color-brand-navy-light: #243447;
   --color-brand-teal: #3BA9A5;
-  --color-brand-teal-dark: #2d8a87;
-  --color-brand-teal-light: #4fc4c0;
-  --color-brand-gray: #5F6974;
+  --color-brand-teal-dark: #2a8a86;
+  --color-brand-teal-light: #5cc4c0;
+  --color-brand-gray: #5a6572;
   --color-brand-gray-light: #8a939e;
-  --color-brand-gray-pale: #f4f6f8;
+  --color-brand-ghost: #f0f2f5;
+  --color-brand-off-white: #fafbfc;
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-heading: 'DM Sans', system-ui, sans-serif;
 }
 
+/* ─── Base ─────────────────────────────────────────── */
 @layer base {
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
 
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
-    font-family: var(--font-sans);
-    color: #1B2838;
-    background: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #0f1923;
+    background: #fafbfc;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
+}
+
+/* ─── Grain overlay ────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ─── Scroll animations ────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal="left"] {
+  transform: translateX(-32px);
+}
+[data-reveal="right"] {
+  transform: translateX(32px);
+}
+[data-reveal="scale"] {
+  transform: scale(0.96);
+}
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-delay="1"] { transition-delay: 0.08s; }
+[data-delay="2"] { transition-delay: 0.16s; }
+[data-delay="3"] { transition-delay: 0.24s; }
+[data-delay="4"] { transition-delay: 0.32s; }
+[data-delay="5"] { transition-delay: 0.40s; }
+[data-delay="6"] { transition-delay: 0.48s; }
+
+/* ─── Premium button ───────────────────────────────── */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: #3BA9A5;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px rgba(59,169,165,0.15), 0 4px 16px rgba(59,169,165,0.25);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.btn-primary:hover {
+  background: #2a8a86;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(59,169,165,0.15), 0 8px 32px rgba(59,169,165,0.35);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  color: rgba(255,255,255,0.75);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+  backdrop-filter: blur(4px);
+}
+.btn-ghost:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: 8px;
+  border: none;
+  background: #0f1923;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(15,25,35,0.2), 0 4px 24px rgba(15,25,35,0.15);
+}
+.btn-dark:hover {
+  background: #1a2838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15,25,35,0.25), 0 8px 32px rgba(15,25,35,0.2);
+}
+
+/* ─── Eyebrow label ────────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3BA9A5;
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: #3BA9A5;
+}
+
+/* ─── Section dividers ─────────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(15,25,35,0.08) 20%, rgba(15,25,35,0.08) 80%, transparent);
+}
+
+/* ─── Hover card lift ──────────────────────────────── */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 48px rgba(15,25,35,0.12), 0 4px 16px rgba(15,25,35,0.06);
+}
+
+/* ─── Counter animation ────────────────────────────── */
+.count-up {
+  display: inline-block;
 }

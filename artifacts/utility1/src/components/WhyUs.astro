@@ -1,70 +1,78 @@
 ---
 const points = [
-  'No hidden fees or surprise charges',
-  'Transparent pricing and contract terms',
-  'Dedicated account manager',
-  'Proactive renewal management',
+  { t: 'No hidden fees', d: 'Every cost is explained. Nothing buried in the small print.' },
+  { t: 'Transparent contracts', d: 'Clear terms, fair pricing, and no lock-in surprises.' },
+  { t: 'Dedicated account manager', d: 'A real person who knows your business. Always.' },
+  { t: 'Proactive renewal management', d: 'We monitor your contracts and act before deadlines arrive.' },
 ];
 ---
 
-<section class="py-28 bg-brand-gray-pale">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Left: Image -->
-      <div class="relative order-2 lg:order-1">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-          <img
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
-            alt="Commercial warehouse operations"
-            class="w-full h-[480px] object-cover"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-tr from-brand-navy/40 to-transparent"></div>
-        </div>
-        <!-- Since 2012 badge -->
-        <div class="absolute -bottom-5 -right-5 lg:right-0 bg-brand-teal rounded-2xl p-6 shadow-xl">
-          <div class="text-white text-[10px] font-semibold tracking-widest uppercase mb-1 opacity-80">Since 2012</div>
-          <div class="font-heading font-bold text-white text-[2.5rem] leading-none">12+</div>
-          <div class="text-white/80 text-[13px] mt-1">Years Serving UK Businesses</div>
-        </div>
-      </div>
+<section class="py-36 bg-white relative overflow-hidden">
+  <!-- Offset background shape -->
+  <div class="absolute inset-y-0 right-0 w-1/2 bg-brand-ghost pointer-events-none hidden lg:block"></div>
 
-      <!-- Right: Content -->
-      <div class="order-1 lg:order-2">
-        <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
-          <div class="w-6 h-px bg-brand-teal"></div>
-          Why Choose Us
-        </div>
-        <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.25rem] text-brand-navy tracking-tight mb-5 text-balance">
-          Your partner, not just your supplier
+  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
+    <div class="grid lg:grid-cols-2 gap-0 items-stretch">
+
+      <!-- Left: content -->
+      <div class="pr-0 lg:pr-20 py-0 lg:py-12">
+        <p data-reveal class="eyebrow">Why Choose Us</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.4rem,4.5vw,4rem)] text-brand-navy tracking-[-0.035em] leading-[1.02] mb-6">
+          Your partner,<br />not just your<br />supplier
         </h2>
-        <p class="text-brand-gray text-[1.05rem] leading-relaxed mb-10">
+        <p data-reveal data-delay="2" class="text-brand-gray text-[15px] leading-relaxed max-w-[420px] mb-10">
           We are not here to sell you things you do not need. We are here to make utilities simple, cost-effective, and one less thing to worry about.
         </p>
 
-        <!-- Checkpoints -->
-        <ul class="space-y-3.5 mb-10">
-          {points.map((point) => (
-            <li class="flex items-center gap-3.5">
-              <div class="w-6 h-6 rounded-full bg-brand-teal/15 flex items-center justify-center flex-shrink-0">
-                <svg class="w-3.5 h-3.5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <polyline points="20,6 9,17 4,12"/>
-                </svg>
+        <div class="space-y-4 mb-12">
+          {points.map(({ t, d }, i) => (
+            <div data-reveal data-delay={String(i + 1)} class="flex gap-4">
+              <div class="w-5 h-5 rounded-full bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-2.5 h-2.5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
               </div>
-              <span class="text-brand-navy text-[15px] font-medium">{point}</span>
-            </li>
+              <div>
+                <p class="font-heading font-semibold text-brand-navy text-[14.5px] tracking-[-0.02em]">{t}</p>
+                <p class="text-brand-gray text-[13.5px] mt-0.5">{d}</p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
 
-        <div class="flex flex-wrap gap-3">
-          <a href="#about" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-navy text-white text-[14px] font-semibold rounded-[7px] hover:bg-brand-navy-dark transition-colors shadow-lg shadow-brand-navy/20">
-            Learn More About Us
-          </a>
-          <a href="#case-studies" class="inline-flex items-center gap-2 px-6 py-3 text-brand-navy text-[14px] font-medium hover:text-brand-teal transition-colors">
-            View Case Studies →
+        <div data-reveal class="flex flex-wrap gap-3">
+          <a href="#about" class="btn-dark">Learn more about us</a>
+          <a href="#case-studies" class="inline-flex items-center gap-2 text-brand-navy text-[13.5px] font-semibold hover:text-brand-teal transition-colors py-3 px-1 tracking-[-0.01em]">
+            View case studies →
           </a>
         </div>
       </div>
+
+      <!-- Right: image with overlapping stat cards -->
+      <div data-reveal="right" class="relative mt-12 lg:mt-0 lg:pl-12">
+        <div class="relative rounded-2xl overflow-hidden h-[500px] lg:h-auto lg:min-h-[520px]">
+          <img
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80"
+            alt="Commercial warehouse operations"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/50 via-transparent to-brand-navy/20"></div>
+        </div>
+
+        <!-- Floating stats overlay -->
+        <div class="absolute -bottom-6 -left-6 lg:-left-10 bg-white rounded-2xl p-6 shadow-[0_8px_40px_rgba(15,25,35,0.12)]">
+          <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-gray-light mb-1">Since 2012</div>
+          <div class="font-heading font-bold text-brand-navy text-[2.8rem] leading-none tracking-[-0.04em]">12+</div>
+          <div class="text-brand-gray text-[13px] mt-1">Years serving UK businesses</div>
+        </div>
+
+        <!-- Second floating card -->
+        <div class="absolute top-8 -right-4 lg:-right-6 bg-brand-teal rounded-xl p-4 shadow-[0_8px_32px_rgba(59,169,165,0.35)]">
+          <div class="text-white/75 text-[10px] uppercase tracking-wider mb-1">Average saving</div>
+          <div class="font-heading font-bold text-white text-[1.5rem] tracking-[-0.03em] leading-none">£12,400</div>
+          <div class="text-white/60 text-[11px] mt-0.5">per year, per client</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

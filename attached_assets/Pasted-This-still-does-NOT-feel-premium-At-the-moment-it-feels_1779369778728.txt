@@ -1,0 +1,266 @@
+This still does NOT feel premium.
+
+At the moment it feels like:
+- a polished AI-generated template
+- a generic startup landing page
+- a nice Tailwind layout with stock images applied
+
+It does NOT feel like:
+- a genuinely premium commercial brand
+- a high-end consultancy
+- a strategically designed B2B website
+- an art directed experience
+
+I want a major refinement pass focused entirely on PREMIUM EXECUTION.
+
+Everything should feel more:
+- expensive
+- intentional
+- sophisticated
+- cinematic
+- polished
+- commercially credible
+
+The current problems are:
+- typography feels generic
+- spacing lacks sophistication
+- sections feel disconnected
+- backgrounds are flat
+- there is not enough depth/layering
+- UI feels too lightweight
+- imagery feels dropped in
+- there is not enough trust throughout the page
+- animations/interactions feel basic or non-existent
+- the page still looks generated rather than designed
+
+========================
+TYPOGRAPHY
+========================
+
+Typography should become one of the strongest premium elements on the page.
+
+Improve:
+- heading scale
+- hierarchy
+- line heights
+- tracking
+- paragraph widths
+- text rhythm
+- section titles
+- CTA typography
+
+The typography should feel:
+- editorial
+- luxurious
+- intentional
+- premium
+- high-end
+
+Avoid:
+- generic SaaS typography
+- oversized paragraphs
+- weak hierarchy
+- inconsistent spacing
+- evenly weighted headings
+
+Introduce:
+- dramatic typography moments
+- oversized statements
+- stronger contrast between heading sizes
+- more elegant supporting copy
+
+Typography should carry the design, not just support it.
+
+========================
+SPACING & LAYOUT
+========================
+
+The spacing currently feels mechanically generated.
+
+I want:
+- much more sophisticated spacing rhythm
+- larger premium whitespace moments
+- tighter high-impact sections
+- more intentional breathing room
+- stronger visual pacing
+
+Sections should NOT all feel evenly spaced.
+
+The page should feel:
+- composed
+- art directed
+- paced intentionally
+- premium and cinematic
+
+Introduce:
+- asymmetrical spacing
+- offset layouts
+- layered composition
+- overlapping sections
+- more sophisticated image/text relationships
+
+========================
+PREMIUM ANIMATIONS
+========================
+
+The site currently lacks premium motion design.
+
+Add subtle, high-end animations throughout:
+- elegant fade transitions
+- layered parallax
+- refined hover interactions
+- image reveal effects
+- smooth section entrances
+- subtle motion depth
+- premium button interactions
+- staggered content reveals
+- hover lighting effects
+- subtle scaling/transparency transitions
+
+Animations should feel:
+- expensive
+- smooth
+- restrained
+- cinematic
+- modern
+
+NOT:
+- flashy
+- startup gimmicks
+- excessive motion
+- obvious template animations
+
+Think:
+high-end creative studio website quality.
+
+========================
+TRUST SIGNALS THROUGHOUT
+========================
+
+There is nowhere near enough trust throughout the page.
+
+I want trust and credibility woven into EVERY major section.
+
+Add:
+- review snippets
+- testimonial pull quotes
+- client logos
+- commercial stats
+- subtle credibility indicators
+- operational reassurance
+- partnership references
+- proof points
+- awards/accreditation styling
+- commercial experience indicators
+
+Trust should feel:
+- integrated naturally
+- premium
+- understated
+- believable
+- confidence-building
+
+NOT:
+- fake startup metrics
+- overhyped claims
+- cluttered badge walls
+
+Every section should reinforce:
+“this is a trusted commercial company”.
+
+========================
+BACKGROUND DESIGN
+========================
+
+Backgrounds are still far too plain.
+
+Introduce:
+- layered gradients
+- subtle mesh lighting
+- atmospheric overlays
+- tonal transitions
+- soft texture/grain
+- richer dark sections
+- depth through colour layering
+
+The page should NEVER feel flat white.
+
+Use the brand colours properly:
+- navy
+- dark navy
+- teal accents
+- subtle tonal variation
+
+The site should feel visually rich.
+
+========================
+IMAGERY
+========================
+
+Imagery still feels dropped into layouts.
+
+Integrate imagery properly:
+- layered image composition
+- cinematic cropping
+- environmental overlays
+- depth and lighting
+- image masking
+- asymmetrical placement
+- overlapping elements
+
+The imagery should feel:
+- intentional
+- cinematic
+- commercially grounded
+- premium
+
+Use the supplied imagery FAR more heavily and strategically.
+
+========================
+BUTTONS & UI
+========================
+
+Buttons still feel generic.
+
+Completely elevate button styling:
+- richer hover states
+- subtle depth
+- premium proportions
+- elegant transitions
+- refined typography
+- layered lighting effects
+- softer shadows
+
+UI elements should feel:
+- custom designed
+- premium
+- tactile
+- sophisticated
+
+NOT:
+- default Tailwind buttons
+- generic SaaS UI
+
+========================
+SECTION-BY-SECTION FEEL
+========================
+
+Every section should feel individually art directed.
+
+At the moment too many sections feel:
+- structurally similar
+- equally weighted
+- generated from the same system
+
+Create:
+- stronger contrast
+- richer pacing
+- more visual tension
+- more premium composition
+- distinct section personalities
+
+The homepage should feel like:
+a real high-end B2B brand website designed by a premium creative studio.
+
+NOT:
+an AI-generated template with styling improvements applied.

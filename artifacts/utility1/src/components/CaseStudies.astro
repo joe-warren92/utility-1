@@ -1,91 +1,100 @@
 ---
 const cases = [
   {
-    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=700&q=75',
-    category: 'Logistics',
-    badge: '28% reduction',
-    title: 'Reducing operational costs by 28% for a national distribution center',
+    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80',
+    sector: 'Logistics',
+    metric: '28% reduction',
+    title: 'Reducing operational costs by 28% for a national distribution centre',
     savings: '£45,000',
+    detail: 'Annual saving',
+    span: 'lg:col-span-2',
+    tall: true,
   },
   {
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=75',
-    category: 'Facilities Management',
-    badge: '15 sites',
-    title: 'Streamlining utility management for a multi-site facilities operator',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80',
+    sector: 'Facilities Management',
+    metric: '15 sites',
+    title: 'Streamlining utility management for a multi-site operator',
     savings: '£32,000',
+    detail: 'Annual saving',
+    tall: false,
   },
   {
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=75',
-    category: 'Waste Management',
-    badge: '35% reduction',
-    title: 'Cutting waste costs by 35% for an industrial manufacturer',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80',
+    sector: 'Waste Management',
+    metric: '35% reduction',
+    title: 'Cutting waste costs for an industrial manufacturer',
     savings: '£18,500',
+    detail: 'Annual saving',
+    tall: false,
   },
 ];
 ---
 
-<section id="case-studies" class="py-28 bg-brand-gray-pale">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+<section id="case-studies" class="py-36 bg-white relative overflow-hidden">
+
+  <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+
     <!-- Header -->
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
       <div>
-        <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
-          <div class="w-6 h-px bg-brand-teal"></div>
-          Case Studies
-        </div>
-        <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-brand-navy tracking-tight text-balance">
-          Real results for real businesses
+        <p data-reveal class="eyebrow">Case Studies</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.4rem,4.5vw,4rem)] text-brand-navy tracking-[-0.035em] leading-[1.02]">
+          Real results for<br />real businesses
         </h2>
-        <p class="text-brand-gray text-[1.05rem] mt-3 max-w-[520px]">
-          See how we've helped businesses across the UK transform their utility management and unlock significant savings
-        </p>
       </div>
-      <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-brand-navy/20 text-brand-navy text-[14px] font-semibold rounded-[7px] hover:bg-brand-navy hover:text-white transition-all duration-200 self-start lg:self-auto flex-shrink-0">
-        View All Case Studies
-      </a>
+      <div data-reveal="right">
+        <p class="text-brand-gray text-[14.5px] leading-relaxed max-w-[340px] mb-5">
+          Proven outcomes across logistics, facilities, manufacturing, and retail throughout the UK.
+        </p>
+        <a href="#contact" class="btn-dark text-[13.5px]">View all case studies</a>
+      </div>
     </div>
 
-    <!-- Cases grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {cases.map(({ image, category, badge, title, savings }) => (
-        <div class="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-brand-teal/20 hover:shadow-2xl hover:shadow-brand-navy/10 transition-all duration-400 cursor-pointer">
-          <!-- Image -->
-          <div class="relative h-52 overflow-hidden">
-            <img
-              src={image}
-              alt={title}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
-            <!-- Badges overlay -->
-            <div class="absolute top-4 left-4 flex gap-2 flex-wrap">
-              <span class="px-2.5 py-1 bg-white/95 backdrop-blur-sm text-brand-navy text-[11px] font-semibold rounded-full">
-                {category}
-              </span>
-              <span class="px-2.5 py-1 bg-brand-teal text-white text-[11px] font-semibold rounded-full">
-                {badge}
-              </span>
-            </div>
+    <!-- Asymmetric masonry-style grid -->
+    <div class="grid lg:grid-cols-3 gap-5">
+
+      {cases.map(({ image, sector, metric, title, savings, detail, span, tall }, i) => (
+        <div
+          data-reveal
+          data-delay={String(i + 1)}
+          class={`card-lift group relative rounded-2xl overflow-hidden cursor-pointer ${span || ''}`}
+          style={`aspect-ratio: ${tall ? '16/9' : '4/3'};`}
+        >
+          <!-- Full-bleed image -->
+          <img
+            src={image}
+            alt={title}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+
+          <!-- Rich gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/40 to-transparent"></div>
+
+          <!-- Top badges -->
+          <div class="absolute top-5 left-5 flex gap-2">
+            <span class="px-2.5 py-1 bg-white/15 backdrop-blur-md text-white text-[11px] font-semibold rounded-full border border-white/20">{sector}</span>
+            <span class="px-2.5 py-1 bg-brand-teal text-white text-[11px] font-semibold rounded-full">{metric}</span>
           </div>
 
-          <!-- Content -->
-          <div class="p-7">
-            <h3 class="font-heading font-bold text-[1.1rem] text-brand-navy leading-snug mb-5">{title}</h3>
-            <div class="flex items-center justify-between pt-5 border-t border-gray-100">
+          <!-- Bottom content -->
+          <div class="absolute bottom-0 left-0 right-0 p-7">
+            <h3 class="font-heading font-bold text-white text-[1.1rem] lg:text-[1.2rem] leading-snug tracking-[-0.02em] mb-5">{title}</h3>
+            <div class="flex items-end justify-between">
               <div>
-                <div class="text-[11px] text-brand-gray uppercase tracking-wider font-medium mb-1">Annual Savings</div>
-                <div class="font-heading font-bold text-[1.75rem] text-brand-teal tracking-tight">{savings}</div>
+                <div class="text-white/45 text-[11px] uppercase tracking-[0.1em] mb-1">{detail}</div>
+                <div class="font-heading font-bold text-brand-teal text-[2.2rem] leading-none tracking-[-0.04em]">{savings}</div>
               </div>
-              <div class="w-10 h-10 rounded-full bg-brand-gray-pale group-hover:bg-brand-teal/10 flex items-center justify-center transition-colors">
-                <svg class="w-4 h-4 text-brand-navy group-hover:text-brand-teal transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
+              <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all duration-300">
+                <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
             </div>
           </div>
         </div>
       ))}
+
     </div>
+
   </div>
 </section>
