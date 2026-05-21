@@ -1,84 +1,92 @@
 ---
 ---
 
-<section class="relative min-h-[100svh] flex flex-col overflow-hidden bg-brand-navy">
+<section class="relative flex flex-col overflow-hidden bg-[#06101a]" style="min-height: 100svh;">
 
-  <!-- Background image with cinematic treatment -->
+  <!-- Background image with Ken Burns slow zoom -->
   <div class="absolute inset-0 overflow-hidden">
     <img
       src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=85"
       alt=""
-      class="absolute inset-0 w-full h-full object-cover object-center scale-[1.03]"
-      id="hero-img"
+      class="absolute inset-0 w-full h-full object-cover object-center hero-kenburns"
       loading="eager"
+      fetchpriority="high"
     />
-    <!-- Cinematic multi-layer overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#080e15]/97 via-[#0d1620]/85 to-[#0d1620]/45"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#080e15] via-transparent to-[#080e15]/30"></div>
+    <!-- Deep cinematic overlays -->
+    <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(6,16,26,0.96) 0%, rgba(6,16,26,0.88) 45%, rgba(6,16,26,0.45) 100%);"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(6,16,26,0.85) 0%, transparent 50%);"></div>
     <!-- Teal atmospheric glow -->
-    <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-brand-teal/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-brand-teal/4 rounded-full blur-[100px]"></div>
+    <div class="absolute" style="top: -10%; left: -5%; width: 50vw; height: 70vh; background: radial-gradient(ellipse, rgba(59,169,165,0.06) 0%, transparent 70%); pointer-events: none;"></div>
   </div>
 
-  <!-- Content -->
-  <div class="relative flex flex-col justify-center flex-1 pt-36 pb-24">
+  <!-- ── Main content ── -->
+  <div class="relative flex flex-col justify-center flex-1" style="padding-top: 100px; padding-bottom: 60px;">
     <div class="max-w-[1360px] mx-auto px-8 xl:px-12 w-full">
 
-      <!-- Rating badge -->
-      <div data-reveal data-delay="1" class="inline-flex items-center gap-2.5 mb-12">
-        <div class="flex">
-          {Array(5).fill(null).map(() => (
-            <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          ))}
+      <!-- Trust badge row -->
+      <div data-reveal class="flex flex-wrap items-center gap-4 mb-10">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 backdrop-blur-sm">
+          <div class="flex gap-0.5">
+            {Array(5).fill(null).map(() => (
+              <svg class="w-3 h-3 fill-brand-teal" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
+          </div>
+          <span class="text-white/60 text-[12px]">4.9/5 · 500+ UK businesses</span>
         </div>
-        <span class="text-white/55 text-[12.5px] tracking-wide">4.9/5 from 500+ UK businesses</span>
-        <span class="hidden sm:block w-px h-3.5 bg-white/15"></span>
-        <span class="hidden sm:block text-brand-teal text-[12.5px] font-medium">Trusted since 2012</span>
+        <div class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-brand-teal/20 bg-brand-teal/6">
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-teal"></div>
+          <span class="text-brand-teal text-[12px] font-medium">Trusted commercial partner since 2012</span>
+        </div>
       </div>
 
-      <!-- Primary headline — large editorial moment -->
-      <div class="mb-8 max-w-[820px]">
-        <h1 data-reveal data-delay="2" class="font-heading font-bold text-white leading-[1.0] tracking-[-0.035em]">
-          <span class="block text-[clamp(3rem,7.5vw,7rem)]">Utilities made</span>
-          <span class="block text-[clamp(3.2rem,8.5vw,8rem)] text-brand-teal mt-[-0.06em]">simple.</span>
+      <!-- Benefit-first headline -->
+      <div class="mb-10 max-w-[900px]" data-reveal data-delay="1">
+        <h1 class="font-heading font-bold text-white leading-[0.98] tracking-[-0.038em]">
+          <span class="block" style="font-size: clamp(3rem, 7vw, 6.5rem);">Stop overpaying for</span>
+          <span class="block text-brand-teal" style="font-size: clamp(3.2rem, 8vw, 7.5rem); margin-top: -0.04em;">gas, electric,</span>
+          <span class="block" style="font-size: clamp(3.2rem, 8vw, 7.5rem); margin-top: -0.04em;">water &amp; waste.</span>
         </h1>
       </div>
 
-      <!-- Sub -->
-      <p data-reveal data-delay="3" class="text-white/55 text-[1.1rem] leading-relaxed max-w-[440px] mb-12 tracking-[-0.01em]">
-        We handle the complexity of your commercial utilities so you can focus on what matters — running your business.
+      <!-- Subheadline -->
+      <p data-reveal data-delay="2" class="text-white/55 leading-relaxed max-w-[500px] mb-14" style="font-size: 1.15rem;">
+        One trusted partner manages all your commercial utilities — reducing costs, eliminating hidden charges, and giving you complete visibility over every penny.
       </p>
 
-      <!-- Bullets -->
-      <ul data-reveal data-delay="4" class="space-y-2.5 mb-14">
+      <!-- Proof stats — inline with CTAs for impact -->
+      <div data-reveal data-delay="3" class="flex flex-wrap items-center gap-8 mb-14">
         {[
-          'Reduce costs across gas, electric, water and waste',
-          'Transparent billing — no hidden charges, ever',
-          'A dedicated account manager from day one',
-        ].map((item) => (
-          <li class="flex items-center gap-3 text-white/55 text-[13.5px]">
-            <div class="w-1 h-1 rounded-full bg-brand-teal flex-shrink-0"></div>
-            {item}
-          </li>
+          { v: 'Up to 28%', l: 'cost reduction' },
+          { v: '£12,400', l: 'avg. annual saving' },
+          { v: '12+', l: 'years experience' },
+        ].map(({ v, l }) => (
+          <div>
+            <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.6rem;">{v}</div>
+            <div class="text-white/35 text-[11px] uppercase tracking-[0.1em] mt-1">{l}</div>
+          </div>
         ))}
-      </ul>
+      </div>
 
       <!-- CTAs -->
-      <div data-reveal data-delay="5" class="flex flex-wrap items-center gap-4">
-        <a href="#contact" class="btn-primary text-[14px]">
-          Get Free Review
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <div data-reveal data-delay="4" class="flex flex-wrap items-center gap-4">
+        <a href="#contact" class="btn-primary" style="font-size: 15px; padding: 15px 32px;">
+          Get my free review
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#services" class="btn-ghost text-[14px]">
+        <a href="#services" class="btn-ghost" style="font-size: 14px; padding: 14px 26px;">
           Explore services
+        </a>
+        <a href="tel:08001234567" class="hidden lg:flex items-center gap-2 text-white/45 hover:text-white/70 transition-colors" style="font-size: 13.5px;">
+          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          0800 123 4567
         </a>
       </div>
 
     </div>
   </div>
 
-  <!-- Stats row pinned to bottom of hero -->
-  <div class="relative border-t border-white/8">
+  <!-- Stats bar pinned to bottom -->
+  <div class="relative border-t border-white/8 bg-white/3 backdrop-blur-sm">
     <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
       <div class="grid grid-cols-3 lg:grid-cols-6 divide-x divide-white/8">
         {[
@@ -89,9 +97,9 @@
           { v: '12+', l: 'years experience' },
           { v: '£8.2M', l: 'savings delivered' },
         ].map(({ v, l }, i) => (
-          <div data-reveal="fade" data-delay={String(i + 1)} class="py-7 px-4 xl:px-6 text-center">
-            <div class="font-heading font-bold text-white text-[1.6rem] tracking-[-0.03em] leading-none">{v}</div>
-            <div class="text-white/35 text-[11px] uppercase tracking-[0.1em] mt-1.5">{l}</div>
+          <div data-reveal="fade" data-delay={String((i % 6) + 1)} class="py-6 px-4 xl:px-7 text-center">
+            <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.5rem;">{v}</div>
+            <div class="text-white/35 text-[10.5px] uppercase tracking-[0.1em] mt-1.5">{l}</div>
           </div>
         ))}
       </div>
@@ -100,13 +108,13 @@
 
 </section>
 
-<script>
-  // Subtle parallax on hero image
-  const img = document.getElementById('hero-img') as HTMLElement;
-  if (img) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      img.style.transform = `scale(1.03) translateY(${y * 0.15}px)`;
-    }, { passive: true });
+<style>
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0) translateY(0px); }
+    100% { transform: scale(1.10) translateY(-20px); }
   }
-</script>
+  .hero-kenburns {
+    animation: kenBurns 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+</style>
