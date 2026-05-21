@@ -8,11 +8,13 @@ export default defineConfig({
   server: {
     port,
     host: '0.0.0.0',
+    allowedHosts: true,
   },
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: 'all',
+      host: '0.0.0.0',
+      allowedHosts: true,
     },
   },
   build: {
