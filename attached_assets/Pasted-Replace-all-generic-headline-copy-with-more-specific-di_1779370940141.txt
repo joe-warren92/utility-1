@@ -1,0 +1,19 @@
+Replace all generic headline copy with more specific, direct language:
+
+"Clarity over complexity. Always." → something like "We find the overcharges. We fix them. You keep the savings."
+"Your partner, not just your supplier" → "Most clients find £8,000–£45,000 in recoverable costs in the first audit alone."
+"Sound familiar?" pain points → make these more specific and conversational, like a real ops manager would describe them. Less polished, more real.
+Remove any phrase containing the words "seamless", "transformative", "total clarity", "genuinely", or "one partner"
+
+TESTIMONIALS
+Rewrite both testimonials to sound like real people — imperfect sentence structure, specific details, real outcomes with numbers. Example direction: "We'd been on the same gas contract for four years without knowing. Utility 1 found it, renegotiated everything, and we saved £28k in year one. Honestly wish we'd done it sooner." — Sarah Chen, Operations Director, National Distribution Group
+REDUCE REPETITION
+The core message of "one partner saves you money on utilities" is repeated across at least 6 sections. Cut or merge the "Clarity over complexity" section and the "Your partner not just your supplier" section — they say the same thing. The page should tell a story that progresses, not loops.
+STATS BAR
+The £8.2M / 500+ / 12+ stats appear twice on the page. Remove the second instance.
+SPACING
+There is excessive vertical whitespace between sections, particularly around the "Sound familiar?" section. Tighten this up — the gaps are so large the page feels unfinished.
+LOGOS
+The client logos (Tesco, Sainsbury's, NHS Supply, Prologis) are shown as plain text with letter avatars. Either source proper SVG logo assets for these, or replace with a more credible social proof format — e.g. a quote strip from named real companies rather than a logo bar you can't fill properly.
+TONE DIRECTION
+The whole site should sound like a straight-talking British B2B company that's been doing this since 2012 and doesn't need to oversell itself. Less "corporate vision statement", more "we know your problem and here's exactly what we do about it."

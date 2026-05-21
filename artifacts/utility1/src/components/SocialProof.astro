@@ -1,46 +1,48 @@
 ---
+const sectors = [
+  { label: 'Logistics & Distribution' },
+  { label: 'Facilities Management' },
+  { label: 'Food & Hospitality' },
+  { label: 'Healthcare & NHS' },
+  { label: 'Retail & Wholesale' },
+  { label: 'Manufacturing' },
+];
+
+const quotes = [
+  { q: '"Found £28k in overcharges in the first audit"', role: 'Ops Director, Distribution' },
+  { q: '"One invoice for 15 sites. Finally."', role: 'Finance Manager, FM' },
+];
 ---
 
-<section class="bg-white border-b border-black/6 py-12 overflow-hidden">
+<section class="bg-white border-b border-black/6 py-10 overflow-hidden">
   <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
 
-    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-16">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-14">
 
-      <!-- Trusted by text -->
+      <!-- Label -->
       <div class="flex-shrink-0">
-        <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-gray-light mb-0">Trusted by UK businesses</p>
+        <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-gray-light">Sectors we serve</p>
       </div>
 
-      <!-- Partner logos row -->
-      <div class="flex items-center gap-10 xl:gap-14 flex-wrap flex-1">
-        {[
-          { name: 'Tesco', abbr: 'T' },
-          { name: 'Sainsbury\'s', abbr: 'S' },
-          { name: 'NHS Supply', abbr: 'NHS' },
-          { name: 'Prologis', abbr: 'P' },
-        ].map(({ name, abbr }) => (
-          <div class="flex items-center gap-2.5 opacity-30 hover:opacity-55 transition-opacity duration-300 cursor-default">
-            <div class="w-7 h-7 rounded bg-brand-navy/10 flex items-center justify-center">
-              <span class="text-brand-navy text-[9px] font-bold">{abbr}</span>
-            </div>
-            <span class="font-heading font-semibold text-brand-navy text-[13px] tracking-[0.06em] uppercase">{name}</span>
-          </div>
+      <!-- Sector pills -->
+      <div class="flex items-center gap-2 flex-wrap flex-1">
+        {sectors.map(({ label }) => (
+          <span class="px-3.5 py-1.5 rounded-full border border-black/8 bg-brand-ghost text-brand-navy text-[12px] font-medium tracking-[-0.01em]">
+            {label}
+          </span>
         ))}
       </div>
 
       <!-- Divider -->
-      <div class="hidden lg:block w-px h-10 bg-black/8 flex-shrink-0"></div>
+      <div class="hidden lg:block w-px h-9 bg-black/8 flex-shrink-0"></div>
 
-      <!-- Mini testimonials -->
+      <!-- Micro-quotes -->
       <div class="flex flex-col sm:flex-row gap-4 lg:gap-5 flex-shrink-0">
-        {[
-          { q: '"32% savings in year one"', role: 'Operations Director' },
-          { q: '"Finally — transparent billing"', role: 'Finance Manager' },
-        ].map(({ q, role }) => (
-          <div class="flex items-start gap-3 max-w-[220px]">
-            <div class="w-1 flex-shrink-0 bg-brand-teal rounded-full mt-1" style="height:32px"></div>
+        {quotes.map(({ q, role }) => (
+          <div class="flex items-start gap-3" style="max-width: 220px;">
+            <div class="w-1 flex-shrink-0 bg-brand-teal rounded-full mt-1" style="height: 30px;"></div>
             <div>
-              <p class="text-brand-navy text-[12.5px] font-medium leading-snug italic">{q}</p>
+              <p class="text-brand-navy text-[12px] font-medium leading-snug italic">{q}</p>
               <p class="text-brand-gray-light text-[11px] mt-1">{role}</p>
             </div>
           </div>

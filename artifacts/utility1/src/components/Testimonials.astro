@@ -1,11 +1,10 @@
 ---
 ---
 
-<section class="relative py-36 overflow-hidden bg-brand-navy">
+<section class="relative py-28 overflow-hidden bg-brand-navy">
 
-  <!-- Rich layered background -->
   <div class="absolute inset-0">
-    <div class="absolute top-0 right-0 w-[900px] h-[600px] bg-brand-teal/7 rounded-full blur-[180px]"></div>
+    <div class="absolute top-0 right-0 w-[900px] h-[600px] bg-brand-teal/6 rounded-full blur-[180px]"></div>
     <div class="absolute bottom-0 left-0 w-[700px] h-[500px] bg-brand-navy-light/80 rounded-full blur-[120px]"></div>
     <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0); background-size: 28px 28px;"></div>
   </div>
@@ -13,99 +12,60 @@
   <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
 
     <!-- Header -->
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
-      <div class="max-w-[560px]">
-        <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">What Our Clients Say</p>
-        <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.4rem,4.5vw,4rem)] text-white tracking-[-0.035em] leading-[1.02]">
-          Trusted by businesses like yours
-        </h2>
-      </div>
-      <div data-reveal="right" class="flex items-center gap-4">
-        <div class="flex -space-x-2">
-          {['S','M','J','L','K'].map(l => (
-            <div class="w-9 h-9 rounded-full border-2 border-brand-navy bg-brand-navy-light flex items-center justify-center text-white text-[11px] font-bold">{l}</div>
-          ))}
-        </div>
-        <div>
-          <div class="flex gap-0.5 mb-1">
-            {Array(5).fill(null).map(() => (
-              <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            ))}
-          </div>
-          <p class="text-white/45 text-[12px]">500+ satisfied businesses</p>
-        </div>
-      </div>
+    <div class="mb-14">
+      <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">Client Feedback</p>
+      <h2 data-reveal data-delay="1" class="font-heading font-bold text-white tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(2.4rem, 4.5vw, 4rem);">
+        What they actually said.
+      </h2>
     </div>
 
-    <!-- Large pull-quote testimonials -->
-    <div class="grid lg:grid-cols-2 gap-6 mb-12">
+    <!-- Pull-quote testimonials -->
+    <div class="grid lg:grid-cols-2 gap-6">
 
-      <div data-reveal class="group relative p-10 lg:p-12 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/7 hover:border-white/14 transition-all duration-400">
-        <!-- Oversized quote mark -->
-        <div class="absolute top-8 right-10 font-serif text-[8rem] text-white/5 leading-none select-none" aria-hidden="true">"</div>
-        <div class="flex gap-0.5 mb-6">
+      <div data-reveal class="group relative p-9 lg:p-10 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/6 hover:border-white/12 transition-all duration-300">
+        <div class="absolute top-7 right-9 font-serif text-[7rem] text-white/5 leading-none select-none" aria-hidden="true">"</div>
+        <div class="flex gap-0.5 mb-5">
           {Array(5).fill(null).map(() => (
             <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           ))}
         </div>
-        <blockquote class="text-white/85 text-[1.1rem] lg:text-[1.2rem] leading-[1.55] font-light tracking-[-0.01em] italic mb-8">
-          "Utility 1 saved us over £40,000 in the first year alone. The team handled everything seamlessly and we have not had a single billing issue since switching."
+        <blockquote class="text-white/80 text-[1.05rem] lg:text-[1.1rem] leading-[1.6] font-light tracking-[-0.01em] mb-7">
+          "We'd been on the same gas contract for four years without realising it had rolled onto out-of-contract rates. Utility 1 spotted it in the first audit, renegotiated the whole thing, and we saved £28,000 in year one. Wish we'd called them sooner, honestly."
         </blockquote>
-        <div class="flex items-center gap-4 pt-6 border-t border-white/8">
-          <div class="w-11 h-11 rounded-full bg-brand-teal/25 flex items-center justify-center flex-shrink-0">
+        <div class="flex items-center gap-4 pt-5 border-t border-white/8">
+          <div class="w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
             <span class="font-heading font-bold text-white text-sm">SC</span>
           </div>
           <div>
-            <p class="font-heading font-semibold text-white text-[14.5px] tracking-[-0.01em]">Sarah Chen</p>
-            <p class="text-white/40 text-[12.5px]">Operations Director · National Distribution Group</p>
+            <p class="font-heading font-semibold text-white text-[14px] tracking-[-0.01em]">Sarah Chen</p>
+            <p class="text-white/40 text-[12px]">Operations Director · National Distribution Group</p>
           </div>
-          <div class="ml-auto">
-            <span class="text-brand-teal text-[11px] font-semibold bg-brand-teal/10 px-3 py-1.5 rounded-full">£40k+ saved</span>
-          </div>
+          <span class="ml-auto text-brand-teal text-[11px] font-semibold bg-brand-teal/10 px-3 py-1.5 rounded-full flex-shrink-0">£28k year one</span>
         </div>
       </div>
 
-      <div data-reveal data-delay="2" class="group relative p-10 lg:p-12 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/7 hover:border-white/14 transition-all duration-400">
-        <div class="absolute top-8 right-10 font-serif text-[8rem] text-white/5 leading-none select-none" aria-hidden="true">"</div>
-        <div class="flex gap-0.5 mb-6">
+      <div data-reveal data-delay="2" class="group relative p-9 lg:p-10 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/6 hover:border-white/12 transition-all duration-300">
+        <div class="absolute top-7 right-9 font-serif text-[7rem] text-white/5 leading-none select-none" aria-hidden="true">"</div>
+        <div class="flex gap-0.5 mb-5">
           {Array(5).fill(null).map(() => (
             <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           ))}
         </div>
-        <blockquote class="text-white/85 text-[1.1rem] lg:text-[1.2rem] leading-[1.55] font-light tracking-[-0.01em] italic mb-8">
-          "After years of juggling multiple utility providers, having one trusted partner manage everything has been transformative. Clear billing, proactive support, genuine savings."
+        <blockquote class="text-white/80 text-[1.05rem] lg:text-[1.1rem] leading-[1.6] font-light tracking-[-0.01em] mb-7">
+          "Our finance team was spending a full day every month just reconciling utility invoices across 15 sites. Utility 1 got everything into one invoice. We haven't had a billing dispute since. The saving was £32k but the time saving was probably worth as much again."
         </blockquote>
-        <div class="flex items-center gap-4 pt-6 border-t border-white/8">
-          <div class="w-11 h-11 rounded-full bg-brand-teal/25 flex items-center justify-center flex-shrink-0">
+        <div class="flex items-center gap-4 pt-5 border-t border-white/8">
+          <div class="w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
             <span class="font-heading font-bold text-white text-sm">MF</span>
           </div>
           <div>
-            <p class="font-heading font-semibold text-white text-[14.5px] tracking-[-0.01em]">Michael Foster</p>
-            <p class="text-white/40 text-[12.5px]">Finance Manager · Sterling Facilities Ltd</p>
+            <p class="font-heading font-semibold text-white text-[14px] tracking-[-0.01em]">Michael Foster</p>
+            <p class="text-white/40 text-[12px]">Finance Manager · Sterling Facilities Ltd</p>
           </div>
-          <div class="ml-auto">
-            <span class="text-brand-teal text-[11px] font-semibold bg-brand-teal/10 px-3 py-1.5 rounded-full">32% reduction</span>
-          </div>
+          <span class="ml-auto text-brand-teal text-[11px] font-semibold bg-brand-teal/10 px-3 py-1.5 rounded-full flex-shrink-0">15 sites, £32k</span>
         </div>
       </div>
 
-    </div>
-
-    <!-- Bottom social proof strip -->
-    <div data-reveal="fade" class="flex flex-wrap items-center justify-between gap-6 pt-8 border-t border-white/8">
-      <div class="flex flex-wrap items-center gap-8">
-        {[
-          { n: '500+', l: 'businesses served' },
-          { n: '£8.2M', l: 'total savings delivered' },
-          { n: '4.9/5', l: 'average client rating' },
-        ].map(({ n, l }) => (
-          <div>
-            <div class="font-heading font-bold text-white text-[1.5rem] tracking-[-0.03em] leading-none">{n}</div>
-            <div class="text-white/35 text-[11px] uppercase tracking-[0.1em] mt-1">{l}</div>
-          </div>
-        ))}
-      </div>
-      <a href="#contact" class="btn-primary">Join them today</a>
     </div>
 
   </div>
