@@ -1,0 +1,68 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="site-nav">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between h-[72px]">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 bg-brand-teal rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-white font-heading font-bold text-sm tracking-tight">U1</span>
+        </div>
+        <div>
+          <span class="font-heading font-bold text-[15px] tracking-tight text-white block leading-none">UTILITY</span>
+          <span class="font-heading text-[11px] text-white/60 tracking-widest uppercase block leading-none mt-0.5">1 LTD</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="hidden md:flex items-center gap-1">
+        {['Home', 'About', 'Services', 'Case Studies', 'Insights'].map((item) => (
+          <a
+            href={item === 'Home' ? '/' : `#${item.toLowerCase().replace(' ', '-')}`}
+            class="px-4 py-2 text-[14px] font-medium text-white/80 hover:text-white rounded-lg transition-colors duration-150"
+          >
+            {item}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA -->
+      <a
+        href="#contact"
+        class="hidden md:inline-flex items-center px-5 py-2.5 bg-brand-navy border border-brand-navy text-white text-[14px] font-semibold rounded-[7px] hover:bg-brand-navy-dark transition-all duration-150 shadow-[0_2px_8px_rgba(27,40,56,0.15),0_4px_16px_rgba(27,40,56,0.08)]"
+      >
+        Get Free Review
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="md:hidden text-white p-2" id="mobile-menu-btn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  let scrolled = false;
+
+  function updateNav() {
+    const isScrolled = window.scrollY > 40;
+    if (isScrolled !== scrolled) {
+      scrolled = isScrolled;
+      if (isScrolled) {
+        nav?.classList.add('bg-brand-navy/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+      } else {
+        nav?.classList.remove('bg-brand-navy/95', 'backdrop-blur-md', 'shadow-lg', 'shadow-black/20');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+</script>

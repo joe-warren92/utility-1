@@ -1,0 +1,56 @@
+---
+const pains = [
+  { num: '01', text: 'Navigating multiple providers with different systems' },
+  { num: '02', text: 'Missing renewal deadlines and unfavorable auto-renewals' },
+  { num: '03', text: 'Unexpected price increases with no warning' },
+  { num: '04', text: 'Bills with hidden charges and unexplained variations' },
+  { num: '05', text: 'Hours wasted chasing invoices and comparing quotes' },
+  { num: '06', text: 'Juggling gas, electric, water, waste across different contacts' },
+];
+---
+
+<section class="py-28 bg-brand-navy relative overflow-hidden">
+  <!-- Subtle background texture -->
+  <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <!-- Left: Header -->
+      <div class="lg:sticky lg:top-32">
+        <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
+          <div class="w-6 h-px bg-brand-teal"></div>
+          Common Pain Points
+        </div>
+        <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-white tracking-tight mb-6 text-balance">
+          Sound familiar?
+        </h2>
+        <p class="text-white/60 text-[1.05rem] leading-relaxed mb-10 max-w-[420px]">
+          We built Utility 1 because we have seen these frustrations destroy productivity and drain budgets across hundreds of businesses.
+        </p>
+        <div class="p-6 rounded-2xl border border-brand-teal/20 bg-brand-teal/5">
+          <p class="text-white font-heading font-semibold text-[1.1rem] mb-4">There is a better way.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#how-it-works" class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-teal text-white text-[14px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-colors">
+              See How We Help
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white text-[14px] font-medium rounded-xl hover:border-white/40 transition-colors">
+              Talk to an Expert →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Pain points list -->
+      <div class="space-y-3">
+        {pains.map(({ num, text }) => (
+          <div class="flex items-start gap-5 p-5 rounded-xl border border-white/8 bg-white/3 hover:bg-white/6 hover:border-white/15 transition-all duration-200 group cursor-default">
+            <span class="font-heading font-bold text-[1.5rem] text-brand-teal/40 group-hover:text-brand-teal/70 transition-colors leading-none mt-0.5 flex-shrink-0 w-10">
+              {num}
+            </span>
+            <p class="text-white/70 text-[15px] leading-relaxed group-hover:text-white/90 transition-colors">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+---
+---
+
+<section class="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-brand-navy-dark">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80"
+      alt="Commercial logistics warehouse operations"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      decoding="async"
+    />
+    <!-- Gradient overlay: strong on left, fades right -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#111d29]/95 via-[#111d29]/80 to-[#111d29]/30"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#111d29]/60 via-transparent to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative flex flex-col justify-center min-h-[100svh] pt-32 pb-40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+      <div class="max-w-[640px]">
+        <!-- Rating badge -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2 mb-10">
+          <div class="flex items-center gap-0.5">
+            {Array(5).fill(null).map(() => (
+              <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <span class="text-white/80 text-[13px] font-medium">4.9/5 from 500+ UK businesses</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-heading text-white mb-6 leading-[1.0]">
+          <span class="block text-[4rem] lg:text-[5.5rem] font-bold tracking-tight">Utilities made</span>
+          <span class="block text-[4rem] lg:text-[5.5rem] font-bold tracking-tight text-brand-teal">simple</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-white/70 text-[1.125rem] lg:text-[1.25rem] leading-relaxed mb-10 max-w-[520px]">
+          We handle the complexity of your commercial utilities so you can focus on running your business.
+        </p>
+
+        <!-- Bullet points -->
+        <ul class="space-y-3 mb-12">
+          {[
+            'Reduce operational costs across gas, electric, water and waste',
+            'Clear, transparent billing with no hidden surprises',
+            'Expert support when you need it',
+          ].map((item) => (
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-brand-teal mt-2.5 flex-shrink-0"></div>
+              <span class="text-white/75 text-[15px]">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-teal text-white text-[15px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-all duration-200 shadow-[0_2px_12px_rgba(59,169,165,0.4)]"
+          >
+            Get Free Review
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a
+            href="#services"
+            class="inline-flex items-center gap-2 px-7 py-3.5 border border-white/25 text-white text-[15px] font-medium rounded-[12px] hover:border-white/50 hover:bg-white/5 transition-all duration-200"
+          >
+            View Services →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar at the bottom -->
+  <div class="relative bg-[#0d1820]/80 backdrop-blur-sm border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
+        {[
+          { value: '£12,400', label: 'avg. annual savings' },
+          { value: '28%', label: 'cost reduction' },
+          { value: '4.9/5', label: 'Customer Rating' },
+          { value: '500+', label: 'Active Clients' },
+          { value: '12+', label: 'Years Experience' },
+          { value: '£8.2M', label: 'Savings Delivered' },
+        ].map(({ value, label }) => (
+          <div class="text-center lg:px-6">
+            <div class="font-heading font-bold text-[1.5rem] text-white tracking-tight">{value}</div>
+            <div class="text-white/50 text-[12px] mt-0.5 uppercase tracking-wider">{label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

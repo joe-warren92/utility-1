@@ -1,36 +1,56 @@
-# [Project name]
+# Utility 1
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A premium commercial utilities landing site for Utility 1 Ltd, built with Astro and Tailwind CSS v4.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/utility1 run dev` — run the frontend (port 19303)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port 8080)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: **Astro 5** (static output) + Tailwind CSS v4 via `@tailwindcss/vite`
+- Fonts: DM Sans (headings) + Inter (body) via Google Fonts
 - API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- DB: PostgreSQL + Drizzle ORM (not used by this site)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/utility1/` — Astro site (pages, components, styles)
+- `artifacts/utility1/src/pages/index.astro` — main landing page
+- `artifacts/utility1/src/components/` — all section components
+- `artifacts/utility1/src/styles/global.css` — Tailwind theme + CSS variables
+- `artifacts/utility1/astro.config.mjs` — Astro config (port from `$PORT`)
+- `artifacts/utility1/tailwind.config.mjs` — Tailwind custom colors/fonts (legacy, unused by v4)
+- `artifacts/api-server/` — Express API (health endpoint only for now)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Astro static output (`output: 'static'`) — no server-side rendering needed for a marketing site
+- Tailwind CSS v4 via `@tailwindcss/vite` (not `@astrojs/tailwind` which only supports v3)
+- CSS custom properties defined in `@theme` block inside global.css for brand colors
+- All section content is co-located inside each `.astro` component (no CMS)
+- Unsplash images used for all industrial/warehouse photography
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+A full-page marketing site for Utility 1 Ltd, a UK commercial utilities broker. Sections:
+- Hero with animated sticky nav and warehouse background
+- Stats bar (£12,400 avg savings, 28% cost reduction, etc.)
+- Social proof / partner logos
+- Services grid (Gas, Electric, Water, Waste, Merchant, Asset Management)
+- Pain points (numbered list on dark background)
+- Why choose us (split with image)
+- How it works (4-step process)
+- Testimonials (2 quotes on dark bg)
+- Case studies (3 cards with images and savings figures)
+- CTA banner with value props
+- Insights / blog preview (3 articles)
+- Final CTA with contact form + phone/email
+- Footer
 
 ## User preferences
 
@@ -38,7 +58,10 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Always use `@tailwindcss/vite` not `@astrojs/tailwind` — workspace uses Tailwind v4
+- Brand custom colors are defined in `src/styles/global.css` `@theme` block (not tailwind.config.mjs)
+- Tailwind v4 class names use the `--color-*` CSS var pattern internally; custom colors need `brand-*` prefix in classes
+- PORT env var is set by the workflow; astro.config.mjs reads it via `process.env.PORT`
 
 ## Pointers
 

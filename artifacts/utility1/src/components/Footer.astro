@@ -1,0 +1,76 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Case Studies', href: '#case-studies' },
+  { label: 'Insights', href: '#insights' },
+  { label: 'Contact', href: '#contact' },
+];
+
+const services = ['Gas', 'Electric', 'Water', 'Waste', 'Merchant Services', 'Asset Management'];
+---
+
+<footer class="bg-brand-navy-dark text-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-10">
+    <!-- Top grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <!-- Brand column -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2.5 mb-6">
+          <div class="w-9 h-9 bg-brand-teal rounded-lg flex items-center justify-center">
+            <span class="text-white font-heading font-bold text-sm">U1</span>
+          </div>
+          <div>
+            <span class="font-heading font-bold text-[15px] tracking-tight block leading-none">UTILITY</span>
+            <span class="font-heading text-[11px] text-white/40 tracking-widest uppercase block leading-none mt-0.5">1 LTD</span>
+          </div>
+        </div>
+        <p class="text-white/50 text-[14px] leading-relaxed max-w-sm mb-6">
+          We handle the complexity of your commercial utilities so you can focus on running your business. Gas, electric, water, waste — all under one roof since 2012.
+        </p>
+        <div class="flex gap-3">
+          {['in', 'tw', 'fb'].map((icon) => (
+            <a href="#" class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-colors text-[12px] font-bold">
+              {icon}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h4 class="font-heading font-semibold text-[13px] tracking-widest uppercase text-white/40 mb-5">Navigation</h4>
+        <ul class="space-y-3">
+          {navLinks.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-white/60 text-[14px] hover:text-white transition-colors">{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="font-heading font-semibold text-[13px] tracking-widest uppercase text-white/40 mb-5">Services</h4>
+        <ul class="space-y-3">
+          {services.map((service) => (
+            <li>
+              <a href="#services" class="text-white/60 text-[14px] hover:text-white transition-colors">{service}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-white/30 text-[13px]">© 2026 Utility 1 Ltd. All rights reserved. Registered in England & Wales.</p>
+      <div class="flex gap-6">
+        {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
+          <a href="#" class="text-white/30 text-[13px] hover:text-white/60 transition-colors">{item}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

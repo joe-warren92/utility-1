@@ -1,0 +1,96 @@
+---
+const testimonials = [
+  {
+    quote: "Utility 1 saved us over £40,000 in the first year alone. The team handled everything seamlessly and we have not had a single billing issue since switching.",
+    name: 'Sarah Chen',
+    role: 'Operations Director',
+    company: 'National Distribution Group',
+    initial: 'S',
+  },
+  {
+    quote: "After years of juggling multiple utility providers, having one trusted partner manage everything has been transformative. Clear billing, proactive support, genuine savings.",
+    name: 'Michael Foster',
+    role: 'Finance Manager',
+    company: 'Sterling Facilities Ltd',
+    initial: 'M',
+  },
+];
+
+const avatarColors = ['#1B2838', '#3BA9A5', '#5F6974'];
+---
+
+<section class="py-28 bg-brand-navy relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute top-0 right-0 w-1/2 h-full opacity-5">
+    <svg viewBox="0 0 100 100" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="200" fill="white" font-family="serif">"</text>
+    </svg>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- Header -->
+    <div class="mb-16">
+      <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
+        <div class="w-6 h-px bg-brand-teal"></div>
+        What Our Clients Say
+      </div>
+      <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-white tracking-tight">
+        Trusted by businesses like yours
+      </h2>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="grid md:grid-cols-2 gap-6 mb-14">
+      {testimonials.map(({ quote, name, role, company, initial }) => (
+        <div class="p-8 lg:p-10 rounded-2xl bg-white/6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+          <!-- Quote mark -->
+          <div class="text-brand-teal text-[4rem] font-serif leading-none mb-4 opacity-60">"</div>
+
+          <blockquote class="text-white/80 text-[1.05rem] leading-relaxed mb-8 italic">
+            {quote}
+          </blockquote>
+
+          <div class="flex items-center gap-4 pt-6 border-t border-white/10">
+            <div class="w-11 h-11 rounded-full bg-brand-teal/30 flex items-center justify-center flex-shrink-0">
+              <span class="font-heading font-bold text-white text-[15px]">{initial}</span>
+            </div>
+            <div>
+              <p class="font-heading font-semibold text-white text-[15px]">{name}</p>
+              <p class="text-white/50 text-[13px]">{role} · {company}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Social proof bar -->
+    <div class="flex items-center justify-between flex-wrap gap-6 pt-8 border-t border-white/10">
+      <div class="flex items-center gap-4">
+        <!-- Avatar stack -->
+        <div class="flex -space-x-2">
+          {['A', 'B', 'C'].map((letter, i) => (
+            <div
+              class="w-9 h-9 rounded-full border-2 border-brand-navy flex items-center justify-center text-white text-[13px] font-semibold"
+              style={`background-color: ${avatarColors[i]}; z-index: ${3 - i}`}
+            >
+              {letter}
+            </div>
+          ))}
+        </div>
+        <div>
+          <div class="flex items-center gap-1 mb-0.5">
+            {Array(5).fill(null).map(() => (
+              <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="text-white/50 text-[13px]">500+ satisfied businesses</p>
+        </div>
+      </div>
+      <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-teal text-white text-[14px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-colors">
+        Join them today
+      </a>
+    </div>
+  </div>
+</section>

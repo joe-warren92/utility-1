@@ -1,0 +1,39 @@
+---
+---
+
+<section class="bg-white border-b border-gray-100 py-10 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- Mini testimonials -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+      <div class="flex flex-col sm:flex-row gap-5">
+        {[
+          { quote: '"Cut our utility costs by 32% in the first year"', role: 'Operations Director', company: 'Retail Chain', initial: 'O' },
+          { quote: '"Finally, transparency in billing"', role: 'Finance Manager', company: 'Manufacturing', initial: 'F' },
+        ].map(({ quote, role, company, initial }) => (
+          <div class="flex items-center gap-3 bg-brand-gray-pale rounded-xl px-5 py-4 border border-gray-100">
+            <div class="w-9 h-9 rounded-full bg-brand-navy flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-[13px] font-semibold">{initial}</span>
+            </div>
+            <div>
+              <p class="text-brand-navy text-[13px] font-medium leading-snug italic">{quote}</p>
+              <p class="text-brand-gray text-[12px] mt-0.5">{role} · <span class="text-brand-gray-light">{company}</span></p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center sm:text-right">
+        <p class="text-brand-gray text-[13px] font-medium">Trusted by leading UK businesses</p>
+      </div>
+    </div>
+
+    <!-- Partner logos -->
+    <div class="flex items-center justify-center gap-8 lg:gap-14 flex-wrap">
+      {['PARTNER', 'PARTNER', 'PARTNER', 'PARTNER'].map((_, i) => (
+        <div class="flex items-center gap-2 opacity-40 hover:opacity-60 transition-opacity">
+          <div class="w-7 h-7 bg-brand-navy/20 rounded"></div>
+          <span class="font-heading font-bold text-brand-navy text-[13px] tracking-[0.15em] uppercase">PARTNER</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

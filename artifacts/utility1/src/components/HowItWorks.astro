@@ -1,0 +1,84 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Free Review',
+    description: 'We analyze your current utilities setup, contracts, and spending to identify opportunities.',
+  },
+  {
+    num: '02',
+    title: 'Tailored Proposal',
+    description: 'Get a clear, jargon-free breakdown of how we can reduce your costs and simplify operations.',
+  },
+  {
+    num: '03',
+    title: 'Seamless Switch',
+    description: 'We handle the entire transition — paperwork, provider coordination, and setup while you focus on your business.',
+  },
+  {
+    num: '04',
+    title: 'Ongoing Support',
+    description: 'Continuous monitoring, proactive renewals, and expert advice whenever you need it.',
+  },
+];
+---
+
+<section id="how-it-works" class="py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center gap-2 text-brand-teal text-[13px] font-semibold tracking-widest uppercase mb-4">
+        <div class="w-6 h-px bg-brand-teal"></div>
+        How It Works
+        <div class="w-6 h-px bg-brand-teal"></div>
+      </div>
+      <h2 class="font-heading font-bold text-[2.75rem] lg:text-[3.5rem] text-brand-navy tracking-tight mb-4">
+        Four simple steps
+      </h2>
+      <p class="text-brand-gray text-[1.05rem] max-w-lg mx-auto">
+        A streamlined process designed to minimize disruption and maximize results
+      </p>
+    </div>
+
+    <!-- Steps grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {steps.map(({ num, title, description }, i) => (
+        <div class="relative group">
+          <!-- Connector line between steps (not on last) -->
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-8 left-[calc(100%+16px)] right-0 h-px w-8 bg-brand-teal/20 z-10 translate-x-[-32px]" style="width: calc(100% - 100% + 2rem)">
+            </div>
+          )}
+
+          <div class="p-8 rounded-2xl border border-gray-100 bg-brand-gray-pale hover:border-brand-teal/30 hover:bg-white hover:shadow-xl hover:shadow-brand-teal/5 transition-all duration-300 h-full">
+            <!-- Number -->
+            <div class="flex items-center justify-between mb-6">
+              <span class="font-heading font-bold text-[2.5rem] text-brand-teal/20 group-hover:text-brand-teal/40 transition-colors leading-none">{num}</span>
+              <div class="w-9 h-9 rounded-full bg-brand-teal/10 group-hover:bg-brand-teal/20 flex items-center justify-center transition-colors">
+                <svg class="w-4 h-4 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+              </div>
+            </div>
+
+            <h3 class="font-heading font-bold text-[1.2rem] text-brand-navy mb-3">{title}</h3>
+            <p class="text-brand-gray text-[14px] leading-relaxed">{description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-14">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-brand-teal text-white text-[15px] font-semibold rounded-[7px] hover:bg-brand-teal-dark transition-colors shadow-lg shadow-brand-teal/25"
+      >
+        Start Your Free Review
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
