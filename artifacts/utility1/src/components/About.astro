@@ -1,30 +1,4 @@
 ---
-const team = [
-  {
-    name: 'James Hartley',
-    role: 'Founder & Managing Director',
-    bio: 'Spent 14 years trading energy for two of the UK\'s largest suppliers before leaving to set up Utility 1 in 2012. He\'d watched businesses get systematically overcharged and decided the broker side was more honest.',
-    initials: 'JH',
-    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
-    detail: 'Former energy trader, SSE & Centrica',
-  },
-  {
-    name: 'Rachel Osei',
-    role: 'Head of Client Accounts',
-    bio: 'Has managed utility portfolios for clients ranging from single-site independents to 40-site national retailers. Her clients don\'t switch account managers — they\'ve been with her for an average of 6 years.',
-    initials: 'RO',
-    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
-    detail: '11 years in commercial utilities',
-  },
-  {
-    name: 'Tom Bridger',
-    role: 'Head of Procurement',
-    bio: 'Runs all supplier relationships and tender processes. Tom\'s job is to make sure we never recommend a supplier just because they\'re easy to work with — every recommendation is benchmarked against the full market.',
-    initials: 'TB',
-    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-    detail: 'Manages 23 pre-qualified supplier relationships',
-  },
-];
 
 const beliefs = [
   {
@@ -54,7 +28,7 @@ const beliefs = [
   <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
 
     <!-- ── Founder story ─────────────────────────────── -->
-    <div class="grid lg:grid-cols-[1fr_420px] gap-16 xl:gap-24 items-center mb-24">
+    <div class="grid lg:grid-cols-[1fr_420px] gap-16 xl:gap-24 items-center mb-16">
 
       <!-- Story -->
       <div>
@@ -122,49 +96,6 @@ const beliefs = [
           <div class="font-heading font-bold text-[11px] leading-tight">FCA<br/>Regulated</div>
           <div class="text-[8px] opacity-70 mt-0.5">since 2013</div>
         </div>
-      </div>
-    </div>
-
-    <!-- ── Team ─────────────────────────────────────── -->
-    <div class="mb-24">
-      <div class="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <p data-reveal class="eyebrow">The Team</p>
-          <h3 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.03em] leading-[1.05]" style="font-size: clamp(1.8rem, 3vw, 2.4rem);">
-            People, not departments.
-          </h3>
-        </div>
-        <p data-reveal="right" class="text-brand-gray text-[14px] max-w-[340px] text-left sm:text-right leading-relaxed">
-          These are the three people you'll most likely deal with. Everyone else on the team is in billing or operations — making sure what we promise actually happens.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-5">
-        {team.map(({ name, role, bio, initials, img, detail }, i) => (
-          <div data-reveal data-delay={String(i + 1)} class="card-lift group rounded-2xl overflow-hidden border border-black/7 bg-white">
-            <!-- Photo -->
-            <div class="relative h-52 overflow-hidden">
-              <img
-                src={img}
-                alt={name}
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 grayscale-[15%]"
-                loading="lazy"
-              />
-              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, rgba(15,25,35,0.5) 100%);"></div>
-            </div>
-
-            <!-- Details -->
-            <div class="p-6">
-              <div class="font-heading font-bold text-brand-navy text-[1.05rem] tracking-[-0.02em] mb-0.5">{name}</div>
-              <div class="text-brand-teal text-[12.5px] font-semibold tracking-wide mb-3">{role}</div>
-              <p class="text-brand-gray text-[13px] leading-relaxed mb-4">{bio}</p>
-              <div class="flex items-center gap-2 pt-4 border-t border-black/6">
-                <div class="w-1.5 h-1.5 rounded-full bg-brand-teal flex-shrink-0"></div>
-                <span class="text-brand-gray-light text-[11.5px]">{detail}</span>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
 
