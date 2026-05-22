@@ -1,0 +1,512 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="National Distribution Group Case Study | Utility 1"
+  description="How Utility 1 reduced utility costs by 28% across 14 logistics sites — saving £45,000 in year one. Full case study."
+>
+  <Nav />
+
+  <!-- ── Hero ──────────────────────────────────────────── -->
+  <section class="relative overflow-hidden bg-[#06101a]" style="min-height: 72vh;">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1800&q=85"
+        alt="National distribution warehouse"
+        class="absolute inset-0 w-full h-full object-cover object-center hero-kenburns"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0" style="background: linear-gradient(110deg, rgba(6,16,26,0.97) 0%, rgba(6,16,26,0.85) 55%, rgba(6,16,26,0.45) 100%);"></div>
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(6,16,26,0.85) 0%, transparent 55%);"></div>
+    </div>
+
+    <div class="relative flex flex-col justify-center" style="min-height: 72vh; padding-top: 130px; padding-bottom: 80px;">
+      <div class="max-w-[1360px] mx-auto px-8 xl:px-12 w-full">
+
+        <!-- Breadcrumb -->
+        <div data-reveal class="flex items-center gap-2 text-white/35 text-[12px] mb-10">
+          <a href="/" class="hover:text-white/60 transition-colors">Home</a>
+          <span>/</span>
+          <a href="/#case-studies" class="hover:text-white/60 transition-colors">Case Studies</a>
+          <span>/</span>
+          <span class="text-brand-teal">National Distribution Group</span>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-end">
+          <div class="max-w-[780px]">
+            <!-- Sector tag -->
+            <div data-reveal class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1.5 bg-brand-teal text-white text-[11px] font-semibold rounded-full tracking-wide">Logistics</span>
+              <span class="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white text-[11px] font-semibold rounded-full border border-white/15">Gas · Electric · Water</span>
+              <span class="px-3 py-1.5 bg-white/10 backdrop-blur-sm text-white text-[11px] font-semibold rounded-full border border-white/15">14 sites</span>
+            </div>
+
+            <h1 data-reveal data-delay="1" class="font-heading font-bold text-white tracking-[-0.035em] leading-[1.0] mb-5" style="font-size: clamp(2.5rem, 5.5vw, 5rem);">
+              28% cost reduction<br />across 14 logistics sites<br />in four weeks.
+            </h1>
+            <p data-reveal data-delay="2" class="text-white/50 leading-relaxed max-w-[520px]" style="font-size: 1.05rem;">
+              A national distribution operator had not reviewed their utility contracts in six years. We found £45,000 in annual overspend and fixed it — before they had to sign anything.
+            </p>
+          </div>
+
+          <!-- Key number -->
+          <div data-reveal="right" class="flex-shrink-0 text-right hidden lg:block">
+            <div class="font-heading font-bold text-brand-teal leading-none tracking-[-0.05em]" style="font-size: 5.5rem;">£45k</div>
+            <div class="text-white/35 text-[12px] uppercase tracking-[0.12em] mt-1">annual saving</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom metrics strip -->
+    <div class="relative border-t border-white/8 bg-white/3 backdrop-blur-sm">
+      <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+        <div class="grid grid-cols-2 lg:grid-cols-5 divide-x divide-white/8">
+          {[
+            { v: '£45,000', l: 'Annual saving' },
+            { v: '28%', l: 'Cost reduction' },
+            { v: '14', l: 'Sites consolidated' },
+            { v: '4 weeks', l: 'Delivery time' },
+            { v: '6 years', l: 'Contracts unreviewed' },
+          ].map(({ v, l }) => (
+            <div class="py-5 px-4 xl:px-8 text-center">
+              <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.4rem;">{v}</div>
+              <div class="text-white/35 text-[10.5px] uppercase tracking-[0.1em] mt-1.5">{l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Overview ───────────────────────────────────────── -->
+  <section class="py-24 bg-white">
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+      <div class="grid lg:grid-cols-[1fr_340px] gap-16 items-start">
+
+        <!-- Main narrative -->
+        <div class="prose-body max-w-none">
+          <p data-reveal class="eyebrow">The Situation</p>
+          <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02] mb-8" style="font-size: clamp(2rem, 3.5vw, 2.8rem);">
+            Six years. Fourteen sites. Zero contract reviews.
+          </h2>
+
+          <div data-reveal data-delay="2" class="space-y-5 text-brand-gray leading-relaxed" style="font-size: 15px;">
+            <p>
+              National Distribution Group is a mid-sized UK logistics operator with warehousing and distribution sites across the Midlands and South East. When they came to us in early 2025, their utility setup was, by their own description, "a mess we've been meaning to sort out for years."
+            </p>
+            <p>
+              They had 14 sites. Each on a separate gas and electricity contract with different suppliers, different renewal dates, and different pricing structures. Three of the contracts had already silently rolled onto out-of-contract rates when their fixed terms expired. Nobody had noticed.
+            </p>
+            <p>
+              Their finance team was spending around two days a month reconciling utility invoices. One site had been on a deemed rate for eight months following a lease renewal — a rate typically 40–60% above what a properly negotiated commercial contract would cost.
+            </p>
+            <p>
+              They had also taken on a water contract for a new site that had never been benchmarked against the market. It was simply accepted from the previous tenant.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sidebar: client details -->
+        <div data-reveal="right" class="lg:sticky lg:top-28 self-start space-y-4">
+          <div class="p-6 rounded-2xl border border-black/8 bg-brand-off-white">
+            <h3 class="font-heading font-semibold text-brand-navy text-[13px] uppercase tracking-[0.1em] mb-5">Client profile</h3>
+            <dl class="space-y-3.5">
+              {[
+                { label: 'Sector', value: 'Logistics & Distribution' },
+                { label: 'Sites', value: '14 across Midlands & South East' },
+                { label: 'Employees', value: '340' },
+                { label: 'Annual turnover', value: '£28M' },
+                { label: 'Utilities covered', value: 'Gas, Electric, Water' },
+                { label: 'Previous reviews', value: 'None in 6 years' },
+              ].map(({ label, value }) => (
+                <div class="flex justify-between gap-4 text-[13px] pb-3.5 border-b border-black/6 last:border-0 last:pb-0">
+                  <dt class="text-brand-gray-light">{label}</dt>
+                  <dd class="font-medium text-brand-navy text-right">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-navy">
+            <h3 class="font-heading font-semibold text-white text-[13px] uppercase tracking-[0.1em] mb-3">Timeline</h3>
+            <div class="space-y-2.5">
+              {[
+                { step: 'Initial contact', t: 'Day 1' },
+                { step: 'Full audit delivered', t: 'Day 5' },
+                { step: 'Supplier tender', t: 'Weeks 2–3' },
+                { step: 'Contracts agreed', t: 'Week 4' },
+                { step: 'New billing live', t: 'Week 6' },
+              ].map(({ step, t }) => (
+                <div class="flex justify-between text-[12.5px]">
+                  <span class="text-white/50">{step}</span>
+                  <span class="font-semibold text-brand-teal">{t}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="p-5 rounded-xl border border-brand-teal/20 bg-brand-teal/5">
+            <p class="text-brand-navy text-[13px] font-semibold mb-1">Want to see what we'd find for you?</p>
+            <p class="text-brand-gray text-[12.5px] mb-4">Free audit. Response within 24 hours.</p>
+            <a href="/#contact" class="btn-primary text-[13px] w-full justify-center">Get a free audit</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Challenge ─────────────────────────────────────── -->
+  <section class="py-24 bg-brand-off-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(circle at 1px 1px, #0f1923 1px, transparent 0); background-size: 32px 32px; pointer-events:none;"></div>
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+
+      <div class="max-w-[720px] mb-14">
+        <p data-reveal class="eyebrow">The Challenge</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(2rem, 3.5vw, 2.8rem);">
+          Three separate problems. All costing money simultaneously.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        {[
+          {
+            number: '01',
+            title: 'Out-of-contract rates on three sites',
+            body: 'Three of the fourteen sites had rolled past their contract end dates onto out-of-contract "deemed" rates — 35–52% above standard market pricing at the time. This had been running undetected for between 4 and 18 months.',
+            cost: '+£14,200/yr',
+            costLabel: 'estimated overspend',
+            img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=75',
+          },
+          {
+            number: '02',
+            title: 'Fragmented supplier base, no visibility',
+            body: 'With eleven different supplier accounts across gas and electricity, there was no consolidated view of spend. Two sites were duplicating standing charges due to an old meter setup that had never been corrected.',
+            cost: '+£8,600/yr',
+            costLabel: 'in avoidable charges',
+            img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=75',
+          },
+          {
+            number: '03',
+            title: 'Untendered water contract on a new site',
+            body: 'A water contract accepted from the previous tenant at a new site had never been put out to tender. The rate was 28% above the current available market rate — discovered in the first 20 minutes of the audit.',
+            cost: '+£4,100/yr',
+            costLabel: 'on water alone',
+            img: 'https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=600&q=75',
+          },
+        ].map(({ number, title, body, cost, costLabel, img }, i) => (
+          <div data-reveal data-delay={String(i + 1)} class="card-lift group bg-white rounded-2xl overflow-hidden border border-black/6">
+            <div class="relative h-40 overflow-hidden">
+              <img src={img} alt={title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80" loading="lazy" />
+              <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 30%, rgba(15,25,35,0.75) 100%);"></div>
+              <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                <span class="font-heading font-bold text-white/15 text-[2.5rem] leading-none">{number}</span>
+                <div class="text-right">
+                  <div class="font-heading font-bold text-[#ff6b6b] text-[1.1rem] leading-none">{cost}</div>
+                  <div class="text-white/50 text-[10px] uppercase tracking-[0.1em]">{costLabel}</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-brand-navy text-[1rem] tracking-[-0.02em] mb-2.5">{title}</h3>
+              <p class="text-brand-gray text-[13px] leading-relaxed">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Approach ───────────────────────────────────────── -->
+  <section class="py-24 bg-white">
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- Image -->
+        <div data-reveal class="relative rounded-2xl overflow-hidden" style="height: 500px;">
+          <img
+            src="https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?auto=format&fit=crop&w=900&q=80"
+            alt="Operations team reviewing contracts"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/25 to-transparent"></div>
+
+          <!-- Quote overlay -->
+          <div class="absolute bottom-6 left-6 right-6">
+            <div class="p-5 rounded-xl bg-brand-navy/90 backdrop-blur-sm border border-white/10">
+              <p class="text-white/80 text-[13.5px] leading-relaxed italic mb-3">"We gave them one call and a copy of our last bill. Five days later we had a full breakdown of what we were overpaying and exactly what they could do about it."</p>
+              <div class="text-white/40 text-[11.5px]">Operations Director, National Distribution Group</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Steps -->
+        <div>
+          <p data-reveal class="eyebrow">Our Approach</p>
+          <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02] mb-10" style="font-size: clamp(2rem, 3.5vw, 2.8rem);">
+            Audit first.<br />Negotiate second.<br />Admin handled.
+          </h2>
+
+          <div class="space-y-0 divide-y divide-black/6">
+            {[
+              {
+                n: '01',
+                title: 'Full portfolio audit (Days 1–5)',
+                body: 'We gathered contracts, meter reads, and invoices for all 14 sites. Our team built a complete cost model — current rates versus market benchmark — for gas, electricity, and water across the whole estate.',
+              },
+              {
+                n: '02',
+                title: 'Immediate fixes first (Week 1)',
+                body: 'While the full tender was being prepared, we immediately contacted the three suppliers running out-of-contract rates and negotiated interim "holding" rates to stop the bleeding. This saved approximately £1,100 during the tender process itself.',
+              },
+              {
+                n: '03',
+                title: 'Competitive tender across all utilities (Weeks 2–3)',
+                body: 'We ran a full market tender with our pre-qualified supplier panel — seven gas suppliers, five electricity, two water. All site data had already been compiled so the process was fast. We presented a shortlist of three verified options.',
+              },
+              {
+                n: '04',
+                title: 'Contracts signed and administration handled (Week 4)',
+                body: 'Once the client approved the recommended suppliers, we handled all paperwork, meter read coordination, and final settlement with the outgoing suppliers. The client\'s ops team spent approximately three hours on the entire process.',
+              },
+            ].map(({ n, title, body }, i) => (
+              <div data-reveal data-delay={String((i % 2) + 1)} class="group py-7 flex gap-8 items-start hover:bg-brand-ghost -mx-4 px-4 rounded-xl transition-colors duration-200">
+                <span class="font-heading font-bold text-[2.2rem] text-black/8 group-hover:text-brand-teal/25 transition-colors leading-none tabular-nums flex-shrink-0 pt-1">{n}</span>
+                <div>
+                  <h3 class="font-heading font-bold text-brand-navy text-[1rem] tracking-[-0.02em] mb-1.5 group-hover:text-brand-teal transition-colors duration-200">{title}</h3>
+                  <p class="text-brand-gray text-[13.5px] leading-relaxed">{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Results ────────────────────────────────────────── -->
+  <section class="py-24 bg-brand-navy relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 right-0 w-[800px] h-[600px] bg-brand-teal/6 rounded-full blur-[180px]"></div>
+      <div class="absolute bottom-0 left-0 w-[600px] h-[500px] bg-brand-navy-light/60 rounded-full blur-[120px]"></div>
+      <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0); background-size: 28px 28px;"></div>
+    </div>
+
+    <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
+
+      <div class="max-w-[640px] mb-16">
+        <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">The Results</p>
+        <h2 data-reveal data-delay="1" class="font-heading font-bold text-white tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(2rem, 3.5vw, 2.8rem);">
+          £45,000 saved in year one.<br />Ongoing from there.
+        </h2>
+      </div>
+
+      <!-- Big results grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {[
+          { v: '£45,000', l: 'Total year-one saving', sub: 'across gas, electric & water' },
+          { v: '28%', l: 'Average cost reduction', sub: 'vs. pre-audit spend' },
+          { v: '14 → 2', l: 'Supplier accounts', sub: 'consolidated from 14 to 2' },
+          { v: '0', l: 'Hours of client admin', sub: 'in the entire switch process' },
+        ].map(({ v, l, sub }) => (
+          <div data-reveal class="p-6 rounded-2xl border border-white/8 bg-white/4 text-center">
+            <div class="font-heading font-bold text-brand-teal leading-none tracking-[-0.04em] mb-1" style="font-size: 2.5rem;">{v}</div>
+            <div class="font-heading font-semibold text-white text-[13px] tracking-[-0.01em] mb-1">{l}</div>
+            <div class="text-white/35 text-[11.5px]">{sub}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Breakdown table -->
+      <div data-reveal class="rounded-2xl border border-white/8 overflow-hidden mb-12">
+        <div class="grid grid-cols-4 border-b border-white/8 bg-white/4">
+          {['Utility', 'Previous annual cost', 'New annual cost', 'Saving'].map(h => (
+            <div class="px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/35">{h}</div>
+          ))}
+        </div>
+        {[
+          { util: 'Gas (14 sites)', prev: '£89,400', next: '£71,200', saving: '£18,200', pct: '20%' },
+          { util: 'Electricity (14 sites)', prev: '£112,000', next: '£84,600', saving: '£27,400', pct: '24%' },
+          { util: 'Water (4 sites)', prev: '£14,600', next: '£11,200', saving: '£3,400', pct: '23%' },
+          { util: 'Admin time saved', prev: '2 days/month', next: '<1 hour/month', saving: 'c.£8,000', pct: 'est.' },
+        ].map(({ util, prev, next, saving, pct }, i) => (
+          <div class={`grid grid-cols-4 border-b border-white/6 last:border-0 hover:bg-white/3 transition-colors ${i % 2 === 1 ? 'bg-white/2' : ''}`}>
+            <div class="px-6 py-4 text-white/70 text-[13.5px] font-medium">{util}</div>
+            <div class="px-6 py-4 text-white/40 text-[13.5px]">{prev}</div>
+            <div class="px-6 py-4 text-white/70 text-[13.5px]">{next}</div>
+            <div class="px-6 py-4">
+              <span class="font-heading font-bold text-brand-teal text-[14px]">{saving}</span>
+              <span class="text-white/30 text-[11px] ml-1.5">({pct})</span>
+            </div>
+          </div>
+        ))}
+        <div class="grid grid-cols-4 bg-brand-teal/8 border-t border-brand-teal/20">
+          <div class="px-6 py-4 font-heading font-bold text-white text-[13.5px]">Total</div>
+          <div class="px-6 py-4 text-white/40 text-[13.5px]">£216,000</div>
+          <div class="px-6 py-4 text-white/70 text-[13.5px]">£167,000</div>
+          <div class="px-6 py-4">
+            <span class="font-heading font-bold text-brand-teal text-[15px]">£45,000+</span>
+            <span class="text-white/30 text-[11px] ml-1.5">(28%)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional outcomes -->
+      <div class="grid md:grid-cols-3 gap-4">
+        {[
+          { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`, title: 'Renewal management active', body: 'All 14 sites now have proactive renewal alerts set 6 months in advance. No site will ever roll onto an out-of-contract rate again.' },
+          { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`, title: 'Consolidated reporting', body: 'One monthly invoice. One dashboard. Finance can now see cost-per-site, cost-per-unit, and year-on-year comparisons across the entire estate.' },
+          { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`, title: 'Finance time returned', body: 'The two days per month previously spent on utility reconciliation is now under one hour. That\'s roughly £8,000 of finance team time returned per year.' },
+        ].map(({ icon, title, body }, i) => (
+          <div data-reveal data-delay={String(i + 1)} class="p-6 rounded-xl border border-white/8 bg-white/4">
+            <div class="w-9 h-9 rounded-lg bg-brand-teal/15 border border-brand-teal/20 flex items-center justify-center text-brand-teal mb-4" set:html={icon} />
+            <h3 class="font-heading font-bold text-white text-[14px] tracking-[-0.02em] mb-2">{title}</h3>
+            <p class="text-white/40 text-[13px] leading-relaxed">{body}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Testimonial ────────────────────────────────────── -->
+  <section class="py-24 bg-white">
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+      <div class="max-w-[860px] mx-auto text-center">
+
+        <div data-reveal class="text-[6rem] text-brand-teal/15 font-serif leading-none mb-4" aria-hidden="true">"</div>
+
+        <blockquote data-reveal data-delay="1" class="font-heading font-medium text-brand-navy tracking-[-0.02em] leading-[1.4] mb-10" style="font-size: clamp(1.3rem, 2.5vw, 1.9rem);">
+          We'd been meaning to look at this for two years. Every time it came up, something more urgent got in the way. Utility 1 sorted the whole thing in a month and saved us considerably more than we expected. The process required almost nothing from us. Honestly wish we'd done it sooner.
+        </blockquote>
+
+        <div data-reveal data-delay="2" class="flex items-center justify-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-brand-teal/15 border border-brand-teal/20 flex items-center justify-center">
+            <span class="font-heading font-bold text-brand-teal text-sm">SC</span>
+          </div>
+          <div class="text-left">
+            <div class="font-heading font-semibold text-brand-navy text-[15px] tracking-[-0.01em]">Sarah Chen</div>
+            <div class="text-brand-gray-light text-[13px]">Operations Director · National Distribution Group</div>
+          </div>
+          <div class="w-px h-8 bg-black/10 mx-2 hidden sm:block"></div>
+          <div class="hidden sm:flex flex-col">
+            <div class="flex gap-0.5 mb-1">
+              {Array(5).fill(null).map(() => (
+                <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              ))}
+            </div>
+            <div class="text-brand-gray-light text-[11px]">5/5 rating</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── More case studies ──────────────────────────────── -->
+  <section class="py-20 bg-brand-off-white border-t border-black/6">
+    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
+        <div>
+          <p data-reveal class="eyebrow">More Case Studies</p>
+          <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(1.8rem, 3vw, 2.4rem);">More results. Different sectors.</h2>
+        </div>
+        <a data-reveal="right" href="/#case-studies" class="btn-dark text-[13.5px]">View all case studies</a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        {[
+          {
+            image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+            sector: 'Facilities Management',
+            metric: '15 sites consolidated',
+            title: 'Streamlining utility management for a multi-site FM operator',
+            savings: '£32,000',
+            href: '/case-studies/sterling-facilities',
+          },
+          {
+            image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+            sector: 'Manufacturing',
+            metric: '35% waste reduction',
+            title: 'Cutting waste management costs for an industrial manufacturer',
+            savings: '£18,500',
+            href: '/case-studies/industrial-manufacturer',
+          },
+        ].map(({ image, sector, metric, title, savings, href }, i) => (
+          <a
+            data-reveal
+            data-delay={String(i + 1)}
+            href={href}
+            class="card-lift group relative rounded-2xl overflow-hidden block"
+            style="height: 280px;"
+          >
+            <img src={image} alt={title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(6,16,26,0.97) 0%, rgba(6,16,26,0.45) 55%, rgba(6,16,26,0.10) 100%);"></div>
+            <div class="absolute top-5 left-5 flex gap-2">
+              <span class="px-2.5 py-1 bg-white/12 backdrop-blur-md text-white text-[11px] font-semibold rounded-full border border-white/15">{sector}</span>
+              <span class="px-2.5 py-1 bg-brand-teal text-white text-[11px] font-semibold rounded-full">{metric}</span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <h3 class="font-heading font-bold text-white text-[1.05rem] leading-snug tracking-[-0.02em] mb-4">{title}</h3>
+              <div class="flex items-end justify-between">
+                <div>
+                  <div class="text-white/40 text-[10px] uppercase tracking-[0.1em] mb-0.5">Annual saving</div>
+                  <div class="font-heading font-bold text-brand-teal leading-none tracking-[-0.04em]" style="font-size: 2rem;">{savings}</div>
+                </div>
+                <div class="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all duration-300">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────── -->
+  <section class="py-20 bg-white border-t border-black/6">
+    <div class="max-w-[900px] mx-auto px-8 xl:px-12 text-center">
+      <p data-reveal class="eyebrow justify-center">Start Your Audit</p>
+      <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02] mb-4" style="font-size: clamp(2rem, 4vw, 3.2rem);">
+        Find out what you're overpaying.
+      </h2>
+      <p data-reveal data-delay="2" class="text-brand-gray text-[15px] leading-relaxed max-w-[440px] mx-auto mb-8">
+        Send us your latest utility bill. We'll come back within 24 hours with a clear picture of your options — no obligation, no hard sell.
+      </p>
+      <div data-reveal data-delay="3" class="flex flex-wrap items-center justify-center gap-4">
+        <a href="/#contact" class="btn-primary" style="font-size: 15px; padding: 15px 34px;">
+          Get a free audit
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:08001234567" class="btn-dark" style="font-size: 14px;">0800 123 4567</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0); }
+    100% { transform: scale(1.08); }
+  }
+  .hero-kenburns {
+    animation: kenBurns 22s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  details summary::-webkit-details-marker { display: none; }
+
+  /* Prose body text */
+  .prose-body p { margin-bottom: 0; }
+</style>
