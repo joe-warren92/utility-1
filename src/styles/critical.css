@@ -238,6 +238,10 @@ button {
   display: none;
 }
 
+.site-header__mobile-menu[hidden] {
+  display: none;
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -259,14 +263,14 @@ button {
   overflow: hidden;
 }
 
-.hero__image,
-.hero__image img {
+.hero__media picture,
+.hero__image {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.hero__image img {
+.hero__image {
   object-fit: cover;
   object-position: center;
 }
@@ -466,6 +470,82 @@ button {
 
   .site-header__menu-toggle span:nth-child(3) {
     transform: translate(-50%, calc(-50% + 6px));
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .site-header--open .site-header__backdrop {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(10, 16, 24, 0.88);
+    backdrop-filter: blur(20px) saturate(1.4);
+  }
+
+  .site-header--open .site-header__mobile-menu:not([hidden]) {
+    position: absolute;
+    inset: 76px 0 auto;
+    display: block;
+    max-height: calc(100dvh - 76px);
+    overflow: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(8, 14, 22, 0.97);
+    box-shadow: var(--shadow-large);
+    backdrop-filter: blur(24px) saturate(1.35);
+  }
+
+  .site-header__mobile-panel {
+    display: grid;
+    gap: 1rem;
+    margin-block: 0.875rem 1.25rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .site-header__mobile-section {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .site-header__mobile-link,
+  .site-header__mobile-service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 3rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: var(--radius-md);
+    color: rgba(255, 255, 255, 0.76);
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -0.015em;
+  }
+
+  .site-header__mobile-heading {
+    padding: 0.75rem 0.9rem 0.35rem;
+    color: rgba(255, 255, 255, 0.36);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .site-header__mobile-cta {
+    width: 100%;
+    min-height: 3rem;
+    margin-top: 0.25rem;
   }
 
   .hero__content {
