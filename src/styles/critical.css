@@ -218,7 +218,46 @@ button {
 }
 
 .site-header__dropdown-panel {
-  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 220px;
+  padding-top: 0.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0.25rem);
+}
+
+.site-header__dropdown:hover .site-header__dropdown-panel {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.site-header__dropdown-menu {
+  padding: 0.375rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: #0d1820;
+  box-shadow: var(--shadow-large);
+}
+
+.site-header__dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--font-size-sm);
+}
+
+.site-header__dropdown-footer {
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .site-header__cta {
