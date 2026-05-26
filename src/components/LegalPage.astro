@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+
+export interface LegalSection {
+  title: string;
+  body: string[];
+}
+
+export interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  intro: string;
+  sections: LegalSection[];
+  updated: string;
+  canonical: string;
+}
+
+const { title, description, eyebrow, intro, sections, updated, canonical } = Astro.props;
+---
+
+<Layout title={`${title} | Utility 1`} description={description} canonical={canonical}>
+  <Nav />
+
+  <main class="legal-page">
+    <section class="legal-hero">
+      <div class="legal-hero__texture"></div>
+      <div class="container">
+        <nav data-reveal class="legal-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>{title}</span>
+        </nav>
+
+        <p data-reveal class="eyebrow eyebrow--muted">{eyebrow}</p>
+        <h1 data-reveal data-delay="1" class="legal-hero__title">{title}</h1>
+        <p data-reveal data-delay="2" class="legal-hero__intro">{intro}</p>
+        <p data-reveal data-delay="3" class="legal-hero__updated">Last updated: {updated}</p>
+      </div>
+    </section>
+
+    <section class="legal-section">
+      <div class="container legal-layout">
+        <aside class="legal-sidebar" aria-label="Legal page navigation">
+          <span>On this page</span>
+          {sections.map((section) => (
+            <a href={`#${section.title.toLowerCase().replaceAll(' ', '-')}`}>{section.title}</a>
+          ))}
+          <a href="/contact">Contact Utility 1</a>
+        </aside>
+
+        <article class="legal-content">
+          {sections.map((section) => (
+            <section id={section.title.toLowerCase().replaceAll(' ', '-')} class="legal-content__section">
+              <h2>{section.title}</h2>
+              {section.body.map((paragraph) => <p>{paragraph}</p>)}
+            </section>
+          ))}
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

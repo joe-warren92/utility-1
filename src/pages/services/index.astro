@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Services from '../../components/Services.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Commercial Utility Services | Utility 1"
+  description="Explore Utility 1 commercial utility services across gas, electricity, water, waste, merchant services and asset management."
+  canonical="/services"
+>
+  <Nav />
+  <main class="services-index">
+    <section class="services-archive-hero">
+      <div class="services-archive-hero__texture"></div>
+      <div class="container">
+        <nav data-reveal class="case-detail-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>Services</span>
+        </nav>
+        <div class="services-archive-hero__grid">
+          <div>
+            <p data-reveal class="eyebrow eyebrow--muted">Our Services</p>
+            <h1 data-reveal data-delay="1" class="services-archive-hero__title">Every utility. One trusted partner.</h1>
+          </div>
+          <p data-reveal="right" class="services-archive-hero__copy">
+            Explore commercial gas, electricity, water, waste, merchant services and asset management support from Utility 1.
+          </p>
+        </div>
+      </div>
+    </section>
+    <Services />
+  </main>
+  <Footer />
+</Layout>

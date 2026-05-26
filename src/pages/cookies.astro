@@ -1,0 +1,51 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+
+const sections = [
+  {
+    title: 'What Cookies Are',
+    body: [
+      'Cookies are small files stored on your device when you visit a website. They help websites work properly, remember preferences and understand how visitors use pages.',
+      'Similar technologies, such as local storage or pixels, may be used for related purposes.',
+    ],
+  },
+  {
+    title: 'How We Use Cookies',
+    body: [
+      'Utility 1 may use essential cookies that support website functionality, security and form behaviour.',
+      'We may also use analytics cookies to understand visitor behaviour, improve page content and measure the performance of the website.',
+    ],
+  },
+  {
+    title: 'Types Of Cookies',
+    body: [
+      'Essential cookies are needed for the website to work and cannot usually be disabled through our site.',
+      'Analytics cookies help us understand which pages are useful and where improvements may be needed.',
+    ],
+  },
+  {
+    title: 'Managing Cookies',
+    body: [
+      'Most browsers let you block, delete or restrict cookies through browser settings.',
+      'Blocking some cookies may affect how parts of the website work, including forms or preference-based features.',
+    ],
+  },
+  {
+    title: 'Future Updates',
+    body: [
+      'If we add new tools that use cookies, this page should be updated to explain what those tools do and why they are used.',
+      'For questions about cookies or privacy, please contact Utility 1 through the contact page.',
+    ],
+  },
+];
+---
+
+<LegalPage
+  title="Cookie Policy"
+  eyebrow="Cookies"
+  description="Read the Utility 1 cookie policy, including how cookies may be used and how visitors can manage them."
+  intro="This policy explains the types of cookies that may be used on the Utility 1 website and how you can manage them."
+  updated="26 May 2026"
+  canonical="/cookies"
+  sections={sections}
+/>

@@ -1,0 +1,111 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import {
+  siteEnergyAudit,
+  stockroomInventory,
+  warehouseDeskOperations,
+  warehouseOperator,
+  wasteCollectionTrucks,
+} from '../../assets/images';
+
+const benefits = [
+  { title: 'Transaction rate review', copy: 'We compare card processing fees, authorisation charges, terminal rental and other line items against your actual transaction profile.' },
+  { title: 'Terminal and payment setup check', copy: 'We review whether your current terminals, integrations and settlement setup still fit how your customers pay.' },
+  { title: 'PCI and contract support', copy: 'We help clarify compliance requirements, renewal dates, cancellation terms and hidden charges before any change is made.' },
+  { title: 'Supplier comparison', copy: 'We benchmark suitable payment providers and recommend options that balance rate, reliability, support and operational fit.' },
+];
+
+const commonProblems = [
+  { quote: '"Our provider says the rate is low, but the statement says otherwise."', answer: 'Headline rates rarely show the whole cost. We review authorisation fees, terminal rental, premium cards and other line items.' },
+  { quote: '"We have separate terminals across every site."', answer: 'Multi-site payment setups can be consolidated or renegotiated when transaction data is presented properly.' },
+  { quote: '"We are out of contract but still paying old terminal rental."', answer: 'Legacy terminal agreements can keep rolling. We check rental, minimum fees and cancellation terms.' },
+  { quote: '"Settlement times are hurting cash flow."', answer: 'Payment setup is not just about rate. We review settlement timing and support requirements as part of the recommendation.' },
+  { quote: '"PCI fees keep appearing and nobody explains them."', answer: 'We help clarify PCI obligations, recurring fees and the support included by each provider.' },
+  { quote: '"Switching sounds risky because we cannot stop taking payments."', answer: 'We plan setup and handover carefully so the change is operationally controlled.' },
+];
+
+const process = [
+  { number: '01', title: 'Send a merchant statement', copy: 'We review transaction mix, card volumes, terminal costs, authorisation fees and provider terms.', timeline: '24 hours' },
+  { number: '02', title: 'We benchmark the full cost', copy: 'We compare your real monthly cost against suitable providers, not just the advertised headline rate.', timeline: '2-3 days' },
+  { number: '03', title: 'We present provider options', copy: 'You receive a clear comparison of fees, settlement, support, contract terms and terminal setup.', timeline: '1 week' },
+  { number: '04', title: 'We coordinate the switch', copy: 'If you move provider, we help manage paperwork, terminal setup and handover planning.', timeline: '1-3 weeks' },
+];
+
+const faqs = [
+  { question: 'Do you need a recent merchant statement?', answer: 'Yes. A recent statement lets us compare the real cost of card processing rather than relying on headline rates.' },
+  { question: 'Can you support multi-site retail or hospitality?', answer: 'Yes. We can review separate terminals, locations and settlement arrangements as part of one proposal.' },
+  { question: 'Will changing provider interrupt payments?', answer: 'The aim is to plan any change carefully so payment acceptance continues smoothly during setup and handover.' },
+  { question: 'Do you check PCI fees?', answer: 'Yes. We review PCI charges, support requirements and whether recurring costs are being explained clearly.' },
+  { question: 'Can you help if we are still in contract?', answer: 'Yes. We check exit terms and renewal dates, then compare whether any savings justify acting now or waiting.' },
+  { question: 'Is this only for card terminals?', answer: 'No. We can review card terminals, online payment arrangements and integrated payment setups where statements are available.' },
+];
+
+const related = [
+  { name: 'Gas', href: '/services/gas', saving: '£4,200 avg. saving', image: siteEnergyAudit },
+  { name: 'Electricity', href: '/services/electric', saving: '£5,800 avg. saving', image: warehouseDeskOperations },
+  { name: 'Waste', href: '/services/waste', saving: '35% avg. reduction', image: wasteCollectionTrucks },
+  { name: 'Asset Management', href: '/services/asset-management', saving: '18% efficiency gain', image: stockroomInventory },
+];
+---
+
+<ServicePage
+  pageTitle="Merchant Services Review | Utility 1 - Reduce Card Processing Costs"
+  pageDescription="We review merchant statements, card processing fees, terminals and provider terms to help businesses reduce payment costs."
+  title="Lower the cost"
+  accent="of every transaction."
+  eyebrow="Merchant Services"
+  breadcrumb="Merchant Services"
+  description="Card processing fees are easy to overlook because they are spread across every sale. We review your merchant statement, compare the market, and help you choose a payment setup that fits your business."
+  image={warehouseOperator}
+  ctaLabel="Get a merchant review"
+  stats={[
+    { value: '0.4%', label: 'typical rate improvement' },
+    { value: '48 hrs', label: 'statement review' },
+    { value: '150+', label: 'payment reviews completed' },
+  ]}
+  problemStats={[
+    { value: '0.4%', label: 'typical transaction rate improvement found' },
+    { value: '7 lines', label: 'common fee types hidden in statements' },
+    { value: '48 hrs', label: 'typical first review turnaround' },
+    { value: '3 years', label: 'common term before fees are reviewed' },
+  ]}
+  whatWeDoTitle="We read the statement.<br />Then we find the real rate."
+  whatWeDoCopy="Merchant fees are rarely as simple as one percentage. We review the full statement, terminal setup, settlement terms and support model before recommending any change."
+  benefits={benefits}
+  featureImage={warehouseDeskOperations}
+  featureImageAlt="Payment terminal in a business"
+  auditCard={{ eyebrow: 'Recent payment review', value: '£8,400', copy: 'annual saving across four locations', note: '0.38% blended rate improvement' }}
+  commonProblemsEyebrow="Common Payment Problems"
+  commonProblemsTitle="Small transaction fees add up quickly."
+  commonProblems={commonProblems}
+  caseStudy={{
+    eyebrow: 'Merchant Services Case Study',
+    title: 'A hospitality group was paying terminal rental on equipment it no longer used.',
+    copy: [
+      'The business had grown from one venue to four, adding terminals and payment products at different times with the same provider.',
+      'Our review found duplicate terminal rental, higher fees on premium cards and an old minimum monthly charge that no longer matched transaction volumes.',
+      'We renegotiated the payment setup, removed unused rental, and moved the group onto a better blended rate with clearer settlement terms.',
+    ],
+    quote: '"We thought our rate was competitive. The statement told a different story once someone actually explained it." - Managing Director',
+    image: warehouseOperator,
+    imageAlt: 'Card payment terminal',
+    savingLabel: 'Annual payment saving',
+    savingValue: '£8,400',
+    savingNote: '0.38%',
+    stats: [
+      { value: '4', label: 'venues reviewed' },
+      { value: '£8,400', label: 'annual saving' },
+      { value: '2 weeks', label: 'to setup' },
+    ],
+    ctaLabel: 'Start your payment review',
+  }}
+  processTitle="From one statement to<br />clear payment savings."
+  process={process}
+  faqs={faqs}
+  related={related}
+  contactEyebrow="Merchant Services Review"
+  contactTitle="Send us your merchant statement."
+  contactCopy="We will review your fees, terminal costs and provider terms, then come back with a clear picture of what you are really paying."
+  formTitle="Request your merchant services review"
+  spendLabel="Monthly card turnover (approx.)"
+/>

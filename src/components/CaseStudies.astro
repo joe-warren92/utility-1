@@ -1,139 +1,117 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+import { distributionCentreExterior, recyclingMaterials, siteEnergyAudit } from '../assets/images';
+
 const cases = [
   {
-    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=85',
+    image: distributionCentreExterior,
     sector: 'Logistics',
     metric: '28% cost reduction',
     title: 'Reducing operational costs by 28% for a national distribution centre',
-    body: 'A 14-site logistics operator had not reviewed their utility contracts in six years. We renegotiated everything across gas, electric, and water in under four weeks.',
+    body: 'A 14-site logistics operator had not reviewed their utility contracts in six years. We renegotiated everything across gas, electricity and water in under four weeks.',
     savings: '£45,000',
     detail: 'annual saving',
-    featured: true,
+    href: '/case-studies/national-distribution-centre',
   },
   {
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    image: siteEnergyAudit,
     sector: 'Facilities Management',
     metric: '15 sites consolidated',
     title: 'Streamlining utility management for a multi-site operator',
     body: 'From 15 separate contracts to one consolidated account. One invoice. One point of contact.',
     savings: '£32,000',
     detail: 'annual saving',
+    href: '/case-studies/sterling-facilities',
   },
   {
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    image: recyclingMaterials,
     sector: 'Manufacturing',
     metric: '35% waste reduction',
     title: 'Cutting waste management costs for an industrial manufacturer',
     body: 'A full waste audit identified significant overspend and carrier duplication. Results delivered in eight weeks.',
     savings: '£18,500',
     detail: 'annual saving',
+    href: '/case-studies/industrial-manufacturer',
   },
 ];
 ---
 
-<section id="case-studies" class="py-32 bg-brand-navy relative overflow-hidden">
-
-  <!-- Background depth -->
-  <div class="absolute inset-0">
-    <div class="absolute top-0 right-0 w-[800px] h-[600px] bg-brand-teal/5 rounded-full blur-[180px]"></div>
-    <div class="absolute bottom-0 left-0 w-[600px] h-[500px] bg-brand-navy-light/50 rounded-full blur-[120px]"></div>
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0); background-size: 32px 32px;"></div>
-  </div>
-
-  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <!-- Header -->
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+<section id="case-studies" class="section section--large section--dark case-studies">
+  <div class="container">
+    <div class="section-header">
       <div>
-        <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">Case Studies</p>
-        <h2 data-reveal data-delay="1" class="font-heading font-bold text-white tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(2.4rem, 4.5vw, 4rem);">
+        <p data-reveal class="eyebrow eyebrow--muted">Case Studies</p>
+        <h2 data-reveal data-delay="1" class="section-heading section-heading--light">
           Proven results.<br />Real numbers.
         </h2>
       </div>
-      <div data-reveal="right" class="pb-1">
-        <p class="text-white/45 text-[14px] leading-relaxed max-w-[320px] mb-5">
-          Every case study is a real client outcome — independently verifiable, no inflated claims.
-        </p>
-        <a href="#contact" class="btn-primary text-[13.5px]">View all case studies</a>
+      <div data-reveal="right" class="section-header__aside">
+        <p class="section-copy section-copy--light">Every case study is a real client outcome, independently verifiable and free from inflated claims.</p>
+        <a href="/case-studies" class="button button--primary">View all case studies</a>
       </div>
     </div>
 
-    <!-- Editorial layout: large feature + two smaller -->
-    <div class="grid lg:grid-cols-5 gap-5">
-
-      <!-- Feature card — 3 columns wide -->
-      {cases.slice(0,1).map(({ image, sector, metric, title, body, savings, detail }) => (
-        <a data-reveal href="/case-studies/national-distribution-centre" class="card-lift group relative rounded-2xl overflow-hidden cursor-pointer lg:col-span-3" style="min-height: 540px;">
-          <img src={image} alt={title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(6,16,26,0.97) 0%, rgba(6,16,26,0.60) 45%, rgba(6,16,26,0.15) 100%);"></div>
-
-          <div class="absolute top-6 left-6 flex gap-2">
-            <span class="px-3 py-1.5 bg-white/12 backdrop-blur-md text-white text-[11px] font-semibold rounded-full border border-white/18">{sector}</span>
-            <span class="px-3 py-1.5 bg-brand-teal text-white text-[11px] font-semibold rounded-full">{metric}</span>
+    <div class="case-studies__grid">
+      {cases.slice(0, 1).map((item) => (
+        <a data-reveal href={item.href} class="case-card case-card--featured card-lift">
+          <OptimizedImage src={item.image} alt={item.title} class="case-card__image" />
+          <div class="case-card__overlay"></div>
+          <div class="case-card__tags">
+            <span class="case-card__tag">{item.sector}</span>
+            <span class="case-card__tag case-card__tag--accent">{item.metric}</span>
           </div>
-
-          <div class="absolute bottom-0 left-0 right-0 p-8">
-            <h3 class="font-heading font-bold text-white leading-snug tracking-[-0.025em] mb-3" style="font-size: 1.35rem;">{title}</h3>
-            <p class="text-white/55 text-[13.5px] leading-relaxed mb-8 max-w-[420px]">{body}</p>
-            <div class="flex items-end justify-between">
+          <div class="case-card__content">
+            <h3 class="case-card__title">{item.title}</h3>
+            <p class="case-card__body">{item.body}</p>
+            <div class="case-card__footer">
               <div>
-                <div class="text-white/40 text-[11px] uppercase tracking-[0.1em] mb-1">{detail}</div>
-                <div class="font-heading font-bold text-brand-teal leading-none tracking-[-0.04em]" style="font-size: 3rem;">{savings}</div>
+                <div class="case-card__detail">{item.detail}</div>
+                <div class="case-card__saving">{item.savings}</div>
               </div>
-              <div class="w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all duration-300">
-                <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+              <span class="case-card__arrow"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
           </div>
         </a>
       ))}
 
-      <!-- Two smaller cards stacked — 2 columns wide -->
-      <div class="lg:col-span-2 flex flex-col gap-5">
-        {cases.slice(1).map(({ image, sector, metric, title, body, savings, detail }, i) => (
-          <div data-reveal data-delay={String(i + 2)} class="card-lift group relative rounded-2xl overflow-hidden cursor-pointer flex-1" style="min-height: 254px;">
-            <img src={image} alt={title} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(6,16,26,0.97) 0%, rgba(6,16,26,0.50) 50%, rgba(6,16,26,0.10) 100%);"></div>
-
-            <div class="absolute top-4 left-4 flex gap-2">
-              <span class="px-2.5 py-1 bg-white/12 backdrop-blur-md text-white text-[10.5px] font-semibold rounded-full border border-white/18">{sector}</span>
-              <span class="px-2.5 py-1 bg-brand-teal text-white text-[10.5px] font-semibold rounded-full">{metric}</span>
+      <div class="case-studies__stack">
+        {cases.slice(1).map((item, i) => (
+          <a data-reveal data-delay={String(i + 2)} href={item.href} class="case-card card-lift">
+            <OptimizedImage src={item.image} alt={item.title} class="case-card__image" />
+            <div class="case-card__overlay"></div>
+            <div class="case-card__tags">
+              <span class="case-card__tag">{item.sector}</span>
+              <span class="case-card__tag case-card__tag--accent">{item.metric}</span>
             </div>
-
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <h3 class="font-heading font-bold text-white leading-snug tracking-[-0.02em] mb-4 text-[1rem]">{title}</h3>
-              <div class="flex items-end justify-between">
+            <div class="case-card__content">
+              <h3 class="case-card__title">{item.title}</h3>
+              <div class="case-card__footer">
                 <div>
-                  <div class="text-white/40 text-[10px] uppercase tracking-[0.1em] mb-0.5">{detail}</div>
-                  <div class="font-heading font-bold text-brand-teal leading-none tracking-[-0.04em]" style="font-size: 2rem;">{savings}</div>
+                  <div class="case-card__detail">{item.detail}</div>
+                  <div class="case-card__saving">{item.savings}</div>
                 </div>
-                <div class="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all duration-300">
-                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
+                <span class="case-card__arrow"><svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
-
     </div>
 
-    <!-- Bottom trust strip -->
-    <div data-reveal="fade" class="mt-10 flex flex-wrap items-center justify-between gap-6 pt-8 border-t border-white/8">
-      <div class="flex flex-wrap gap-10">
+    <div data-reveal="fade" class="case-studies__trust">
+      <div class="case-studies__stats">
         {[
           { n: '£8.2M+', l: 'total client savings' },
           { n: '500+', l: 'businesses served' },
           { n: '12+', l: 'sectors covered' },
         ].map(({ n, l }) => (
           <div>
-            <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.5rem;">{n}</div>
-            <div class="text-white/35 text-[11px] uppercase tracking-[0.1em] mt-1">{l}</div>
+            <div class="case-studies__stat-value">{n}</div>
+            <div class="case-studies__stat-label">{l}</div>
           </div>
         ))}
       </div>
-      <p class="text-white/35 text-[12.5px] max-w-[300px]">All figures are independently verified client outcomes.</p>
+      <p class="case-studies__note">All figures are independently verified client outcomes.</p>
     </div>
-
   </div>
 </section>

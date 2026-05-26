@@ -1,72 +1,53 @@
 ---
+const testimonials = [
+  {
+    initials: 'SC',
+    quote: "We'd been on the same gas contract for four years without realising it had rolled onto out-of-contract rates. Utility 1 spotted it in the first audit, renegotiated the whole thing, and we saved £28,000 in year one. Wish we'd called them sooner, honestly.",
+    name: 'Sarah Chen',
+    role: 'Operations Director · National Distribution Group',
+    stat: '£28k year one',
+  },
+  {
+    initials: 'MF',
+    quote: "Our finance team was spending a full day every month just reconciling utility invoices across 15 sites. Utility 1 got everything into one invoice. We haven't had a billing dispute since. The saving was £32k but the time saving was probably worth as much again.",
+    name: 'Michael Foster',
+    role: 'Finance Manager · Sterling Facilities Ltd',
+    stat: '15 sites, £32k',
+  },
+];
 ---
 
-<section class="relative py-28 overflow-hidden bg-brand-navy">
-
-  <div class="absolute inset-0">
-    <div class="absolute top-0 right-0 w-[900px] h-[600px] bg-brand-teal/6 rounded-full blur-[180px]"></div>
-    <div class="absolute bottom-0 left-0 w-[700px] h-[500px] bg-brand-navy-light/80 rounded-full blur-[120px]"></div>
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0); background-size: 28px 28px;"></div>
-  </div>
-
-  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <!-- Header -->
-    <div class="mb-14">
-      <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.7)">Client Feedback</p>
-      <h2 data-reveal data-delay="1" class="font-heading font-bold text-white tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(2.4rem, 4.5vw, 4rem);">
+<section class="section testimonials">
+  <div class="testimonials__glow testimonials__glow--top"></div>
+  <div class="testimonials__glow testimonials__glow--bottom"></div>
+  <div class="container">
+    <div class="testimonials__header">
+      <p data-reveal class="eyebrow eyebrow--muted">Client Feedback</p>
+      <h2 data-reveal data-delay="1" class="section-heading section-heading--light">
         What they actually said.
       </h2>
     </div>
 
-    <!-- Pull-quote testimonials -->
-    <div class="grid lg:grid-cols-2 gap-6">
-
-      <div data-reveal class="group relative p-9 lg:p-10 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/6 hover:border-white/12 transition-all duration-300">
-        <div class="absolute top-7 right-9 font-serif text-[7rem] text-white/5 leading-none select-none" aria-hidden="true">"</div>
-        <div class="flex gap-0.5 mb-5">
-          {Array(5).fill(null).map(() => (
-            <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          ))}
-        </div>
-        <blockquote class="text-white/80 text-[1.05rem] lg:text-[1.1rem] leading-[1.6] font-light tracking-[-0.01em] mb-7">
-          "We'd been on the same gas contract for four years without realising it had rolled onto out-of-contract rates. Utility 1 spotted it in the first audit, renegotiated the whole thing, and we saved £28,000 in year one. Wish we'd called them sooner, honestly."
-        </blockquote>
-        <div class="flex items-center gap-4 pt-5 border-t border-white/8">
-          <div class="w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
-            <span class="font-heading font-bold text-white text-sm">SC</span>
+    <div class="testimonials__grid">
+      {testimonials.map(({ initials, quote, name, role, stat }, i) => (
+        <figure data-reveal data-delay={String(i + 1)} class="testimonial-card">
+          <div class="testimonial-card__mark" aria-hidden="true">"</div>
+          <div class="testimonial-card__stars" aria-hidden="true">
+            {Array(5).fill(null).map(() => (
+              <svg class="icon icon--small" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ))}
           </div>
-          <div>
-            <p class="font-heading font-semibold text-white text-[14px] tracking-[-0.01em]">Sarah Chen</p>
-            <p class="text-white/40 text-[12px]">Operations Director · National Distribution Group</p>
-          </div>
-          <span class="ml-auto text-brand-teal text-[11px] font-semibold bg-brand-teal/10 px-3 py-1.5 rounded-full flex-shrink-0">£28k year one</span>
-        </div>
-      </div>
-
-      <div data-reveal data-delay="2" class="group relative p-9 lg:p-10 rounded-2xl border border-white/8 bg-white/4 hover:bg-white/6 hover:border-white/12 transition-all duration-300">
-        <div class="absolute top-7 right-9 font-serif text-[7rem] text-white/5 leading-none select-none" aria-hidden="true">"</div>
-        <div class="flex gap-0.5 mb-5">
-          {Array(5).fill(null).map(() => (
-            <svg class="w-3.5 h-3.5 text-brand-teal fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          ))}
-        </div>
-        <blockquote class="text-white/80 text-[1.05rem] lg:text-[1.1rem] leading-[1.6] font-light tracking-[-0.01em] mb-7">
-          "Our finance team was spending a full day every month just reconciling utility invoices across 15 sites. Utility 1 got everything into one invoice. We haven't had a billing dispute since. The saving was £32k but the time saving was probably worth as much again."
-        </blockquote>
-        <div class="flex items-center gap-4 pt-5 border-t border-white/8">
-          <div class="w-10 h-10 rounded-full bg-brand-teal/20 flex items-center justify-center flex-shrink-0">
-            <span class="font-heading font-bold text-white text-sm">MF</span>
-          </div>
-          <div>
-            <p class="font-heading font-semibold text-white text-[14px] tracking-[-0.01em]">Michael Foster</p>
-            <p class="text-white/40 text-[12px]">Finance Manager · Sterling Facilities Ltd</p>
-          </div>
-          <span class="ml-auto text-brand-teal text-[11px] font-semibold bg-brand-teal/10 px-3 py-1.5 rounded-full flex-shrink-0">15 sites, £32k</span>
-        </div>
-      </div>
-
+          <blockquote class="testimonial-card__quote">"{quote}"</blockquote>
+          <figcaption class="testimonial-card__author">
+            <span class="testimonial-card__avatar">{initials}</span>
+            <span>
+              <span class="testimonial-card__name">{name}</span>
+              <span class="testimonial-card__role">{role}</span>
+            </span>
+            <span class="testimonial-card__stat">{stat}</span>
+          </figcaption>
+        </figure>
+      ))}
     </div>
-
   </div>
 </section>

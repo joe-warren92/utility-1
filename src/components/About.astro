@@ -1,43 +1,36 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+import { siteEnergyAudit } from '../assets/images';
 
 const beliefs = [
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
     wont: "We won't recommend a supplier we earn more commission from over a better deal for you.",
     will: "Every recommendation is the lowest cost option that meets your requirements — full stop.",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>`,
     wont: "We won't put you through a call centre when something goes wrong.",
     will: "You get a named account manager's direct number. Same person, every time.",
   },
   {
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>`,
     wont: "We won't hide our commission in the contract small print.",
     will: "We're a regulated broker. Our fee structure is disclosed upfront before you sign anything.",
   },
 ];
 ---
 
-<section id="about" class="py-28 bg-white relative overflow-hidden">
+<section id="about" class="section about">
+  <div class="about__glow about__glow--top"></div>
+  <div class="about__glow about__glow--bottom"></div>
 
-  <!-- Subtle decorative background element -->
-  <div class="absolute top-0 right-0 w-[700px] h-[500px] opacity-[0.025] pointer-events-none" style="background: radial-gradient(ellipse at top right, #3BA9A5 0%, transparent 70%);"></div>
-  <div class="absolute bottom-0 left-0 w-[500px] h-[400px] opacity-[0.03] pointer-events-none" style="background: radial-gradient(ellipse at bottom left, #0f1923 0%, transparent 70%);"></div>
-
-  <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <!-- ── Founder story ─────────────────────────────── -->
-    <div class="grid lg:grid-cols-[1fr_420px] gap-16 xl:gap-24 items-center mb-16">
-
-      <!-- Story -->
+  <div class="container">
+    <div class="about__story">
       <div>
         <p data-reveal class="eyebrow">Who We Are</p>
-        <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02] mb-8" style="font-size: clamp(2.2rem, 4vw, 3.2rem);">
+        <h2 data-reveal data-delay="1" class="section-heading about__heading">
           Built by people who spent<br />14 years on the other side.
         </h2>
 
-        <div data-reveal data-delay="2" class="space-y-5 text-brand-gray leading-relaxed mb-8" style="font-size: 15px;">
+        <div data-reveal data-delay="2" class="section-copy about__copy">
           <p>
             Utility 1 was started in 2012 by James Hartley, after 14 years trading energy for two of the UK's largest suppliers. He knew exactly how commercial pricing worked — and exactly how much margin was being built in on the assumption that most businesses wouldn't look hard at their bills.
           </p>
@@ -49,94 +42,63 @@ const beliefs = [
           </p>
         </div>
 
-        <!-- Quick stats -->
-        <div data-reveal data-delay="3" class="grid grid-cols-3 gap-4 pt-6 border-t border-black/6">
+        <div data-reveal data-delay="3" class="about-stats">
           {[
             { v: '2012', l: 'Year founded' },
             { v: '14', l: 'People on the team' },
             { v: '6.2 yrs', l: 'Avg. client tenure' },
           ].map(({ v, l }) => (
-            <div class="text-center">
-              <div class="font-heading font-bold text-brand-navy tracking-[-0.04em] leading-none mb-1" style="font-size: 2rem;">{v}</div>
-              <div class="text-brand-gray-light text-[12px] uppercase tracking-[0.08em]">{l}</div>
+            <div class="about-stat">
+              <div class="about-stat__value">{v}</div>
+              <div class="about-stat__label">{l}</div>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- Photo + callout -->
-      <div data-reveal="right" class="relative">
-        <div class="relative rounded-2xl overflow-hidden" style="height: 480px;">
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=82"
-            alt="The Utility 1 team at work"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div class="absolute inset-0" style="background: linear-gradient(160deg, rgba(15,25,35,0.08) 0%, rgba(15,25,35,0.55) 100%);"></div>
-
-          <!-- Overlay callout -->
-          <div class="absolute bottom-6 left-6 right-6">
-            <div class="p-5 rounded-xl bg-brand-navy/90 backdrop-blur-sm border border-white/8">
-              <p class="text-white/80 text-[13.5px] leading-relaxed italic mb-2.5">
-                "Most clients have been with us longer than they were with their previous accountant. That's the standard we hold ourselves to."
-              </p>
-              <div class="flex items-center gap-3">
-                <div class="w-7 h-7 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center flex-shrink-0">
-                  <span class="font-heading font-bold text-brand-teal text-[9px]">JH</span>
-                </div>
-                <div class="text-white/40 text-[11.5px]">James Hartley · Founder</div>
-              </div>
+      <div data-reveal="right" class="about__photo-wrap">
+        <div class="media-card">
+          <OptimizedImage src={siteEnergyAudit} alt="The Utility 1 team at work" class="media-card__image" />
+          <div class="media-card__overlay"></div>
+          <div class="about__quote">
+            <p>"Most clients have been with us longer than they were with their previous accountant. That's the standard we hold ourselves to."</p>
+            <div class="about__quote-author">
+              <span class="about__avatar">JH</span>
+              <span>James Hartley · Founder</span>
             </div>
           </div>
         </div>
-
-        <!-- FCA badge -->
-        <div class="absolute -top-3 -right-3 w-20 h-20 rounded-full bg-brand-teal flex flex-col items-center justify-center text-white text-center shadow-xl">
-          <div class="font-heading font-bold text-[11px] leading-tight">FCA<br/>Regulated</div>
-          <div class="text-[8px] opacity-70 mt-0.5">since 2013</div>
+        <div class="about__badge">
+          <div>FCA<br />Regulated</div>
+          <span>since 2013</span>
         </div>
       </div>
     </div>
 
-    <!-- ── What we won't do ──────────────────────────── -->
-    <div class="rounded-3xl overflow-hidden bg-brand-navy relative">
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0); background-size: 28px 28px;"></div>
-      <div class="absolute top-0 right-0 w-[600px] h-[400px] opacity-10" style="background: radial-gradient(ellipse at top right, #3BA9A5 0%, transparent 65%);"></div>
+    <div class="about__beliefs">
+      <div class="about__beliefs-glow"></div>
+      <div class="about__beliefs-inner">
+        <div class="about__beliefs-header">
+          <p data-reveal class="eyebrow eyebrow--muted">Straight talk</p>
+          <h3 data-reveal data-delay="1" class="about__beliefs-title">Things we won't do.</h3>
+          <p data-reveal data-delay="2" class="about__beliefs-copy">Baked into how we operate. Not a marketing claim.</p>
+        </div>
 
-      <div class="relative px-10 xl:px-16 py-14">
-        <div class="grid lg:grid-cols-[auto_1fr] gap-12 items-start">
-
-          <!-- Header -->
-          <div class="lg:max-w-[260px]">
-            <p data-reveal class="eyebrow" style="color: rgba(59,169,165,0.6);">Straight talk</p>
-            <h3 data-reveal data-delay="1" class="font-heading font-bold text-white tracking-[-0.03em] leading-[1.1]" style="font-size: clamp(1.6rem, 2.5vw, 2.1rem);">
-              Things we won't do.
-            </h3>
-            <p data-reveal data-delay="2" class="text-white/40 text-[13.5px] leading-relaxed mt-3">
-              Baked into how we operate. Not a marketing claim.
-            </p>
-          </div>
-
-          <!-- Beliefs -->
-          <div class="space-y-0 divide-y divide-white/8">
-            {beliefs.map(({ icon, wont, will }, i) => (
-              <div data-reveal data-delay={String(i + 1)} class="group py-7 grid sm:grid-cols-[1fr_1fr] gap-5 sm:gap-10">
-                <div class="flex items-start gap-3.5">
-                  <div class="w-8 h-8 rounded-lg bg-[#ff6b6b]/10 border border-[#ff6b6b]/20 flex items-center justify-center text-[#ff6b6b] flex-shrink-0 mt-0.5" set:html={icon}></div>
-                  <p class="text-white/55 text-[13.5px] leading-relaxed">{wont}</p>
-                </div>
-                <div class="flex items-start gap-3.5">
-                  <div class="w-8 h-8 rounded-lg bg-brand-teal/10 border border-brand-teal/20 flex items-center justify-center text-brand-teal flex-shrink-0 mt-0.5" set:html={icon}></div>
-                  <p class="text-white/80 text-[13.5px] leading-relaxed">{will}</p>
-                </div>
+        <div class="about__belief-list">
+          {beliefs.map(({ wont, will }, i) => (
+            <article data-reveal data-delay={String(i + 1)} class="about__belief-row">
+              <div class="about__belief-item about__belief-item--negative">
+                <span class="about__belief-icon"><svg class="icon icon--medium" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 18L18 6M6 6l12 12"/></svg></span>
+                <p>{wont}</p>
               </div>
-            ))}
-          </div>
-
+              <div class="about__belief-item">
+                <span class="about__belief-icon"><svg class="icon icon--medium" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span>
+                <p>{will}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </div>
-
   </div>
 </section>

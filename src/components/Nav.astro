@@ -1,92 +1,136 @@
 ---
+import Logo from './Logo.astro';
+
+const services = [
+  { label: 'Commercial Gas', href: '/services/gas' },
+  { label: 'Commercial Electricity', href: '/services/electric' },
+  { label: 'Water', href: '/services/water' },
+  { label: 'Waste', href: '/services/waste' },
+  { label: 'Merchant Services', href: '/services/merchant-services' },
+  { label: 'Asset Management', href: '/services/asset-management' },
+];
+
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
 ---
 
-<header id="nav" class="fixed top-0 left-0 right-0 z-50">
-  <!-- Backdrop -->
-  <div id="nav-bg" class="absolute inset-0 transition-all duration-500"></div>
+<header id="nav" class="site-header">
+  <div id="nav-bg" class="site-header__backdrop"></div>
 
-  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
-    <div class="flex items-center justify-between h-[76px]">
-
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 group flex-shrink-0">
-        <div class="relative w-9 h-9">
-          <div class="absolute inset-0 bg-brand-teal rounded-lg"></div>
-          <div class="absolute inset-0 bg-gradient-to-br from-brand-teal-light/30 to-transparent rounded-lg"></div>
-          <span class="absolute inset-0 flex items-center justify-center text-white font-heading font-bold text-[13px] tracking-tight">U1</span>
-        </div>
-        <div class="leading-none">
-          <div class="font-heading font-bold text-[15px] tracking-[-0.02em] text-white">UTILITY</div>
-          <div class="text-[10px] text-white/40 tracking-[0.18em] uppercase">1 LTD</div>
-        </div>
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__brand" aria-label="Utility 1 home">
+        <span class="site-header__mark">
+          <Logo class="site-header__logo" />
+        </span>
+        <span class="site-header__brand-text">
+          <span class="site-header__brand-name">UTILITY</span>
+          <span class="site-header__brand-suffix">1 LTD</span>
+        </span>
       </a>
 
-      <!-- Nav -->
-      <nav class="hidden lg:flex items-center gap-0">
-        <a href="/" class="px-5 py-2.5 text-[13.5px] font-medium text-white/60 hover:text-white transition-colors duration-200 tracking-[-0.01em]">Home</a>
+      <nav class="site-header__nav" aria-label="Primary navigation">
+        <a href="/" class="site-header__link">Home</a>
 
-        <!-- Services dropdown -->
-        <div class="relative group">
-          <a href="/#services" class="flex items-center gap-1.5 px-5 py-2.5 text-[13.5px] font-medium text-white/60 hover:text-white transition-colors duration-200 tracking-[-0.01em]">
+        <div class="site-header__dropdown">
+          <a href="/services" class="site-header__dropdown-trigger">
             Services
-            <svg class="w-3 h-3 opacity-50 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="site-header__dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </a>
-          <!-- Dropdown panel -->
-          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 translate-y-1 group-hover:translate-y-0" style="min-width: 220px;">
-            <div class="bg-[#0d1820] border border-white/10 rounded-xl shadow-2xl overflow-hidden p-1.5">
-              {[
-                { label: 'Commercial Gas', href: '/services/gas', tag: 'Most popular' },
-                { label: 'Commercial Electric', href: '/services/electric' },
-                { label: 'Water', href: '/services/water' },
-                { label: 'Waste', href: '/services/waste' },
-                { label: 'Merchant Services', href: '/services/merchant-services' },
-                { label: 'Asset Management', href: '/services/asset-management' },
-              ].map(({ label, href, tag }) => (
-                <a href={href} class="flex items-center justify-between gap-3 px-4 py-2.5 rounded-lg text-white/60 hover:text-white hover:bg-white/6 transition-all duration-150 text-[13px]">
+          <div class="site-header__dropdown-panel">
+            <div class="site-header__dropdown-menu">
+              {services.map(({ label, href }) => (
+                <a href={href} class="site-header__dropdown-item">
                   {label}
-                  {tag && <span class="text-[10px] bg-brand-teal/20 text-brand-teal px-2 py-0.5 rounded-full font-semibold">{tag}</span>}
                 </a>
               ))}
-              <div class="border-t border-white/8 mt-1 pt-1">
-                <a href="/#services" class="flex items-center gap-2 px-4 py-2.5 rounded-lg text-white/40 hover:text-white/70 transition-all text-[12px]">
-                  View all services →
-                </a>
+              <div class="site-header__dropdown-footer">
+                <a href="/services" class="site-header__dropdown-item">View all services -></a>
               </div>
             </div>
           </div>
         </div>
 
-        <a href="/#case-studies" class="px-5 py-2.5 text-[13.5px] font-medium text-white/60 hover:text-white transition-colors duration-200 tracking-[-0.01em]">Case Studies</a>
-        <a href="/#insights" class="px-5 py-2.5 text-[13.5px] font-medium text-white/60 hover:text-white transition-colors duration-200 tracking-[-0.01em]">Insights</a>
+        <a href="/case-studies" class="site-header__link">Case Studies</a>
+        <a href="/blog" class="site-header__link">Blog</a>
+        <a href="/contact" class="site-header__link">Contact</a>
       </nav>
 
-      <!-- CTA -->
-      <a href="#contact" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-white text-brand-navy text-[13px] font-semibold rounded-[7px] hover:bg-brand-ghost transition-all duration-200 tracking-[-0.01em] shadow-[0_2px_8px_rgba(255,255,255,0.1)]">
-        Get Free Review
-      </a>
+      <a href="/contact" class="site-header__cta">Get Free Review</a>
 
+      <button id="mobile-menu-toggle" class="site-header__menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="site-header__mobile-menu" hidden>
+    <div class="container">
+      <nav class="site-header__mobile-panel" aria-label="Mobile navigation">
+        <div class="site-header__mobile-section">
+          {links.map(({ label, href }) => (
+            <a href={href} class="site-header__mobile-link">{label}</a>
+          ))}
+        </div>
+
+        <div class="site-header__mobile-section">
+          <span class="site-header__mobile-heading">Services</span>
+          {services.map(({ label, href }) => (
+            <a href={href} class="site-header__mobile-service">
+              <span>{label}</span>
+            </a>
+          ))}
+        </div>
+
+        <a href="/contact" class="button button--primary site-header__mobile-cta">Get Free Review</a>
+      </nav>
     </div>
   </div>
 </header>
 
 <script>
   const nav = document.getElementById('nav');
-  const navBg = document.getElementById('nav-bg');
+  const menu = document.getElementById('mobile-menu');
+  const toggle = document.getElementById('mobile-menu-toggle');
   let scrolled = false;
 
+  const closeMenu = () => {
+    if (!menu || !toggle || !nav) return;
+    menu.hidden = true;
+    nav.classList.remove('site-header--open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  };
+
   window.addEventListener('scroll', () => {
-    const s = window.scrollY > 60;
-    if (s !== scrolled) {
-      scrolled = s;
-      if (s) {
-        navBg!.style.background = 'rgba(10, 16, 24, 0.88)';
-        navBg!.style.backdropFilter = 'blur(20px) saturate(1.4)';
-        navBg!.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
-      } else {
-        navBg!.style.background = '';
-        navBg!.style.backdropFilter = '';
-        navBg!.style.borderBottom = '';
-      }
+    const nextScrolled = window.scrollY > 60;
+    if (nextScrolled !== scrolled && nav) {
+      scrolled = nextScrolled;
+      nav.classList.toggle('site-header--scrolled', scrolled);
     }
   }, { passive: true });
+
+  toggle?.addEventListener('click', () => {
+    if (!menu || !nav) return;
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    menu.hidden = isOpen;
+    nav.classList.toggle('site-header--open', !isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) closeMenu();
+  });
 </script>

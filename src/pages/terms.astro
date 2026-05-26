@@ -1,0 +1,51 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+
+const sections = [
+  {
+    title: 'Using This Website',
+    body: [
+      'This website is provided for general information about Utility 1 and our commercial utility services.',
+      'By using this website, you agree to use it lawfully and not to interfere with its security, availability or normal operation.',
+    ],
+  },
+  {
+    title: 'Website Content',
+    body: [
+      'We aim to keep website content accurate and up to date, but it is provided for general guidance only.',
+      'Nothing on this website should be treated as financial, legal or regulatory advice. Any commercial recommendation will depend on the details of your business and current contracts.',
+    ],
+  },
+  {
+    title: 'Service Enquiries',
+    body: [
+      'Submitting a form or contacting us does not create a client relationship by itself.',
+      'Any services, fees, responsibilities or commercial terms will be confirmed separately before work begins.',
+    ],
+  },
+  {
+    title: 'Intellectual Property',
+    body: [
+      'The content, design, branding and materials on this website belong to Utility 1 or are used under appropriate licence.',
+      'You may view and share pages for normal business purposes, but you must not copy, reproduce or adapt website content without permission.',
+    ],
+  },
+  {
+    title: 'Liability',
+    body: [
+      'We do not guarantee that the website will always be available, uninterrupted or free from errors.',
+      'To the fullest extent permitted by law, Utility 1 is not responsible for losses arising from general use of this website or reliance on website content alone.',
+    ],
+  },
+];
+---
+
+<LegalPage
+  title="Terms of Use"
+  eyebrow="Terms"
+  description="Read the Utility 1 website terms of use for visitors, enquiries and general website content."
+  intro="These terms explain how this website may be used and how website content should be understood."
+  updated="26 May 2026"
+  canonical="/terms"
+  sections={sections}
+/>

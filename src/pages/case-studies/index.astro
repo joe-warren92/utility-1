@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+import { distributionCentreExterior, recyclingMaterials, siteEnergyAudit } from '../../assets/images';
+
+const cases = [
+  {
+    image: distributionCentreExterior,
+    sector: 'Logistics',
+    metric: '28% cost reduction',
+    title: 'Reducing operational costs by 28% for a national distribution centre',
+    body: 'A 14-site logistics operator had not reviewed their utility contracts in six years. We renegotiated everything across gas, electricity and water in under four weeks.',
+    savings: '£45,000',
+    detail: 'annual saving',
+    href: '/case-studies/national-distribution-centre',
+  },
+  {
+    image: siteEnergyAudit,
+    sector: 'Facilities Management',
+    metric: '15 sites consolidated',
+    title: 'Streamlining utility management for a multi-site operator',
+    body: 'From 15 separate contracts to one consolidated account. One invoice. One point of contact.',
+    savings: '£32,000',
+    detail: 'annual saving',
+    href: '/case-studies/sterling-facilities',
+  },
+  {
+    image: recyclingMaterials,
+    sector: 'Manufacturing',
+    metric: '35% waste reduction',
+    title: 'Cutting waste management costs for an industrial manufacturer',
+    body: 'A full waste audit identified significant overspend and carrier duplication. Results delivered in eight weeks.',
+    savings: '£18,500',
+    detail: 'annual saving',
+    href: '/case-studies/industrial-manufacturer',
+  },
+];
+---
+
+<Layout
+  title="Case Studies | Utility 1"
+  description="Real Utility 1 client outcomes across logistics, facilities management and manufacturing."
+  canonical="/case-studies"
+>
+  <Nav />
+
+  <main>
+    <section class="case-archive-hero">
+      <div class="case-archive-hero__texture"></div>
+      <div class="container">
+        <nav data-reveal class="case-detail-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>Case Studies</span>
+        </nav>
+
+        <div class="case-archive-hero__grid">
+          <div>
+            <p data-reveal class="eyebrow eyebrow--muted">Case Studies</p>
+            <h1 data-reveal data-delay="1" class="case-archive-hero__title">Proven results from real client projects.</h1>
+          </div>
+          <p data-reveal="right" class="case-archive-hero__copy">
+            Explore how Utility 1 reduces costs, cleans up supplier management and gives businesses better control across utilities, waste and service contracts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark case-studies case-archive-list">
+      <div class="container">
+        <div class="case-studies__grid">
+          {cases.slice(0, 1).map((item) => (
+            <a data-reveal href={item.href} class="case-card case-card--featured card-lift">
+              <OptimizedImage src={item.image} alt={item.title} class="case-card__image" />
+              <div class="case-card__overlay"></div>
+              <div class="case-card__tags">
+                <span class="case-card__tag">{item.sector}</span>
+                <span class="case-card__tag case-card__tag--accent">{item.metric}</span>
+              </div>
+              <div class="case-card__content">
+                <h2 class="case-card__title">{item.title}</h2>
+                <p class="case-card__body">{item.body}</p>
+                <div class="case-card__footer">
+                  <div>
+                    <div class="case-card__detail">{item.detail}</div>
+                    <div class="case-card__saving">{item.savings}</div>
+                  </div>
+                  <span class="case-card__arrow"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+              </div>
+            </a>
+          ))}
+
+          <div class="case-studies__stack">
+            {cases.slice(1).map((item, i) => (
+              <a data-reveal data-delay={String(i + 2)} href={item.href} class="case-card card-lift">
+                <OptimizedImage src={item.image} alt={item.title} class="case-card__image" />
+                <div class="case-card__overlay"></div>
+                <div class="case-card__tags">
+                  <span class="case-card__tag">{item.sector}</span>
+                  <span class="case-card__tag case-card__tag--accent">{item.metric}</span>
+                </div>
+                <div class="case-card__content">
+                  <h2 class="case-card__title">{item.title}</h2>
+                  <div class="case-card__footer">
+                    <div>
+                      <div class="case-card__detail">{item.detail}</div>
+                      <div class="case-card__saving">{item.savings}</div>
+                    </div>
+                    <span class="case-card__arrow"><svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

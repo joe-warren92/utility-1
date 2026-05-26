@@ -1,77 +1,60 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+import { warehouseDeskOperations } from '../assets/images';
+
 const points = [
   { t: 'We find the overcharges first', d: 'The first audit is free. We benchmark your current spend against the market and show you exactly what you\'re overpaying — before we ask you to sign anything.' },
   { t: 'No auto-renewing into bad rates', d: 'We track every contract end date across your portfolio and act before the deadline. You will never roll onto an out-of-contract rate again.' },
-  { t: 'One invoice. Every utility.', d: 'Gas, electric, water, waste — consolidated into a single monthly statement you can actually read. No more chasing four different suppliers.' },
+  { t: 'One invoice. Every utility.', d: 'Gas, electricity, water and waste — consolidated into a single monthly statement you can actually read. No more chasing four different suppliers.' },
   { t: 'A named person, not a call centre', d: 'You get a dedicated account manager who knows your sites, your usage patterns, and your renewal schedule. Same person every time.' },
 ];
 ---
 
-<section class="py-24 bg-white relative overflow-hidden">
-  <div class="absolute inset-y-0 right-0 w-1/2 bg-brand-ghost pointer-events-none hidden lg:block"></div>
+<section class="section why-us">
+  <div class="why-us__offset"></div>
+  <div class="container split-grid why-us__grid">
+    <div class="why-us__content">
+      <p data-reveal class="eyebrow">Why Clients Stay</p>
+      <h2 data-reveal data-delay="1" class="section-heading">
+        Most clients find<br />£8,000–£45,000 in the<br />first audit alone.
+      </h2>
+      <p data-reveal data-delay="2" class="section-copy">
+        We have been doing this since 2012. We know where commercial utility costs go wrong, and we have the supplier relationships to fix them quickly.
+      </p>
 
-  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
-    <div class="grid lg:grid-cols-2 gap-0 items-center">
-
-      <!-- Left: content -->
-      <div class="pr-0 lg:pr-20 py-0 lg:py-8">
-        <p data-reveal class="eyebrow">Why Clients Stay</p>
-        <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02] mb-4" style="font-size: clamp(2.2rem, 4vw, 3.5rem);">
-          Most clients find<br />£8,000–£45,000 in the<br />first audit alone.
-        </h2>
-        <p data-reveal data-delay="2" class="text-brand-gray text-[14.5px] leading-relaxed max-w-[400px] mb-8">
-          We have been doing this since 2012. We know where commercial utility costs go wrong, and we have the supplier relationships to fix them quickly.
-        </p>
-
-        <div class="space-y-5 mb-10">
-          {points.map(({ t, d }, i) => (
-            <div data-reveal data-delay={String(i + 1)} class="flex gap-4">
-              <div class="w-5 h-5 rounded-full bg-brand-teal/15 border border-brand-teal/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-2.5 h-2.5 text-brand-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
-              </div>
-              <div>
-                <p class="font-heading font-semibold text-brand-navy text-[14px] tracking-[-0.02em]">{t}</p>
-                <p class="text-brand-gray text-[13px] mt-0.5 leading-relaxed">{d}</p>
-              </div>
+      <div class="feature-list why-us__list">
+        {points.map(({ t, d }, i) => (
+          <div data-reveal data-delay={String(i + 1)} class="feature-list__item">
+            <span class="feature-list__icon"><svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg></span>
+            <div>
+              <p class="feature-list__title">{t}</p>
+              <p class="feature-list__copy">{d}</p>
             </div>
-          ))}
-        </div>
-
-        <div data-reveal class="flex flex-wrap gap-3">
-          <a href="#contact" class="btn-dark">Get a free audit</a>
-          <a href="#case-studies" class="inline-flex items-center gap-2 text-brand-navy text-[13px] font-semibold hover:text-brand-teal transition-colors py-3 px-1 tracking-[-0.01em]">
-            See real results →
-          </a>
-        </div>
+          </div>
+        ))}
       </div>
 
-      <!-- Right: image with floating stats -->
-      <div data-reveal="right" class="relative mt-12 lg:mt-0 lg:pl-12">
-        <div class="relative rounded-2xl overflow-hidden" style="height: 480px;">
-          <img
-            src="https://images.unsplash.com/photo-1664575600850-c4b712e6e2bf?auto=format&fit=crop&w=900&q=80"
-            alt="Commercial office operations"
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-br from-brand-navy/40 via-transparent to-brand-navy/20"></div>
-        </div>
-
-        <!-- Floating audit result card -->
-        <div class="absolute -bottom-5 -left-6 lg:-left-10 bg-white rounded-2xl p-5 shadow-[0_8px_40px_rgba(15,25,35,0.12)]" style="min-width: 200px;">
-          <div class="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-gray-light mb-1">First audit result</div>
-          <div class="font-heading font-bold text-brand-navy leading-none tracking-[-0.04em]" style="font-size: 2.5rem;">£28,400</div>
-          <div class="text-brand-gray text-[12px] mt-1">recovered for a logistics client</div>
-        </div>
-
-        <!-- Second card -->
-        <div class="absolute top-8 -right-4 lg:-right-6 bg-brand-teal rounded-xl p-4 shadow-[0_8px_32px_rgba(59,169,165,0.35)]">
-          <div class="text-white/75 text-[10px] uppercase tracking-wider mb-1">Typical timeline</div>
-          <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.4rem;">4 weeks</div>
-          <div class="text-white/60 text-[11px] mt-0.5">from audit to saving</div>
-        </div>
+      <div data-reveal class="hero__actions">
+        <a href="/contact" class="button button--dark">Get a free audit</a>
+        <a href="/case-studies" class="text-link">See real results -></a>
       </div>
+    </div>
 
+    <div data-reveal="right" class="why-us__media">
+      <div class="media-card">
+        <OptimizedImage src={warehouseDeskOperations} alt="Commercial warehouse operations" class="media-card__image" />
+        <div class="media-card__overlay media-card__overlay--subtle"></div>
+      </div>
+      <div class="floating-stat">
+        <div class="floating-stat__label">First audit result</div>
+        <div class="floating-stat__value">£28,400</div>
+        <div class="floating-stat__copy">recovered for a logistics client</div>
+      </div>
+      <div class="floating-badge">
+        <div class="floating-badge__label">Typical timeline</div>
+        <div class="floating-badge__value">4 weeks</div>
+        <div class="floating-badge__copy">from audit to saving</div>
+      </div>
     </div>
   </div>
 </section>

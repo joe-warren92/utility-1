@@ -1,0 +1,111 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import {
+  distributionCentreExterior,
+  siteEnergyAudit,
+  warehouseDeskOperations,
+  warehouseOperator,
+  wasteCollectionTrucks,
+} from '../../assets/images';
+
+const benefits = [
+  { title: 'Water bill audit', copy: 'We check standing charges, volumetric rates, wastewater, drainage and trade effluent costs against your actual site use and available retailer options.' },
+  { title: 'Leak and consumption review', copy: 'We look for unexplained usage spikes, estimated reads and billing gaps that may point to leaks, meter problems or incorrect charging.' },
+  { title: 'Retailer tender and negotiation', copy: 'We take verified site data to suitable water retailers and negotiate a better-fit contract where the market can improve your position.' },
+  { title: 'Multi-site billing control', copy: 'We consolidate meter records, billing queries and renewal dates so finance teams have a clearer view of water spend across every site.' },
+];
+
+const commonProblems = [
+  { quote: '"We inherited a water contract from the previous tenant."', answer: 'Inherited contracts are rarely benchmarked. We check the rates, meter details and retailer terms so you know whether the setup is still suitable.' },
+  { quote: '"Our water bill has crept up but usage has not changed."', answer: 'This can come from estimated reads, tariff changes, drainage charges or unnoticed leaks. We review the bill history and usage pattern together.' },
+  { quote: '"Nobody knows how many meters we actually have."', answer: 'Multi-site estates often have old meter records and missing site information. We rebuild the register so billing can be checked properly.' },
+  { quote: '"We are paying drainage charges but do not know if they apply."', answer: 'Surface water and highway drainage charges can be misunderstood. We check how charges are being applied and whether any correction route exists.' },
+  { quote: '"The retailer keeps passing our query around."', answer: 'We help structure the query, gather evidence and keep the issue moving until there is a clear answer.' },
+  { quote: '"Water is a small bill, so we never reviewed it."', answer: 'That is exactly why it gets missed. A small monthly overspend across several sites can become a meaningful annual saving.' },
+];
+
+const process = [
+  { number: '01', title: 'Send your latest water bill', copy: 'We review meter details, retailer charges, usage history and site information to establish the baseline.', timeline: '24 hours' },
+  { number: '02', title: 'We check usage and charges', copy: 'We compare consumption, wastewater, drainage, standing charges and retailer pricing against your business profile.', timeline: '2-3 days' },
+  { number: '03', title: 'We benchmark retailer options', copy: 'Where a better option exists, we compare suitable retailers and present the commercial impact clearly.', timeline: '1-2 weeks' },
+  { number: '04', title: 'We handle the admin', copy: 'If you choose to switch or raise a correction, we help coordinate the paperwork, retailer contact and account setup.', timeline: '1-2 weeks' },
+];
+
+const faqs = [
+  { question: 'Can businesses switch water supplier?', answer: 'Eligible non-household customers in England and Scotland can switch water retailer. We help compare the options and manage the process.' },
+  { question: 'Can you check drainage and wastewater charges?', answer: 'Yes. We review water, wastewater, surface water drainage and trade effluent charges where they appear on your bills.' },
+  { question: 'Do you help with suspected leaks?', answer: 'We can flag unusual consumption and billing patterns, then help coordinate the right next steps with the retailer or site team.' },
+  { question: 'Is water worth reviewing if our spend is low?', answer: 'Yes, especially across multiple sites. Water is often ignored for years, which means errors and poor rates can sit unnoticed.' },
+  { question: 'Can you manage multiple meters?', answer: 'Yes. We can review multiple SPIDs, sites and meter records as part of one portfolio audit.' },
+  { question: 'What do you need to start?', answer: 'A recent bill is usually enough for the first review. More complex sites may need consumption history or site information later.' },
+];
+
+const related = [
+  { name: 'Gas', href: '/services/gas', saving: '£4,200 avg. saving', image: siteEnergyAudit },
+  { name: 'Electricity', href: '/services/electric', saving: '£5,800 avg. saving', image: warehouseDeskOperations },
+  { name: 'Waste', href: '/services/waste', saving: '35% avg. reduction', image: wasteCollectionTrucks },
+  { name: 'Merchant Services', href: '/services/merchant-services', saving: 'Save on every transaction', image: warehouseOperator },
+];
+---
+
+<ServicePage
+  pageTitle="Commercial Water Contracts | Utility 1 - Reduce Business Water Costs"
+  pageDescription="We audit commercial water bills, benchmark retailers, identify billing issues, and help reduce avoidable water spend. Free audit, no obligation."
+  title="Cut waste from"
+  accent="your water bills."
+  eyebrow="Commercial Water"
+  breadcrumb="Commercial Water"
+  description="Water costs are often left untouched for years. We audit your charges, benchmark your retailer, check for billing errors, and help reduce avoidable consumption across single and multi-site businesses."
+  image={distributionCentreExterior}
+  ctaLabel="Get a free water audit"
+  stats={[
+    { value: '15%', label: 'avg. water cost reduction' },
+    { value: '£1,600', label: 'avg. annual saving' },
+    { value: '250+', label: 'water audits completed' },
+  ]}
+  problemStats={[
+    { value: '1 in 3', label: 'water bills contain a charge worth checking' },
+    { value: '£1,600', label: 'average annual saving from water reviews' },
+    { value: '12 months', label: 'typical time billing queries sit unresolved' },
+    { value: '4 sites', label: 'where small water savings often become material' },
+  ]}
+  whatWeDoTitle="We check the charges.<br />Then we reduce the waste."
+  whatWeDoCopy="We review water bills in detail, from retailer rates through to drainage and consumption patterns. The aim is simple: cleaner billing, fewer errors and a better-fit contract."
+  benefits={benefits}
+  featureImage={siteEnergyAudit}
+  featureImageAlt="Water infrastructure pipework"
+  auditCard={{ eyebrow: 'Recent water audit', value: '£4,100', copy: 'saved on an inherited site contract', note: '28% rate improvement' }}
+  commonProblemsEyebrow="Common Water Problems"
+  commonProblemsTitle="Small charges become expensive when no one checks them."
+  commonProblems={commonProblems}
+  caseStudy={{
+    eyebrow: 'Water Case Study',
+    title: 'A new distribution site had accepted the previous tenant water contract.',
+    copy: [
+      'The client had taken on a new site and simply continued with the existing water retailer. The inherited contract had never been compared against the market.',
+      'We checked the SPID, usage history, wastewater assumptions and retailer terms. The rate was 28% above the available market price for that profile.',
+      'We moved the site to a better-fit retailer and added the meter to the client portfolio register so future renewals and billing checks would not be missed.',
+    ],
+    quote: '"It was one of those small admin jobs that never reached the top of the list. Utility 1 found the issue almost immediately." - Finance Manager',
+    image: distributionCentreExterior,
+    imageAlt: 'Commercial water system',
+    savingLabel: 'Annual water saving',
+    savingValue: '£4,100',
+    savingNote: '28%',
+    stats: [
+      { value: '1', label: 'site corrected' },
+      { value: '£4,100', label: 'annual saving' },
+      { value: '5 days', label: 'audit time' },
+    ],
+    ctaLabel: 'Start your water audit',
+  }}
+  processTitle="From first bill to<br />clear water savings."
+  process={process}
+  faqs={faqs}
+  related={related}
+  contactEyebrow="Free Water Audit"
+  contactTitle="Send us your latest water bill."
+  contactCopy="We will review the charges, usage and retailer setup, then come back with a clear view of where savings or corrections may be available."
+  formTitle="Request your free water audit"
+  spendLabel="Annual water spend (approx.)"
+/>

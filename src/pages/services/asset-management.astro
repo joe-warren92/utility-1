@@ -1,0 +1,111 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import {
+  distributionCentreExterior,
+  siteEnergyAudit,
+  stockroomInventory,
+  warehouseDeskOperations,
+  wasteCollectionTrucks,
+} from '../../assets/images';
+
+const benefits = [
+  { title: 'Asset register review', copy: 'We help bring meters, plant, utility infrastructure and key service assets into a clearer register with ownership and maintenance context.' },
+  { title: 'Maintenance planning', copy: 'We review inspection cycles, service records and risk areas so maintenance can be planned before faults create avoidable downtime.' },
+  { title: 'Lifecycle and replacement advice', copy: 'We identify ageing or inefficient assets and help prioritise replacement decisions based on cost, risk and operational impact.' },
+  { title: 'Supplier and contract oversight', copy: 'We review maintenance providers, service terms and renewal dates so asset support remains commercially sensible.' },
+];
+
+const commonProblems = [
+  { quote: '"We do not have a reliable asset register."', answer: 'Without a clear register, maintenance, renewals and responsibility become difficult to manage. We help structure the information.' },
+  { quote: '"Maintenance only happens when something fails."', answer: 'Reactive maintenance is usually more expensive. We help identify critical assets and plan service cycles earlier.' },
+  { quote: '"Nobody knows who owns each supplier relationship."', answer: 'Supplier ownership often becomes unclear across sites. We map providers, terms and renewal points so accountability improves.' },
+  { quote: '"Replacement decisions are always rushed."', answer: 'Lifecycle planning gives you more time to compare options, budget properly and avoid emergency purchasing.' },
+  { quote: '"We have old equipment but no clear risk view."', answer: 'We help identify operational and commercial risk so action can be prioritised around the assets that matter most.' },
+  { quote: '"Invoices arrive but nobody knows if the service was done."', answer: 'Service records and invoice checks need to line up. We help improve visibility across supplier activity.' },
+];
+
+const process = [
+  { number: '01', title: 'Send asset and supplier records', copy: 'We review current asset lists, maintenance contracts, service records and known operational pain points.', timeline: '24-48 hours' },
+  { number: '02', title: 'We identify risk and gaps', copy: 'We compare records, service cycles, supplier terms and asset age to highlight gaps or unnecessary cost.', timeline: '3-5 days' },
+  { number: '03', title: 'We prioritise the improvement plan', copy: 'You receive a clear view of priority actions, replacement risks, maintenance needs and supplier opportunities.', timeline: '1-2 weeks' },
+  { number: '04', title: 'We support ongoing control', copy: 'We help keep renewals, maintenance dates and asset decisions visible so the setup is easier to manage.', timeline: 'Always on' },
+];
+
+const faqs = [
+  { question: 'What assets can you review?', answer: 'We can review utility-related assets, meters, service infrastructure, maintenance contracts and associated supplier arrangements.' },
+  { question: 'Is this only for large estates?', answer: 'No. The service can help single sites, but it is especially useful where several assets, suppliers or locations are hard to track.' },
+  { question: 'Do you replace equipment directly?', answer: 'We focus on review, planning, supplier coordination and commercial oversight. Where replacement is needed, we help identify the right route.' },
+  { question: 'Can you work with incomplete records?', answer: 'Yes. Incomplete records are common. We start with what exists and build a clearer picture from invoices, contracts and site information.' },
+  { question: 'Do you handle maintenance suppliers?', answer: 'We can review supplier terms, renewal dates and service records, then help coordinate the right commercial route.' },
+  { question: 'How long does the first review take?', answer: 'Simple reviews can be turned around in a few days. More complex estates may need a phased review.' },
+];
+
+const related = [
+  { name: 'Gas', href: '/services/gas', saving: '£4,200 avg. saving', image: siteEnergyAudit },
+  { name: 'Electricity', href: '/services/electric', saving: '£5,800 avg. saving', image: warehouseDeskOperations },
+  { name: 'Water', href: '/services/water', saving: '£1,600 avg. saving', image: distributionCentreExterior },
+  { name: 'Waste', href: '/services/waste', saving: '35% avg. reduction', image: wasteCollectionTrucks },
+];
+---
+
+<ServicePage
+  pageTitle="Asset Management | Utility 1 - Utility Infrastructure and Supplier Control"
+  pageDescription="We review utility-related assets, supplier contracts, maintenance cycles and lifecycle risks to improve control and reduce avoidable downtime."
+  title="Keep critical assets"
+  accent="working harder."
+  eyebrow="Asset Management"
+  breadcrumb="Asset Management"
+  description="Poor asset visibility leads to missed maintenance, avoidable failures and rushed replacement decisions. We help you organise records, review suppliers and plan the lifecycle of utility infrastructure."
+  image={stockroomInventory}
+  ctaLabel="Get an asset review"
+  stats={[
+    { value: '18%', label: 'typical efficiency gain' },
+    { value: '2-6 wks', label: 'improvement planning' },
+    { value: 'Always', label: 'renewal visibility' },
+  ]}
+  problemStats={[
+    { value: '18%', label: 'typical efficiency gain from better control' },
+    { value: '2-6 wks', label: 'typical improvement planning window' },
+    { value: '5+', label: 'supplier records often found per site' },
+    { value: 'Always', label: 'renewal and maintenance visibility' },
+  ]}
+  whatWeDoTitle="We organise the assets.<br />Then we reduce the risk."
+  whatWeDoCopy="Asset management is about visibility first. We bring records, supplier terms, maintenance cycles and risk areas into one practical view so decisions are easier to make."
+  benefits={benefits}
+  featureImage={siteEnergyAudit}
+  featureImageAlt="Engineer reviewing industrial equipment"
+  auditCard={{ eyebrow: 'Recent asset review', value: '18%', copy: 'efficiency gain across service assets', note: 'maintenance plan rebuilt' }}
+  commonProblemsEyebrow="Common Asset Problems"
+  commonProblemsTitle="Poor visibility creates expensive surprises."
+  commonProblems={commonProblems}
+  caseStudy={{
+    eyebrow: 'Asset Management Case Study',
+    title: 'A multi-site operator had maintenance contracts nobody was actively managing.',
+    copy: [
+      'The client had grown through site acquisitions, inheriting several supplier contracts and maintenance schedules along the way.',
+      'We reviewed the asset list, supplier terms and invoice history, then found duplicated service cover and several critical assets with no clear maintenance cycle.',
+      'The new register gave finance and operations one view of ownership, renewal dates and risk priorities. Duplicated supplier spend was removed and maintenance planning improved.',
+    ],
+    quote: '"The biggest value was clarity. We finally had one place to see what we owned, who serviced it and what needed attention next." - Facilities Director',
+    image: warehouseDeskOperations,
+    imageAlt: 'Industrial maintenance planning',
+    savingLabel: 'Efficiency improvement',
+    savingValue: '18%',
+    savingNote: '6 sites',
+    stats: [
+      { value: '6', label: 'sites reviewed' },
+      { value: '18%', label: 'efficiency gain' },
+      { value: '5 weeks', label: 'to plan' },
+    ],
+    ctaLabel: 'Start your asset review',
+  }}
+  processTitle="From scattered records to<br />clear asset control."
+  process={process}
+  faqs={faqs}
+  related={related}
+  contactEyebrow="Asset Management Review"
+  contactTitle="Send us your current asset setup."
+  contactCopy="We will review records, suppliers and known issues, then come back with a clear view of risks, gaps and practical next steps."
+  formTitle="Request your asset review"
+  spendLabel="Annual maintenance spend (approx.)"
+/>

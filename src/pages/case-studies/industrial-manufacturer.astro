@@ -1,0 +1,151 @@
+---
+import CaseStudyPage from '../../components/CaseStudyPage.astro';
+import {
+  distributionCentreExterior,
+  recyclingMaterials,
+  siteEnergyAudit,
+  wasteCollectionTrucks,
+} from '../../assets/images';
+
+const moreCases = [
+  {
+    image: distributionCentreExterior,
+    sector: 'Logistics',
+    metric: '28% cost reduction',
+    title: 'Reducing operational costs by 28% for a national distribution centre',
+    savings: '£45,000',
+    href: '/case-studies/national-distribution-centre',
+  },
+  {
+    image: siteEnergyAudit,
+    sector: 'Facilities Management',
+    metric: '15 sites consolidated',
+    title: 'Streamlining utility management for a multi-site FM operator',
+    savings: '£32,000',
+    href: '/case-studies/sterling-facilities',
+  },
+];
+---
+
+<CaseStudyPage
+  title="Industrial Manufacturer Case Study | Utility 1"
+  description="How Utility 1 reduced waste management costs by 35% for an industrial manufacturer, saving £18,500 per year."
+  clientName="Industrial Manufacturer"
+  breadcrumb="Industrial Manufacturer"
+  tags={['Manufacturing', 'Waste Management', '35% reduction']}
+  heroImage={recyclingMaterials}
+  heroImageAlt="Industrial manufacturing waste area"
+  heroTitle="35% waste cost reduction<br />for an industrial manufacturer."
+  heroIntro="A manufacturing site had waste collections, skips and recycling streams managed by different carriers. We rebuilt the service around actual site demand and saved £18,500 per year."
+  keyValue="35%"
+  keyLabel="waste reduction"
+  heroMetrics={[
+    { value: '£18,500', label: 'Annual saving' },
+    { value: '35%', label: 'Cost reduction' },
+    { value: '8 weeks', label: 'Delivery time' },
+    { value: '4', label: 'Carriers reviewed' },
+    { value: '12', label: 'Waste streams mapped' },
+  ]}
+  situationTitle="A busy site with a waste setup that had grown by accident."
+  situationCopy={[
+    'The client operates a specialist manufacturing site with production waste, packaging, general waste and recycling streams moving through the yard every week.',
+    'Waste services had been added over time as the site changed. New bins, ad hoc skip collections and separate recycling arrangements were layered onto old contracts without a full review.',
+    'By the time Utility 1 was asked to audit the site, four carriers were involved, collection schedules overlapped, and the operations team had no clear view of what each stream should cost.',
+    'The client wanted to reduce spend, but they also needed a cleaner operating model that would not create compliance or production risks.',
+  ]}
+  clientProfile={[
+    { label: 'Sector', value: 'Industrial Manufacturing' },
+    { label: 'Sites', value: '1 production site' },
+    { label: 'Employees', value: '210' },
+    { label: 'Annual turnover', value: '£19M' },
+    { label: 'Services covered', value: 'Waste, Recycling, Skips' },
+    { label: 'Previous reviews', value: 'None in 4 years' },
+  ]}
+  timeline={[
+    { step: 'Initial audit', time: 'Week 1' },
+    { step: 'Waste stream mapping', time: 'Week 2' },
+    { step: 'Carrier tender', time: 'Weeks 3-5' },
+    { step: 'Service redesign', time: 'Week 6' },
+    { step: 'New schedule live', time: 'Week 8' },
+  ]}
+  challengeTitle="The site was paying for capacity it did not need."
+  challenges={[
+    {
+      number: '01',
+      title: 'Over-serviced general waste',
+      body: 'General waste bins were collected on a fixed weekly schedule even when volumes had fallen after a packaging process changed. Several collections were leaving the site half-empty.',
+      cost: '+£7,400/yr',
+      costLabel: 'excess collections',
+      image: recyclingMaterials,
+    },
+    {
+      number: '02',
+      title: 'Carrier duplication',
+      body: 'Four carriers were servicing overlapping waste streams. The site was paying duplicated admin charges, missed minimum volume thresholds and had multiple reporting formats.',
+      cost: '+£5,600/yr',
+      costLabel: 'carrier overlap',
+      image: wasteCollectionTrucks,
+    },
+    {
+      number: '03',
+      title: 'Recycling value not captured',
+      body: 'Cardboard and metal streams were being removed under an old service agreement that did not reflect current recyclable value or site volumes.',
+      cost: '+£3,900/yr',
+      costLabel: 'missed value',
+      image: siteEnergyAudit,
+    },
+  ]}
+  approachImage={siteEnergyAudit}
+  approachImageAlt="Manufacturing operations review"
+  approachQuote="They walked the site, checked the invoices and challenged the collection schedule. It was much more practical than a desktop quote exercise."
+  approachQuoteByline="Operations Manager, Industrial Manufacturer"
+  approachTitle="Map the streams.<br />Right-size collections.<br />Tender the carriers."
+  approach={[
+    {
+      number: '01',
+      title: 'Invoice and contract audit (Week 1)',
+      body: 'We gathered carrier invoices, service schedules and contract terms, then built a clear view of all active waste streams and charges.',
+    },
+    {
+      number: '02',
+      title: 'Site demand review (Week 2)',
+      body: 'We mapped bin locations, skip usage, production cycles and recycling streams to understand what the site actually needed each week.',
+    },
+    {
+      number: '03',
+      title: 'Carrier tender (Weeks 3-5)',
+      body: 'We tendered the redesigned service with carriers who could support industrial waste, recycling reporting and duty of care requirements.',
+    },
+    {
+      number: '04',
+      title: 'New schedule implemented (Weeks 6-8)',
+      body: 'Collections were moved to a better-fit schedule, supplier responsibilities were simplified, and reporting was standardised for operations and finance.',
+    },
+  ]}
+  resultsTitle="£18,500 saved each year.<br />A cleaner waste operation."
+  resultStats={[
+    { value: '£18,500', label: 'Total annual saving', sub: 'across waste and recycling' },
+    { value: '35%', label: 'Waste cost reduction', sub: 'vs. previous annual spend' },
+    { value: '4 to 2', label: 'Carrier accounts', sub: 'simplified for operations' },
+    { value: '8 weeks', label: 'Project delivery', sub: 'from audit to live schedule' },
+  ]}
+  resultRows={[
+    { utility: 'General waste collections', previous: '£24,800', next: '£16,900', saving: '£7,900', percent: '32%' },
+    { utility: 'Skip hire and exchange', previous: '£14,200', next: '£10,500', saving: '£3,700', percent: '26%' },
+    { utility: 'Recycling streams', previous: '£9,600', next: '£4,800', saving: '£4,800', percent: '50%' },
+    { utility: 'Carrier admin charges', previous: '£4,200', next: '£2,100', saving: '£2,100', percent: '50%' },
+  ]}
+  resultTotal={{ previous: '£52,800', next: '£34,300', saving: '£18,500', percent: '35%' }}
+  outcomes={[
+    { title: 'Collections right-sized', body: 'Collection frequency now follows real production demand instead of a legacy fixed schedule.' },
+    { title: 'Carrier base simplified', body: 'Four carriers were reduced to two with clearer ownership, reporting and duty of care documentation.' },
+    { title: 'Recycling performance improved', body: 'High-value recycling streams are now separated and reported more clearly for operations and finance.' },
+  ]}
+  testimonial={{
+    quote: 'We expected a cheaper quote. What we got was a proper redesign of how waste moved through the site. The savings landed, and the yard is easier to manage.',
+    initials: 'RM',
+    name: 'Rachel Morgan',
+    role: 'Operations Manager, Industrial Manufacturer',
+  }}
+  moreCases={moreCases}
+/>

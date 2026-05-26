@@ -33,55 +33,35 @@ const pains = [
 ];
 ---
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="section pain-points">
+  <div class="pain-points__texture"></div>
+  <div class="container pain-points__grid">
+    <div class="pain-points__intro">
+      <p data-reveal class="eyebrow">Sound Familiar?</p>
+      <h2 data-reveal data-delay="1" class="section-heading">
+        We hear these<br />every week.
+      </h2>
+      <p data-reveal data-delay="2" class="section-copy pain-points__copy">
+        After 500+ audits, we know exactly where commercial utility costs go wrong. Here is what business owners and ops managers tell us when they first get in touch.
+      </p>
 
-  <!-- Subtle texture -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.018]" style="background-image: radial-gradient(circle at 1px 1px, #0f1923 1px, transparent 0); background-size: 32px 32px;"></div>
-
-  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <div class="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
-
-      <!-- Left: sticky header -->
-      <div class="lg:sticky lg:top-32">
-        <p data-reveal class="eyebrow">Sound Familiar?</p>
-        <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.0] mb-5" style="font-size: clamp(2.4rem, 4.5vw, 4rem);">
-          We hear these<br />every week.
-        </h2>
-        <p data-reveal data-delay="2" class="text-brand-gray text-[14.5px] leading-relaxed max-w-[320px] mb-8">
-          After 500+ audits, we know exactly where commercial utility costs go wrong. Here is what business owners and ops managers tell us when they first get in touch.
-        </p>
-
-        <!-- CTA card — dark, so it pops against the white background -->
-        <div data-reveal data-delay="3" class="p-6 rounded-xl bg-brand-navy relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-brand-teal/10 rounded-full blur-[60px] pointer-events-none"></div>
-          <p class="font-heading font-bold text-white text-[1.05rem] mb-1 tracking-[-0.02em] relative">We find the overcharges.<br />We fix them.<br />You keep the savings.</p>
-          <p class="text-white/40 text-[12.5px] mb-5 mt-2 relative">Most clients recover £8,000–£45,000 in the first audit.</p>
-          <a href="#contact" class="btn-primary text-[13px] relative">Book a free audit</a>
-        </div>
+      <div data-reveal data-delay="3" class="pain-points__cta-card">
+        <p class="pain-points__cta-title">We find the overcharges.<br />We fix them.<br />You keep the savings.</p>
+        <p class="pain-points__cta-copy">Most clients recover £8,000–£45,000 in the first audit.</p>
+        <a href="/contact" class="button button--primary">Book a free audit</a>
       </div>
+    </div>
 
-      <!-- Right: pain points -->
-      <div class="space-y-1">
-        {pains.map(({ n, h, b }, i) => (
-          <div
-            data-reveal
-            data-delay={String((i % 3) + 1)}
-            class="group flex gap-5 p-5 rounded-xl border border-transparent hover:border-black/7 hover:bg-brand-off-white transition-all duration-300 cursor-default"
-          >
-            <div class="flex-shrink-0 pt-0.5">
-              <span class="font-heading font-bold text-[1.8rem] text-black/8 group-hover:text-brand-teal/40 transition-colors duration-300 leading-none tabular-nums">
-                {n}
-              </span>
-            </div>
-            <div>
-              <h3 class="font-heading font-semibold text-brand-navy text-[0.97rem] tracking-[-0.01em] mb-1.5 leading-snug italic">{h}</h3>
-              <p class="text-brand-gray text-[13px] leading-relaxed">{b}</p>
-            </div>
+    <div class="pain-points__list">
+      {pains.map(({ n, h, b }, i) => (
+        <article data-reveal data-delay={String((i % 3) + 1)} class="pain-point">
+          <span class="pain-point__number">{n}</span>
+          <div>
+            <h3 class="pain-point__title">{h}</h3>
+            <p class="pain-point__copy">{b}</p>
           </div>
-        ))}
-      </div>
-
+        </article>
+      ))}
     </div>
   </div>
 </section>

@@ -1,0 +1,392 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import LineBreakText from './LineBreakText.astro';
+import OptimizedImage from './OptimizedImage.astro';
+import type { ImageMetadata } from 'astro';
+
+type Metric = { value: string; label: string };
+type LabelValue = { label: string; value: string };
+type TimelineItem = { step: string; time: string };
+type Challenge = { number: string; title: string; body: string; cost: string; costLabel: string; image: ImageMetadata };
+type Approach = { number: string; title: string; body: string };
+type ResultStat = { value: string; label: string; sub: string };
+type ResultRow = { utility: string; previous: string; next: string; saving: string; percent: string };
+type Outcome = { title: string; body: string };
+type MoreCase = { image: ImageMetadata; sector: string; metric: string; title: string; savings: string; href: string };
+
+export interface Props {
+  title: string;
+  description: string;
+  clientName: string;
+  breadcrumb: string;
+  tags: string[];
+  heroImage: ImageMetadata;
+  heroImageAlt: string;
+  heroTitle: string;
+  heroIntro: string;
+  keyValue: string;
+  keyLabel: string;
+  heroMetrics: Metric[];
+  situationEyebrow?: string;
+  situationTitle: string;
+  situationCopy: string[];
+  clientProfile: LabelValue[];
+  timeline: TimelineItem[];
+  sidebarCtaTitle?: string;
+  sidebarCtaCopy?: string;
+  challengeTitle: string;
+  challenges: Challenge[];
+  approachImage: ImageMetadata;
+  approachImageAlt: string;
+  approachQuote: string;
+  approachQuoteByline: string;
+  approachTitle: string;
+  approach: Approach[];
+  resultsTitle: string;
+  resultStats: ResultStat[];
+  resultRows: ResultRow[];
+  resultTotal: { previous: string; next: string; saving: string; percent: string };
+  outcomes: Outcome[];
+  testimonial: { quote: string; initials: string; name: string; role: string };
+  moreCases: MoreCase[];
+  finalTitle?: string;
+  finalCopy?: string;
+}
+
+const {
+  title,
+  description,
+  clientName,
+  breadcrumb,
+  tags,
+  heroImage,
+  heroImageAlt,
+  heroTitle,
+  heroIntro,
+  keyValue,
+  keyLabel,
+  heroMetrics,
+  situationEyebrow = 'The Situation',
+  situationTitle,
+  situationCopy,
+  clientProfile,
+  timeline,
+  sidebarCtaTitle = "Want to see what we'd find for you?",
+  sidebarCtaCopy = 'Free audit. Response within 24 hours.',
+  challengeTitle,
+  challenges,
+  approachImage,
+  approachImageAlt,
+  approachQuote,
+  approachQuoteByline,
+  approachTitle,
+  approach,
+  resultsTitle,
+  resultStats,
+  resultRows,
+  resultTotal,
+  outcomes,
+  testimonial,
+  moreCases,
+  finalTitle = "Find out what you're overpaying.",
+  finalCopy = "Send us your latest utility bill. We'll come back within 24 hours with a clear picture of your options, no obligation and no hard sell.",
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Nav />
+
+  <main class="case-detail">
+    <section class="case-detail-hero">
+      <div class="case-detail-hero__media">
+        <OptimizedImage src={heroImage} alt={heroImageAlt} class="case-detail-hero__image" loading="eager" fetchpriority="high" />
+        <div class="case-detail-hero__overlay case-detail-hero__overlay--side"></div>
+        <div class="case-detail-hero__overlay case-detail-hero__overlay--bottom"></div>
+      </div>
+
+      <div class="container case-detail-hero__content">
+        <nav data-reveal class="case-detail-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/case-studies">Case Studies</a>
+          <span>/</span>
+          <span>{breadcrumb}</span>
+        </nav>
+
+        <div class="case-detail-hero__grid">
+          <div class="case-detail-hero__copy">
+            <div data-reveal class="case-detail-tags">
+              {tags.map((tag, i) => (
+                <span class:list={['case-detail-tag', { 'case-detail-tag--accent': i === 0 }]}>{tag}</span>
+              ))}
+            </div>
+
+            <h1 data-reveal data-delay="1" class="case-detail-hero__title">
+              <LineBreakText text={heroTitle} />
+            </h1>
+            <p data-reveal data-delay="2" class="case-detail-hero__intro">{heroIntro}</p>
+          </div>
+
+          <aside data-reveal="right" class="case-detail-hero__key-number" aria-label="Key result">
+            <div class="case-detail-hero__key-value">{keyValue}</div>
+            <div class="case-detail-hero__key-label">{keyLabel}</div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="case-detail-metrics">
+        <div class="container case-detail-metrics__grid">
+          {heroMetrics.map(({ value, label }) => (
+            <div class="case-detail-metrics__item">
+              <div class="case-detail-metrics__value">{value}</div>
+              <div class="case-detail-metrics__label">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-detail-section--white">
+      <div class="container case-overview">
+        <article class="case-overview__narrative">
+          <p data-reveal class="eyebrow">{situationEyebrow}</p>
+          <h2 data-reveal data-delay="1" class="case-detail-heading">{situationTitle}</h2>
+
+          <div data-reveal data-delay="2" class="case-detail-prose">
+            {situationCopy.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </article>
+
+        <aside data-reveal="right" class="case-sidebar">
+          <section class="case-sidebar__card">
+            <h3 class="case-sidebar__title">Client profile</h3>
+            <dl class="case-profile">
+              {clientProfile.map(({ label, value }) => (
+                <div class="case-profile__row">
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section class="case-sidebar__card case-sidebar__card--dark">
+            <h3 class="case-sidebar__title case-sidebar__title--light">Timeline</h3>
+            <div class="case-timeline">
+              {timeline.map(({ step, time }) => (
+                <div class="case-timeline__row">
+                  <span>{step}</span>
+                  <strong>{time}</strong>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="case-sidebar__cta">
+            <p class="case-sidebar__cta-title">{sidebarCtaTitle}</p>
+            <p class="case-sidebar__cta-copy">{sidebarCtaCopy}</p>
+            <a href="/contact" class="button button--primary">Get a free audit</a>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-detail-section--soft case-challenge">
+      <div class="case-detail-texture"></div>
+      <div class="container">
+        <div class="case-detail-section__header">
+          <p data-reveal class="eyebrow">The Challenge</p>
+          <h2 data-reveal data-delay="1" class="case-detail-heading">{challengeTitle}</h2>
+        </div>
+
+        <div class="case-challenge__grid">
+          {challenges.map(({ number, title, body, cost, costLabel, image }, i) => (
+            <article data-reveal data-delay={String(i + 1)} class="case-challenge-card card-lift">
+              <div class="case-challenge-card__media">
+                <OptimizedImage src={image} alt={title} class="case-challenge-card__image" />
+                <div class="case-challenge-card__overlay"></div>
+                <div class="case-challenge-card__meta">
+                  <span class="case-challenge-card__number">{number}</span>
+                  <span class="case-challenge-card__cost">
+                    <strong>{cost}</strong>
+                    <span>{costLabel}</span>
+                  </span>
+                </div>
+              </div>
+              <div class="case-challenge-card__body">
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-detail-section--white">
+      <div class="container case-approach">
+        <figure data-reveal class="case-approach__media">
+          <OptimizedImage src={approachImage} alt={approachImageAlt} class="case-approach__image" />
+          <div class="case-approach__overlay"></div>
+          <figcaption class="case-approach__quote">
+            <p>{approachQuote}</p>
+            <span>{approachQuoteByline}</span>
+          </figcaption>
+        </figure>
+
+        <article>
+          <p data-reveal class="eyebrow">Our Approach</p>
+          <h2 data-reveal data-delay="1" class="case-detail-heading">
+            <LineBreakText text={approachTitle} />
+          </h2>
+
+          <div class="case-approach__steps">
+            {approach.map(({ number, title, body }, i) => (
+              <article data-reveal data-delay={String((i % 2) + 1)} class="case-approach-step">
+                <span class="case-approach-step__number">{number}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-results">
+      <div class="case-results__glow case-results__glow--top"></div>
+      <div class="case-results__glow case-results__glow--bottom"></div>
+      <div class="case-detail-texture case-detail-texture--light"></div>
+
+      <div class="container">
+        <div class="case-detail-section__header">
+          <p data-reveal class="eyebrow eyebrow--muted">The Results</p>
+          <h2 data-reveal data-delay="1" class="case-detail-heading case-detail-heading--light">
+            <LineBreakText text={resultsTitle} />
+          </h2>
+        </div>
+
+        <div class="case-results__grid">
+          {resultStats.map(({ value, label, sub }) => (
+            <article data-reveal class="case-result-card">
+              <div class="case-result-card__value">{value}</div>
+              <h3>{label}</h3>
+              <p>{sub}</p>
+            </article>
+          ))}
+        </div>
+
+        <div data-reveal class="case-results-table" role="table" aria-label={`${clientName} savings breakdown`}>
+          <div class="case-results-table__row case-results-table__row--head" role="row">
+            <div role="columnheader">Area</div>
+            <div role="columnheader">Previous annual cost</div>
+            <div role="columnheader">New annual cost</div>
+            <div role="columnheader">Saving</div>
+          </div>
+          {resultRows.map(({ utility, previous, next, saving, percent }) => (
+            <div class="case-results-table__row" role="row">
+              <div role="cell">{utility}</div>
+              <div role="cell">{previous}</div>
+              <div role="cell">{next}</div>
+              <div role="cell"><strong>{saving}</strong> <span>({percent})</span></div>
+            </div>
+          ))}
+          <div class="case-results-table__row case-results-table__row--total" role="row">
+            <div role="cell">Total</div>
+            <div role="cell">{resultTotal.previous}</div>
+            <div role="cell">{resultTotal.next}</div>
+            <div role="cell"><strong>{resultTotal.saving}</strong> <span>({resultTotal.percent})</span></div>
+          </div>
+        </div>
+
+        <div class="case-outcomes">
+          {outcomes.map(({ title, body }, i) => (
+            <article data-reveal data-delay={String(i + 1)} class="case-outcome-card">
+              <span class="case-outcome-card__icon">
+                <svg class="icon icon--medium" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-detail-section--white case-testimonial">
+      <div class="container case-testimonial__inner">
+        <div data-reveal class="case-testimonial__mark" aria-hidden="true">"</div>
+        <blockquote data-reveal data-delay="1" class="case-testimonial__quote">{testimonial.quote}</blockquote>
+
+        <div data-reveal data-delay="2" class="case-testimonial__author">
+          <span class="case-testimonial__avatar">{testimonial.initials}</span>
+          <span>
+            <strong>{testimonial.name}</strong>
+            <span>{testimonial.role}</span>
+          </span>
+          <span class="case-testimonial__divider"></span>
+          <span class="case-testimonial__rating">
+            <span aria-label="5 out of 5 rating">5/5</span>
+            <small>client rating</small>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-detail-section--soft case-more">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p data-reveal class="eyebrow">More Case Studies</p>
+            <h2 data-reveal data-delay="1" class="case-more__heading">More results. Different sectors.</h2>
+          </div>
+          <a data-reveal="right" href="/case-studies" class="button button--dark">View all case studies</a>
+        </div>
+
+        <div class="case-more__grid">
+          {moreCases.map(({ image, sector, metric, title, savings, href }, i) => (
+            <a data-reveal data-delay={String(i + 1)} href={href} class="case-more-card card-lift">
+              <OptimizedImage src={image} alt={title} class="case-more-card__image" />
+              <div class="case-more-card__overlay"></div>
+              <div class="case-more-card__tags">
+                <span>{sector}</span>
+                <span>{metric}</span>
+              </div>
+              <div class="case-more-card__body">
+                <h3>{title}</h3>
+                <div class="case-more-card__footer">
+                  <div>
+                    <span>Annual saving</span>
+                    <strong>{savings}</strong>
+                  </div>
+                  <span class="case-more-card__arrow"><svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-detail-section case-detail-section--white case-final-cta">
+      <div class="container case-final-cta__inner">
+        <p data-reveal class="eyebrow case-final-cta__eyebrow">Start Your Audit</p>
+        <h2 data-reveal data-delay="1" class="case-detail-heading">{finalTitle}</h2>
+        <p data-reveal data-delay="2" class="section-copy">{finalCopy}</p>
+        <div data-reveal data-delay="3" class="case-final-cta__actions">
+          <a href="/contact" class="button button--primary button--hero">
+            Get a free audit
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:08001234567" class="button button--dark">0800 123 4567</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

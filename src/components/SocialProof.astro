@@ -1,54 +1,23 @@
 ---
-const sectors = [
-  { label: 'Logistics & Distribution' },
-  { label: 'Facilities Management' },
-  { label: 'Food & Hospitality' },
-  { label: 'Healthcare & NHS' },
-  { label: 'Retail & Wholesale' },
-  { label: 'Manufacturing' },
-];
+import { Image } from 'astro:assets';
+import { logoipsum211 } from '../assets/images';
 
-const quotes = [
-  { q: '"Found £28k in overcharges in the first audit"', role: 'Ops Director, Distribution' },
-  { q: '"One invoice for 15 sites. Finally."', role: 'Finance Manager, FM' },
-];
+const placeholders = Array.from({ length: 8 });
 ---
 
-<section class="bg-white border-b border-black/6 py-10 overflow-hidden">
-  <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-14">
-
-      <!-- Label -->
-      <div class="flex-shrink-0">
-        <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-gray-light">Sectors we serve</p>
-      </div>
-
-      <!-- Sector pills -->
-      <div class="flex items-center gap-2 flex-wrap flex-1">
-        {sectors.map(({ label }) => (
-          <span class="px-3.5 py-1.5 rounded-full border border-black/8 bg-brand-ghost text-brand-navy text-[12px] font-medium tracking-[-0.01em]">
-            {label}
-          </span>
-        ))}
-      </div>
-
-      <!-- Divider -->
-      <div class="hidden lg:block w-px h-9 bg-black/8 flex-shrink-0"></div>
-
-      <!-- Micro-quotes -->
-      <div class="flex flex-col sm:flex-row gap-4 lg:gap-5 flex-shrink-0">
-        {quotes.map(({ q, role }) => (
-          <div class="flex items-start gap-3" style="max-width: 220px;">
-            <div class="w-1 flex-shrink-0 bg-brand-teal rounded-full mt-1" style="height: 30px;"></div>
-            <div>
-              <p class="text-brand-navy text-[12px] font-medium leading-snug italic">{q}</p>
-              <p class="text-brand-gray-light text-[11px] mt-1">{role}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-    </div>
+<section class="social-proof" aria-label="Trusted by UK businesses">
+  <div class="social-proof__track" aria-hidden="true">
+    {[...placeholders, ...placeholders].map(() => (
+      <span class="social-proof__logo">
+        <Image
+          src={logoipsum211}
+          alt=""
+          width={180}
+          height={56}
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
+    ))}
   </div>
 </section>

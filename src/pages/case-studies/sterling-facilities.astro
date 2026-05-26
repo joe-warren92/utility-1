@@ -1,0 +1,152 @@
+---
+import CaseStudyPage from '../../components/CaseStudyPage.astro';
+import {
+  operationsReview,
+  siteEnergyAudit,
+  warehouseDeskOperations,
+  warehouseRacking,
+  wasteCollectionTrucks,
+} from '../../assets/images';
+
+const moreCases = [
+  {
+    image: warehouseRacking,
+    sector: 'Logistics',
+    metric: '28% cost reduction',
+    title: 'Reducing operational costs by 28% for a national distribution centre',
+    savings: '£45,000',
+    href: '/case-studies/national-distribution-centre',
+  },
+  {
+    image: wasteCollectionTrucks,
+    sector: 'Manufacturing',
+    metric: '35% waste reduction',
+    title: 'Cutting waste management costs for an industrial manufacturer',
+    savings: '£18,500',
+    href: '/case-studies/industrial-manufacturer',
+  },
+];
+---
+
+<CaseStudyPage
+  title="Sterling Facilities Case Study | Utility 1"
+  description="How Utility 1 consolidated utility management across 15 facilities management sites, reducing annual costs by £32,000."
+  clientName="Sterling Facilities"
+  breadcrumb="Sterling Facilities"
+  tags={['Facilities Management', 'Gas and Electricity', '15 sites']}
+  heroImage={siteEnergyAudit}
+  heroImageAlt="Facilities management plant room"
+  heroTitle="15 sites consolidated<br />into one managed utility portfolio."
+  heroIntro="Sterling Facilities had utility contracts spread across 15 managed sites, with different suppliers, renewal dates and account owners. We consolidated the portfolio and reduced annual spend by £32,000."
+  keyValue="£32k"
+  keyLabel="annual saving"
+  heroMetrics={[
+    { value: '£32,000', label: 'Annual saving' },
+    { value: '15', label: 'Sites consolidated' },
+    { value: '9', label: 'Suppliers reviewed' },
+    { value: '5 weeks', label: 'Delivery time' },
+    { value: '1', label: 'Managed renewal calendar' },
+  ]}
+  situationTitle="Fifteen sites. Nine suppliers. No central renewal control."
+  situationCopy={[
+    'Sterling Facilities manages a mixed estate of commercial offices, light industrial units and service buildings for regional clients. Each site had its own gas and electricity arrangements, often inherited from previous management contracts.',
+    'The finance team was receiving separate invoices from nine suppliers. Renewal dates sat in individual inboxes, and several contracts had been agreed locally without central oversight.',
+    'The result was a portfolio that was hard to audit, hard to budget and vulnerable to automatic rollover. Two electricity contracts were within eight weeks of renewal when Sterling asked Utility 1 to review the estate.',
+    'The goal was not just to reduce cost. Sterling needed a cleaner management structure that could scale as new facilities were added.',
+  ]}
+  clientProfile={[
+    { label: 'Sector', value: 'Facilities Management' },
+    { label: 'Sites', value: '15 managed sites' },
+    { label: 'Employees', value: '120' },
+    { label: 'Annual turnover', value: '£14M' },
+    { label: 'Utilities covered', value: 'Gas, Electricity' },
+    { label: 'Previous setup', value: '9 supplier accounts' },
+  ]}
+  timeline={[
+    { step: 'Initial review', time: 'Day 1' },
+    { step: 'Data collection', time: 'Week 1' },
+    { step: 'Tender issued', time: 'Week 2' },
+    { step: 'Supplier selected', time: 'Week 4' },
+    { step: 'Renewal calendar live', time: 'Week 5' },
+  ]}
+  challengeTitle="The cost was visible. The control problem was bigger."
+  challenges={[
+    {
+      number: '01',
+      title: 'Fragmented supplier ownership',
+      body: 'Nine supplier accounts were being managed across different people, inboxes and site teams. There was no single view of contract end dates, meter references or live rates.',
+      cost: '+£11,500/yr',
+      costLabel: 'avoidable variance',
+      image: warehouseDeskOperations,
+    },
+    {
+      number: '02',
+      title: 'Renewals approaching without tender',
+      body: 'Two electricity contracts were close to renewal with no market comparison underway. Both would have rolled onto higher rates if left another few weeks.',
+      cost: '+£8,900/yr',
+      costLabel: 'renewal risk',
+      image: siteEnergyAudit,
+    },
+    {
+      number: '03',
+      title: 'No portfolio-level reporting',
+      body: 'The team could not easily compare cost per site or spot unusual changes. Month-end reconciliation took longer than it should and budgeting was mostly reactive.',
+      cost: '+2 days/mo',
+      costLabel: 'admin load',
+      image: operationsReview,
+    },
+  ]}
+  approachImage={operationsReview}
+  approachImageAlt="Facilities team reviewing supplier data"
+  approachQuote="Utility 1 did not just send us cheaper rates. They gave us the structure we were missing."
+  approachQuoteByline="Finance Manager, Sterling Facilities"
+  approachTitle="Centralise the data.<br />Tender the portfolio.<br />Put renewals on rails."
+  approach={[
+    {
+      number: '01',
+      title: 'Portfolio rebuild (Week 1)',
+      body: 'We gathered invoices, contract documents and meter details for all 15 sites, then built a single portfolio view with supplier, rate and renewal data.',
+    },
+    {
+      number: '02',
+      title: 'Priority renewals protected (Week 2)',
+      body: 'The two near-term renewals were separated out and tendered first so they could not roll onto inflated rates while the wider estate review continued.',
+    },
+    {
+      number: '03',
+      title: 'Supplier consolidation (Weeks 2-4)',
+      body: 'We ran a competitive tender across the remaining gas and electricity contracts, looking for savings, cleaner billing and stronger support for multi-site management.',
+    },
+    {
+      number: '04',
+      title: 'Management rhythm installed (Week 5)',
+      body: 'Once contracts were agreed, we created a renewal calendar, invoice structure and quarterly review process so the portfolio stayed under control.',
+    },
+  ]}
+  resultsTitle="£32,000 saved.<br />One portfolio under control."
+  resultStats={[
+    { value: '£32,000', label: 'Total annual saving', sub: 'across gas and electricity' },
+    { value: '15', label: 'Sites consolidated', sub: 'from separate local setups' },
+    { value: '9 to 3', label: 'Supplier accounts', sub: 'simplified for finance' },
+    { value: '5 weeks', label: 'Project delivery', sub: 'from review to live control' },
+  ]}
+  resultRows={[
+    { utility: 'Electricity portfolio', previous: '£98,000', next: '£77,600', saving: '£20,400', percent: '21%' },
+    { utility: 'Gas portfolio', previous: '£52,000', next: '£43,300', saving: '£8,700', percent: '17%' },
+    { utility: 'Standing charge corrections', previous: '£9,800', next: '£7,900', saving: '£1,900', percent: '19%' },
+    { utility: 'Admin time saved', previous: '2.5 days/month', next: '0.5 days/month', saving: 'c.£1,000', percent: 'est.' },
+  ]}
+  resultTotal={{ previous: '£159,800', next: '£127,800', saving: '£32,000', percent: '20%' }}
+  outcomes={[
+    { title: 'Renewal calendar active', body: 'Every site now has a managed renewal date, with alerts set six months before action is required.' },
+    { title: 'Supplier base simplified', body: 'Nine active supplier accounts were reduced to three, with clearer ownership and support routes.' },
+    { title: 'Finance reporting improved', body: 'The client can now see site-level spend, renewal status and contract performance in one portfolio view.' },
+  ]}
+  testimonial={{
+    quote: 'The saving was important, but the biggest change was control. We now know what every site is paying, when each contract ends, and who is responsible for the next action.',
+    initials: 'JW',
+    name: 'James Walker',
+    role: 'Finance Manager, Sterling Facilities',
+  }}
+  moreCases={moreCases}
+/>

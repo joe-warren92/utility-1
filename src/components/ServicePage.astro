@@ -1,0 +1,440 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import LineBreakText from './LineBreakText.astro';
+import OptimizedImage from './OptimizedImage.astro';
+import type { ImageMetadata } from 'astro';
+
+type Stat = { value: string; label: string };
+type Benefit = { title: string; copy: string };
+type Problem = { quote: string; answer: string };
+type ProcessStep = { number: string; title: string; copy: string; timeline: string };
+type Faq = { question: string; answer: string };
+type RelatedService = { name: string; href: string; saving: string; image: ImageMetadata };
+
+export interface Props {
+  title: string;
+  accent: string;
+  pageTitle: string;
+  pageDescription: string;
+  eyebrow: string;
+  breadcrumb: string;
+  description: string;
+  image: ImageMetadata;
+  ctaLabel: string;
+  stats: Stat[];
+  problemStats: Stat[];
+  whatWeDoTitle: string;
+  whatWeDoCopy: string;
+  benefits: Benefit[];
+  featureImage: ImageMetadata;
+  featureImageAlt: string;
+  auditCard: { eyebrow: string; value: string; copy: string; note: string };
+  commonProblemsEyebrow: string;
+  commonProblemsTitle: string;
+  commonProblems: Problem[];
+  caseStudy: {
+    eyebrow: string;
+    title: string;
+    copy: string[];
+    quote: string;
+    image: ImageMetadata;
+    imageAlt: string;
+    savingLabel: string;
+    savingValue: string;
+    savingNote: string;
+    stats: Stat[];
+    ctaLabel: string;
+  };
+  processTitle: string;
+  process: ProcessStep[];
+  faqs: Faq[];
+  related: RelatedService[];
+  contactEyebrow: string;
+  contactTitle: string;
+  contactCopy: string;
+  formTitle: string;
+  spendLabel: string;
+  meterField?: boolean;
+}
+
+const {
+  title,
+  accent,
+  pageTitle,
+  pageDescription,
+  eyebrow,
+  breadcrumb,
+  description,
+  image,
+  ctaLabel,
+  stats,
+  problemStats,
+  whatWeDoTitle,
+  whatWeDoCopy,
+  benefits,
+  featureImage,
+  featureImageAlt,
+  auditCard,
+  commonProblemsEyebrow,
+  commonProblemsTitle,
+  commonProblems,
+  caseStudy,
+  processTitle,
+  process,
+  faqs,
+  related,
+  contactEyebrow,
+  contactTitle,
+  contactCopy,
+  formTitle,
+  spendLabel,
+  meterField = false,
+} = Astro.props;
+
+const formId = breadcrumb.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Nav />
+
+  <main class="service-page">
+    <section class="service-page-hero">
+      <div class="service-page-hero__media">
+        <OptimizedImage src={image} alt="" class="service-page-hero__image" loading="eager" fetchpriority="high" />
+        <div class="service-page-hero__overlay service-page-hero__overlay--side"></div>
+        <div class="service-page-hero__overlay service-page-hero__overlay--bottom"></div>
+      </div>
+
+      <div class="container service-page-hero__inner">
+        <nav data-reveal class="service-page-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <a href="/services">Services</a>
+          <span>/</span>
+          <span>{breadcrumb}</span>
+        </nav>
+
+        <div class="service-page-hero__content">
+          <p data-reveal class="eyebrow eyebrow--muted">{eyebrow}</p>
+          <h1 data-reveal data-delay="1" class="service-page-hero__title">
+            {title}<br /><span>{accent}</span>
+          </h1>
+          <p data-reveal data-delay="2" class="service-page-hero__copy">{description}</p>
+
+          <div data-reveal data-delay="3" class="service-page-hero__actions">
+            <a href="#contact" class="button button--primary button--hero">
+              {ctaLabel}
+              <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="tel:08001234567" class="button button--ghost">0800 123 4567</a>
+          </div>
+
+          <div data-reveal data-delay="4" class="service-page-hero__stats">
+            {stats.map(({ value, label }) => (
+              <div class="service-page-stat">
+                <div class="service-page-stat__value">{value}</div>
+                <div class="service-page-stat__label">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-problem-strip" aria-label={`${breadcrumb} problem statistics`}>
+      <div class="container">
+        <div class="service-problem-strip__grid">
+          {problemStats.map(({ value, label }) => (
+            <div class="service-problem-strip__item">
+              <div class="service-problem-strip__value">{value}</div>
+              <p>{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft">
+      <div class="service-section__glow"></div>
+      <div class="container service-do">
+        <div class="service-do__copy">
+          <p data-reveal class="eyebrow">What We Do</p>
+          <h2 data-reveal data-delay="1" class="service-section__heading">
+            <LineBreakText text={whatWeDoTitle} />
+          </h2>
+          <p data-reveal data-delay="2" class="service-section__copy">{whatWeDoCopy}</p>
+
+          <div class="service-benefits">
+            {benefits.map(({ title, copy }, i) => (
+              <article data-reveal data-delay={String(i + 1)} class="service-benefit">
+                <span class="service-benefit__icon">
+                  <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+                </span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <aside data-reveal="right" class="service-feature" aria-label="Service highlight">
+          <div class="service-feature__image-wrap">
+            <OptimizedImage src={featureImage} alt={featureImageAlt} class="service-feature__image" />
+            <div class="service-feature__overlay"></div>
+          </div>
+          <div class="service-feature__result-card">
+            <div class="service-feature__eyebrow">{auditCard.eyebrow}</div>
+            <div class="service-feature__value">{auditCard.value}</div>
+            <p>{auditCard.copy}</p>
+            <strong>{auditCard.note}</strong>
+          </div>
+          <div class="service-feature__badge">
+            <span>First audit</span>
+            <strong>Free</strong>
+            <small>No obligation</small>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="service-section service-section--dark service-common">
+      <div class="service-common__texture"></div>
+      <div class="service-common__glow"></div>
+      <div class="container service-common__inner">
+        <div class="service-common__header">
+          <p data-reveal class="eyebrow eyebrow--muted">{commonProblemsEyebrow}</p>
+          <h2 data-reveal data-delay="1" class="service-section__heading service-section__heading--light">{commonProblemsTitle}</h2>
+        </div>
+
+        <div class="service-common__grid">
+          {commonProblems.map(({ quote, answer }, i) => (
+            <article data-reveal data-delay={String((i % 3) + 1)} class="service-problem-card">
+              <h3>{quote}</h3>
+              <span></span>
+              <p>{answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--white">
+      <div class="container service-case">
+        <div data-reveal class="service-case__media">
+          <OptimizedImage src={caseStudy.image} alt={caseStudy.imageAlt} class="service-case__image" />
+          <div class="service-case__overlay"></div>
+          <div class="service-case__saving">
+            <div>
+              <span>{caseStudy.savingLabel}</span>
+              <strong>{caseStudy.savingValue}</strong>
+            </div>
+            <div>
+              <strong>{caseStudy.savingNote}</strong>
+              <span>result achieved</span>
+            </div>
+          </div>
+        </div>
+
+        <article data-reveal="right" class="service-case__content">
+          <p class="eyebrow">{caseStudy.eyebrow}</p>
+          <h2 class="service-section__heading">{caseStudy.title}</h2>
+          <div class="service-case__body">
+            {caseStudy.copy.map((paragraph) => <p>{paragraph}</p>)}
+            <p class="service-case__quote">{caseStudy.quote}</p>
+          </div>
+
+          <div class="service-case__stats">
+            {caseStudy.stats.map(({ value, label }) => (
+              <div>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+
+          <a href="#contact" class="button button--primary">
+            {caseStudy.ctaLabel}
+            <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft">
+      <div class="container">
+        <div class="service-process__header">
+          <p data-reveal class="eyebrow">The Process</p>
+          <h2 data-reveal data-delay="1" class="service-section__heading">
+            <LineBreakText text={processTitle} />
+          </h2>
+        </div>
+
+        <div class="service-process">
+          {process.map(({ number, title, copy, timeline }, i) => (
+            <article data-reveal data-delay={String((i % 2) + 1)} class="service-process-step">
+              <div class="service-process-step__number">{number}</div>
+              <div>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </div>
+              <div class="service-process-step__timeline">
+                <span>Timeline</span>
+                <strong>{timeline}</strong>
+                <i></i>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--white">
+      <div class="container service-faq">
+        <aside class="service-faq__intro">
+          <p data-reveal class="eyebrow">FAQ</p>
+          <h2 data-reveal data-delay="1" class="service-section__heading">Questions we get asked every day.</h2>
+          <p data-reveal data-delay="2" class="service-section__copy">Straight answers. No sales pitch.</p>
+          <a href="#contact" class="button button--dark">Still have a question? Ask us.</a>
+        </aside>
+
+        <div class="service-faq__list" id="faq">
+          {faqs.map(({ question, answer }, i) => (
+            <details data-reveal data-delay={String((i % 3) + 1)} class="service-faq-item">
+              <summary>
+                <span>{question}</span>
+                <i>
+                  <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </i>
+              </summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--soft service-related">
+      <div class="container">
+        <p data-reveal class="eyebrow">Other Services</p>
+        <div class="service-related__grid">
+          {related.map(({ name, href, saving, image }, i) => (
+            <a data-reveal data-delay={String(i + 1)} href={href} class="service-related-card card-lift">
+              <OptimizedImage src={image} alt={name} class="service-related-card__image" />
+              <div class="service-related-card__overlay"></div>
+              <div class="service-related-card__content">
+                <h3>{name}</h3>
+                <p>{saving}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="service-contact">
+      <div class="service-contact__glow"></div>
+      <div class="service-contact__texture"></div>
+
+      <div class="container service-contact__grid">
+        <div>
+          <p data-reveal class="eyebrow eyebrow--muted">{contactEyebrow}</p>
+          <h2 data-reveal data-delay="1" class="service-contact__title">{contactTitle}</h2>
+          <p data-reveal data-delay="2" class="service-contact__copy">{contactCopy}</p>
+
+          <div data-reveal data-delay="3" class="service-contact__list">
+            {[
+              'Free audit, no obligation',
+              'Response within one business day',
+              'Named account manager from day one',
+              'We handle all supplier admin',
+            ].map((item) => (
+              <div>
+                <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div data-reveal data-delay="4" class="service-contact__phone">
+            <span>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </span>
+            <div>
+              <a href="tel:08001234567">0800 123 4567</a>
+              <p>Mon-Fri, 8am-6pm</p>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal="right">
+          <!-- TODO: Connect this static form to an external form handler before launch. -->
+          <form class="form form--card service-contact-form" action="#" method="post" data-static-form>
+            <h3>{formTitle}</h3>
+            <p>We'll come back within one business day.</p>
+
+            <div class="form__row">
+              <div>
+                <label class="form__label" for={`${formId}-first-name`}>First name</label>
+                <input id={`${formId}-first-name`} name="first-name" type="text" placeholder="James" class="form__control" autocomplete="given-name" />
+              </div>
+              <div>
+                <label class="form__label" for={`${formId}-last-name`}>Last name</label>
+                <input id={`${formId}-last-name`} name="last-name" type="text" placeholder="Thompson" class="form__control" autocomplete="family-name" />
+              </div>
+            </div>
+            <div>
+              <label class="form__label" for={`${formId}-email`}>Business email</label>
+              <input id={`${formId}-email`} name="email" type="email" placeholder="james@company.co.uk" class="form__control" autocomplete="email" />
+            </div>
+            <div>
+              <label class="form__label" for={`${formId}-company`}>Company name</label>
+              <input id={`${formId}-company`} name="company" type="text" placeholder="Acme Ltd" class="form__control" autocomplete="organization" />
+            </div>
+            <div>
+              <label class="form__label" for={`${formId}-sites`}>Number of sites</label>
+              <select id={`${formId}-sites`} name="sites" class="form__control">
+                <option value="">Select</option>
+                <option>1 site</option>
+                <option>2-5 sites</option>
+                <option>6-15 sites</option>
+                <option>16+ sites</option>
+              </select>
+            </div>
+            <div>
+              <label class="form__label" for={`${formId}-spend`}>{spendLabel}</label>
+              <select id={`${formId}-spend`} name="annual-spend" class="form__control">
+                <option value="">Select a range</option>
+                <option>Under £10,000/year</option>
+                <option>£10k - £50k/year</option>
+                <option>£50k - £200k/year</option>
+                <option>£200k+/year</option>
+              </select>
+            </div>
+            {meterField && (
+              <div>
+                <label class="form__label" for={`${formId}-metered`}>Half-hourly metered? <span>(if known)</span></label>
+                <select id={`${formId}-metered`} name="meter-type" class="form__control">
+                  <option value="">Select</option>
+                  <option>Yes, HH metered</option>
+                  <option>No, non-HH</option>
+                  <option>Not sure</option>
+                </select>
+              </div>
+            )}
+            <button type="submit" class="button button--primary form__submit">
+              Request free audit
+              <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="form__hint">No obligation. No spam. Response within one business day.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

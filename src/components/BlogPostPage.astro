@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import OptimizedImage from './OptimizedImage.astro';
+import { formatBlogDate, type BlogSummary } from '../data/blog';
+
+export interface Props {
+  post: BlogSummary;
+  relatedPosts: BlogSummary[];
+}
+
+const { post, relatedPosts } = Astro.props;
+const canonical = `/blog/${post.slug}`;
+const siteUrl = Astro.site ?? Astro.url.origin;
+const postImageUrl = new URL(post.image.src, siteUrl).href;
+const serviceLinks = [
+  { label: 'Electricity', href: '/services/electric' },
+  { label: 'Gas', href: '/services/gas' },
+  { label: 'Water', href: '/services/water' },
+  { label: 'Waste', href: '/services/waste' },
+];
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  image: postImageUrl,
+  datePublished: post.date,
+  dateModified: post.modifiedDate,
+  author: {
+    '@type': 'Organization',
+    name: post.author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Utility 1',
+  },
+  mainEntityOfPage: canonical,
+};
+---
+
+<Layout
+  title={`${post.title} | Utility 1`}
+  description={post.description}
+  canonical={canonical}
+  image={post.image}
+  type="article"
+  publishedTime={post.date}
+  modifiedTime={post.modifiedDate}
+  jsonLd={articleJsonLd}
+>
+  <Nav />
+
+  <main class="blog-post">
+    <article>
+      <header class="blog-post-hero">
+        <div class="blog-post-hero__media">
+          <OptimizedImage src={post.image} alt={post.imageAlt} class="blog-post-hero__image" loading="eager" fetchpriority="high" />
+          <div class="blog-post-hero__overlay"></div>
+        </div>
+
+        <div class="container blog-post-hero__inner">
+          <nav data-reveal class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/blog">Blog</a>
+            <span>/</span>
+            <span>{post.category}</span>
+          </nav>
+
+          <div class="blog-post-hero__content">
+            <span data-reveal class="blog-category">{post.category}</span>
+            <h1 data-reveal data-delay="1" class="blog-post-hero__title">{post.title}</h1>
+            <p data-reveal data-delay="2" class="blog-post-hero__intro">{post.description}</p>
+            <div data-reveal data-delay="3" class="blog-post-meta">
+              <time datetime={post.date}>{formatBlogDate(post.date)}</time>
+              <span>{post.readTime} read</span>
+              <span>{post.author}</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="blog-post-section">
+        <div class="container blog-post-layout">
+          <aside class="blog-post-sidebar">
+            <div class="blog-share-card">
+              <span>In this article</span>
+              <a href="#quick-wins">Quick wins</a>
+              <a href="#contract-control">Contract control</a>
+              <a href="#usage">Usage visibility</a>
+              <a href="#next-step">Next step</a>
+            </div>
+            <div class="blog-cta-card">
+              <h2>Want us to check your current setup?</h2>
+              <p>Book a free review and we will show you where savings may be available.</p>
+              <a href="/contact" class="button button--primary">Book free review</a>
+            </div>
+            <nav class="blog-service-links" aria-label="Related service pages">
+              <span>Useful services</span>
+              {serviceLinks.map(({ label, href }) => <a href={href}>{label}</a>)}
+            </nav>
+          </aside>
+
+          <div class="blog-content">
+            <slot />
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <section class="blog-related section section--soft">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p data-reveal class="eyebrow">Related Articles</p>
+            <h2 data-reveal data-delay="1" class="section-heading">Keep reading</h2>
+          </div>
+          <a data-reveal="right" href="/blog" class="button button--dark">View all articles</a>
+        </div>
+
+        <div class="blog-card-grid">
+          {relatedPosts.map((item, i) => (
+            <a data-reveal data-delay={String(i + 1)} href={`/blog/${item.slug}`} class="blog-card card-lift">
+              <OptimizedImage src={item.image} alt={item.imageAlt} class="blog-card__image" />
+              <div class="blog-card__body">
+                <span class="blog-card__category">{item.category}</span>
+                <h3>{item.title}</h3>
+                <p>{item.excerpt}</p>
+                <div class="blog-card__meta">
+                  <time datetime={item.date}>{formatBlogDate(item.date)}</time>
+                  <span>{item.readTime} read</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

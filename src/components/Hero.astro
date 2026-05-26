@@ -1,119 +1,94 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+import { wasteCollectionTrucks } from '../assets/images';
 ---
 
-<section class="relative flex flex-col overflow-hidden bg-[#06101a]" style="min-height: 100svh;">
-
-  <!-- Background image with Ken Burns slow zoom -->
-  <div class="absolute inset-0 overflow-hidden">
-    <img
-      src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=85"
+<section class="hero">
+  <div class="hero__media">
+    <OptimizedImage
+      src={wasteCollectionTrucks}
       alt=""
-      class="absolute inset-0 w-full h-full object-cover object-center hero-kenburns"
+      class="hero__image"
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Deep cinematic overlays -->
-    <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(6,16,26,0.96) 0%, rgba(6,16,26,0.88) 45%, rgba(6,16,26,0.45) 100%);"></div>
-    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(6,16,26,0.85) 0%, transparent 50%);"></div>
-    <!-- Teal atmospheric glow -->
-    <div class="absolute" style="top: -10%; left: -5%; width: 50vw; height: 70vh; background: radial-gradient(ellipse, rgba(59,169,165,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+    <div class="hero__overlay hero__overlay--primary"></div>
+    <div class="hero__overlay hero__overlay--bottom"></div>
+    <div class="hero__glow"></div>
   </div>
 
-  <!-- ── Main content ── -->
-  <div class="relative flex flex-col justify-center flex-1" style="padding-top: 100px; padding-bottom: 60px;">
-    <div class="max-w-[1360px] mx-auto px-8 xl:px-12 w-full">
-
-      <!-- Trust badge row -->
-      <div data-reveal class="flex flex-wrap items-center gap-4 mb-10">
-        <div class="flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 bg-white/5 backdrop-blur-sm">
-          <div class="flex gap-0.5">
+  <div class="hero__content">
+    <div class="container">
+      <div data-reveal class="hero__trust-row">
+        <div class="hero__badge">
+          <div class="hero__stars" aria-hidden="true">
             {Array(5).fill(null).map(() => (
-              <svg class="w-3 h-3 fill-brand-teal" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="icon icon--small" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             ))}
           </div>
-          <span class="text-white/60 text-[12px]">4.9/5 · 500+ UK businesses</span>
+          <span>4.9/5 | 500+ UK businesses</span>
         </div>
-        <div class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full border border-brand-teal/20 bg-brand-teal/6">
-          <div class="w-1.5 h-1.5 rounded-full bg-brand-teal"></div>
-          <span class="text-brand-teal text-[12px] font-medium">Trusted commercial partner since 2012</span>
+        <div class="hero__badge hero__badge--accent">
+          <span class="hero__status-dot"></span>
+          <span>Trusted commercial partner since 2012</span>
         </div>
       </div>
 
-      <!-- Benefit-first headline -->
-      <div class="mb-10" data-reveal data-delay="1">
-        <h1 class="font-heading font-bold text-white tracking-[-0.038em] leading-[1.0]" style="font-size: clamp(3.2rem, 6.5vw, 7rem);">
-          <span class="block">Cut utility costs</span>
-          <span class="block text-brand-teal">by up to 28%.</span>
+      <div data-reveal data-delay="1">
+        <h1 class="hero__title">
+          <span class="hero__title-line">Cut utility costs</span>
+          <span class="hero__title-line accent">by up to 28%.</span>
         </h1>
       </div>
 
-      <!-- Subheadline -->
-      <p data-reveal data-delay="2" class="text-white/55 leading-relaxed max-w-[500px] mb-14" style="font-size: 1.15rem;">
-        We audit your current contracts, find the overcharges, renegotiate on your behalf, and manage everything going forward. Gas, electric, water and waste — handled.
+      <p data-reveal data-delay="2" class="hero__copy">
+        We audit your current contracts, find the overcharges, renegotiate on your behalf, and manage everything going forward. Gas, electricity, water and waste handled.
       </p>
 
-      <!-- Proof stats — inline with CTAs for impact -->
-      <div data-reveal data-delay="3" class="flex flex-wrap items-center gap-8 mb-14">
+      <div data-reveal data-delay="3" class="hero__stats">
         {[
           { v: 'Up to 28%', l: 'cost reduction' },
-          { v: '£12,400', l: 'avg. annual saving' },
+          { v: 'GBP 12,400', l: 'avg. annual saving' },
           { v: '12+', l: 'years experience' },
         ].map(({ v, l }) => (
-          <div>
-            <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.6rem;">{v}</div>
-            <div class="text-white/35 text-[11px] uppercase tracking-[0.1em] mt-1">{l}</div>
+          <div class="hero__stat">
+            <div class="hero__stat-value">{v}</div>
+            <div class="hero__stat-label">{l}</div>
           </div>
         ))}
       </div>
 
-      <!-- CTAs -->
-      <div data-reveal data-delay="4" class="flex flex-wrap items-center gap-4">
-        <a href="#contact" class="btn-primary" style="font-size: 15px; padding: 15px 32px;">
+      <div data-reveal data-delay="4" class="hero__actions">
+        <a href="/contact" class="button button--primary button--hero">
           Get my free review
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#services" class="btn-ghost" style="font-size: 14px; padding: 14px 26px;">
-          Explore services
-        </a>
-        <a href="tel:08001234567" class="hidden lg:flex items-center gap-2 text-white/45 hover:text-white/70 transition-colors" style="font-size: 13.5px;">
-          <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <a href="/services" class="button button--ghost">Explore services</a>
+        <a href="tel:08001234567" class="hero__phone">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           0800 123 4567
         </a>
       </div>
-
     </div>
   </div>
 
-  <!-- Stats bar pinned to bottom -->
-  <div class="relative border-t border-white/8 bg-white/3 backdrop-blur-sm">
-    <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
-      <div class="grid grid-cols-3 lg:grid-cols-6 divide-x divide-white/8">
+  <div class="hero__stats-bar">
+    <div class="container">
+      <div class="hero__bar-grid">
         {[
-          { v: '£12,400', l: 'avg. annual saving' },
+          { v: 'GBP 12,400', l: 'avg. annual saving' },
           { v: '28%', l: 'cost reduction' },
           { v: '4.9/5', l: 'client rating' },
           { v: '500+', l: 'active clients' },
           { v: '12+', l: 'years experience' },
-          { v: '£8.2M', l: 'savings delivered' },
+          { v: 'GBP 8.2M', l: 'savings delivered' },
         ].map(({ v, l }, i) => (
-          <div data-reveal="fade" data-delay={String((i % 6) + 1)} class="py-6 px-4 xl:px-7 text-center">
-            <div class="font-heading font-bold text-white leading-none tracking-[-0.03em]" style="font-size: 1.5rem;">{v}</div>
-            <div class="text-white/35 text-[10.5px] uppercase tracking-[0.1em] mt-1.5">{l}</div>
+          <div data-reveal="fade" data-delay={String((i % 6) + 1)} class="hero__bar-item">
+            <div class="hero__bar-value">{v}</div>
+            <div class="hero__bar-label">{l}</div>
           </div>
         ))}
       </div>
     </div>
   </div>
-
 </section>
-
-<style>
-  @keyframes kenBurns {
-    0%   { transform: scale(1.0) translateY(0px); }
-    100% { transform: scale(1.10) translateY(-20px); }
-  }
-  .hero-kenburns {
-    animation: kenBurns 22s ease-in-out infinite alternate;
-    will-change: transform;
-  }
-</style>

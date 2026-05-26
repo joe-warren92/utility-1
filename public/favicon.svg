@@ -1,5 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#1B2838"/>
-  <rect x="4" y="4" width="24" height="24" rx="6" fill="#3BA9A5"/>
-  <text x="16" y="22" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="white">U1</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 410">
+  <defs>
+    <linearGradient id="brand-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B1424" />
+      <stop offset="45%" stop-color="#0B1424" />
+      <stop offset="95%" stop-color="#3BA9A5" />
+      <stop offset="100%" stop-color="#3BA9A5" />
+    </linearGradient>
+
+    <style>
+      .bg-fill { fill: #FFFFFF; }
+      .navy-solid { fill: #0B1424; }
+      .teal-solid { fill: #3BA9A5; }
+      .gradient-fill { fill: url(#brand-gradient); }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg-fill" />
+
+  <g transform="translate(0, 15)">
+    <circle cx="250" cy="190" r="110" fill="none" stroke="#0B1424" stroke-width="16" />
+
+    <path
+      d="M 185.5,135 L 217.5,135 L 217.5,195 A 16,16 0 0,0 249.5,195 L 249.5,135 L 281.5,135 L 281.5,195 A 48,48 0 0,1 185.5,195 Z"
+      class="gradient-fill"
+    />
+
+    <path
+      d="M 292.5,148 L 302.5,135 L 314.5,135 L 314.5,210 L 296.5,210 L 296.5,148 Z"
+      class="teal-solid"
+    />
+  </g>
 </svg>

@@ -1,90 +1,87 @@
 ---
+import Logo from './Logo.astro';
+
+const company = [
+  { label: 'About Us', href: '/#about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const services = [
+  { label: 'All Services', href: '/services' },
+  { label: 'Gas', href: '/services/gas' },
+  { label: 'Electricity', href: '/services/electric' },
+  { label: 'Water', href: '/services/water' },
+  { label: 'Waste', href: '/services/waste' },
+  { label: 'Merchant Services', href: '/services/merchant-services' },
+  { label: 'Asset Management', href: '/services/asset-management' },
+];
+
+const legal = [
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Terms', href: '/terms' },
+  { label: 'Cookies', href: '/cookies' },
+];
 ---
 
-<footer class="bg-[#060d14] text-white">
-
-  <!-- Main footer -->
-  <div class="max-w-[1360px] mx-auto px-8 xl:px-12 pt-20 pb-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
-
-      <!-- Brand col -->
-      <div class="lg:col-span-4">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-9 h-9 bg-brand-teal rounded-lg flex items-center justify-center flex-shrink-0">
-            <span class="text-white font-heading font-bold text-[13px]">U1</span>
-          </div>
-          <div>
-            <div class="font-heading font-bold text-[15px] tracking-[-0.02em] leading-none">UTILITY</div>
-            <div class="text-[10px] text-white/30 tracking-[0.18em] uppercase leading-none mt-0.5">1 LTD</div>
-          </div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-column">
+        <div class="site-footer__brand-lockup">
+          <span class="site-footer__mark">
+            <Logo class="site-footer__logo" />
+          </span>
+          <span>
+            <span class="site-footer__brand">UTILITY</span>
+            <span class="site-footer__suffix">1 LTD</span>
+          </span>
         </div>
-        <p class="text-white/40 text-[13.5px] leading-relaxed max-w-[300px] mb-6">
+        <p class="site-footer__copy">
           Auditing, renegotiating and managing commercial utilities across the UK since 2012.
         </p>
-        <!-- Accreditation row -->
-        <div class="flex flex-wrap gap-3 mb-7">
-          {['ISO 9001', 'FCA Reg.', 'Trustpilot'].map(badge => (
-            <span class="px-3 py-1.5 rounded-lg border border-white/10 text-white/35 text-[11px] font-semibold tracking-wide">
-              {badge}
-            </span>
-          ))}
+        <div class="site-footer__badges">
+          {['ISO 9001', 'FCA Reg.', 'Trustpilot'].map((badge) => <span class="site-footer__badge">{badge}</span>)}
         </div>
-        <div class="flex gap-2.5">
-          {[
-            { l: 'LI', href: '#', label: 'LinkedIn' },
-            { l: 'TW', href: '#', label: 'Twitter' },
-          ].map(({ l, href, label }) => (
-            <a href={href} aria-label={label} class="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:border-white/25 transition-colors text-[11px] font-bold">
-              {l}
-            </a>
-          ))}
+        <div class="site-footer__socials">
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn" class="site-footer__social">LI</a>
+          <a href="https://x.com/" aria-label="X" class="site-footer__social">X</a>
         </div>
       </div>
 
-      <!-- Nav cols -->
-      <div class="lg:col-span-2">
-        <h5 class="font-heading font-semibold text-[11px] tracking-[0.16em] uppercase text-white/30 mb-5">Company</h5>
-        <ul class="space-y-3">
-          {['About Us', 'Case Studies', 'Insights', 'Careers', 'Contact'].map(item => (
-            <li><a href="#" class="text-white/45 text-[13.5px] hover:text-white transition-colors duration-200">{item}</a></li>
-          ))}
+      <div>
+        <h2 class="site-footer__heading">Company</h2>
+        <ul class="site-footer__list">
+          {company.map(({ label, href }) => <li><a href={href} class="site-footer__link">{label}</a></li>)}
         </ul>
       </div>
 
-      <div class="lg:col-span-2">
-        <h5 class="font-heading font-semibold text-[11px] tracking-[0.16em] uppercase text-white/30 mb-5">Services</h5>
-        <ul class="space-y-3">
-          {['Gas', 'Electric', 'Water', 'Waste', 'Merchant Services', 'Asset Management'].map(item => (
-            <li><a href="#services" class="text-white/45 text-[13.5px] hover:text-white transition-colors duration-200">{item}</a></li>
-          ))}
+      <div>
+        <h2 class="site-footer__heading">Services</h2>
+        <ul class="site-footer__list">
+          {services.map(({ label, href }) => <li><a href={href} class="site-footer__link">{label}</a></li>)}
         </ul>
       </div>
 
-      <!-- CTA col -->
-      <div class="lg:col-span-4">
-        <h5 class="font-heading font-semibold text-[11px] tracking-[0.16em] uppercase text-white/30 mb-5">Get started</h5>
-        <div class="p-6 rounded-xl border border-white/8 bg-white/3">
-          <p class="text-white/70 text-[14px] leading-relaxed mb-5">Ready to see where you could save? Get your free review today.</p>
-          <a href="#contact" class="btn-primary text-[13.5px]">
+      <div class="site-footer__cta">
+        <h2 class="site-footer__heading">Get started</h2>
+        <div class="site-footer__cta-card">
+          <p class="site-footer__cta-copy">Ready to see where you could save? Get your free review today.</p>
+          <a href="/contact" class="button button--primary">
             Get free review
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <div class="mt-5 flex items-center gap-2 text-white/30 text-[12px]">
-            <svg class="w-3.5 h-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            0800 123 4567 · Mon–Fri, 8am–6pm
-          </div>
+          <div class="site-footer__phone">0800 123 4567 | Mon-Fri, 8am-6pm</div>
         </div>
       </div>
-
     </div>
 
-    <!-- Bottom bar -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/7">
-      <p class="text-white/25 text-[12.5px]">© 2026 Utility 1 Ltd. Registered in England & Wales. Company No. 07843291.</p>
-      <div class="flex items-center gap-6">
-        {['Privacy', 'Terms', 'Cookies'].map(item => (
-          <a href="#" class="text-white/25 text-[12.5px] hover:text-white/55 transition-colors">{item}</a>
-        ))}
+    <div class="site-footer__bottom">
+      <p>&copy; 2026 Utility 1 Ltd. Registered in England &amp; Wales. Company No. 07843291.</p>
+      <div class="site-footer__legal">
+        {legal.map(({ label, href }) => <a href={href} class="site-footer__link">{label}</a>)}
       </div>
     </div>
   </div>

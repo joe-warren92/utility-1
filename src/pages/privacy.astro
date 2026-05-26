@@ -1,0 +1,51 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+
+const sections = [
+  {
+    title: 'Who We Are',
+    body: [
+      'Utility 1 Ltd provides commercial utility review, procurement and management support for UK businesses.',
+      'If you have any questions about this policy or how your information is handled, contact us using the details on our contact page.',
+    ],
+  },
+  {
+    title: 'Information We Collect',
+    body: [
+      'We may collect your name, company name, email address, phone number, business utility details and any information you choose to send through forms, email or phone conversations.',
+      'We may also collect basic website usage information, such as pages visited, device information and referral source, where analytics or security tools are used.',
+    ],
+  },
+  {
+    title: 'How We Use Information',
+    body: [
+      'We use personal information to respond to enquiries, provide a utility review, prepare recommendations, manage client relationships and improve our website and services.',
+      'We do not sell personal information. We only share information where needed to provide a service, meet legal obligations or protect our business.',
+    ],
+  },
+  {
+    title: 'How Long We Keep Information',
+    body: [
+      'We keep information only for as long as needed for the purpose it was collected, including client service, record keeping, legal and accounting requirements.',
+      'If you ask us to delete information, we will do so where we are not required to keep it for legitimate business or legal reasons.',
+    ],
+  },
+  {
+    title: 'Your Rights',
+    body: [
+      'You may have the right to request access, correction, deletion, restriction or objection to certain uses of your personal information.',
+      'You can contact us at any time if you want to raise a privacy request or concern.',
+    ],
+  },
+];
+---
+
+<LegalPage
+  title="Privacy Policy"
+  eyebrow="Privacy"
+  description="Read the Utility 1 privacy policy, including how we collect, use and protect personal information."
+  intro="This policy explains how Utility 1 handles personal information when you use our website, contact us or ask us to review your business utilities."
+  updated="26 May 2026"
+  canonical="/privacy"
+  sections={sections}
+/>

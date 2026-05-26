@@ -1,0 +1,60 @@
+.social-proof {
+  overflow: hidden;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.social-proof__track {
+  display: flex;
+  width: max-content;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+  animation: social-proof-scroll 34s linear infinite;
+}
+
+.social-proof__logo {
+  flex: 0 0 auto;
+  width: 118px;
+  opacity: 0.46;
+}
+
+.social-proof__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes social-proof-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-proof__track {
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .social-proof {
+    padding-block: 0.875rem;
+  }
+
+  .social-proof__track {
+    gap: 2rem;
+    animation-duration: 26s;
+  }
+
+  .social-proof__logo {
+    width: 104px;
+  }
+}

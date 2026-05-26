@@ -1,147 +1,135 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+import {
+  distributionCentreExterior,
+  siteEnergyAudit,
+  stockroomInventory,
+  warehouseDeskOperations,
+  warehouseOperator,
+  wasteCollectionTrucks,
+} from '../assets/images';
+
 const services = [
   {
     name: 'Gas',
-    description: 'Flexible contracts engineered around your operational profile. We benchmark the market quarterly to ensure you\'re always on a competitive rate.',
+    href: '/services/gas',
+    description: 'Flexible contracts engineered around your operational profile. We benchmark the market quarterly to ensure you are always on a competitive rate.',
     tag: 'Core Service',
     saving: '£4,200',
     savingLabel: 'avg. saving',
     reduction: '18% avg. reduction',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    image: siteEnergyAudit,
   },
   {
-    name: 'Electric',
+    name: 'Electricity',
+    href: '/services/electric',
     description: 'Competitive rates, transparent billing, and smart half-hourly data analysis for commercial electricity. No surprises.',
     tag: 'Core Service',
     saving: '£5,800',
     savingLabel: 'avg. saving',
     reduction: '22% avg. reduction',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
+    image: warehouseDeskOperations,
   },
   {
     name: 'Water',
+    href: '/services/water',
     description: 'Smart consumption management to lower spend and reduce waste at source. We audit, benchmark, and negotiate on your behalf.',
     saving: '£1,600',
     savingLabel: 'avg. saving',
     reduction: '15% avg. reduction',
-    image: 'https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=800&q=80',
+    image: distributionCentreExterior,
   },
   {
     name: 'Waste',
+    href: '/services/waste',
     description: 'Comprehensive disposal solutions that cut costs and shrink your environmental footprint. Includes carrier compliance and waste auditing.',
     saving: '£2,100',
     savingLabel: 'avg. saving',
     reduction: '35% avg. reduction',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    image: wasteCollectionTrucks,
   },
   {
     name: 'Merchant Services',
+    href: '/services/merchant-services',
     description: 'Competitive transaction rates with full PCI compliance support. Integrated terminal solutions for single and multi-site operations.',
     saving: '0.4%',
     savingLabel: 'lower transaction rate',
     reduction: 'Save on every transaction',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
+    image: warehouseOperator,
   },
   {
     name: 'Asset Management',
+    href: '/services/asset-management',
     description: 'Expert maintenance, lifecycle planning, and optimisation for all utility infrastructure. Prevent costly failures before they happen.',
     saving: '18%',
     savingLabel: 'efficiency gain',
     reduction: 'Reduce downtime & costs',
-    image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=800&q=80',
+    image: stockroomInventory,
   },
 ];
 ---
 
-<section id="services" class="py-32 bg-brand-off-white relative overflow-hidden">
-  <div class="absolute top-0 right-0 w-[900px] h-[700px] bg-brand-teal/3 rounded-full blur-[200px] translate-x-1/3 -translate-y-1/4 pointer-events-none"></div>
-
-  <div class="max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <!-- Header -->
-    <div class="grid lg:grid-cols-[1fr_auto] gap-10 items-end mb-16">
+<section id="services" class="section section--large services">
+  <div class="container">
+    <div class="section-header">
       <div>
         <p data-reveal class="eyebrow">Our Services</p>
-        <h2 data-reveal data-delay="1" class="font-heading font-bold text-brand-navy tracking-[-0.035em] leading-[1.02]" style="font-size: clamp(2.4rem, 4.5vw, 4rem);">
+        <h2 data-reveal data-delay="1" class="section-heading">
           Every utility.<br />One trusted partner.
         </h2>
       </div>
-      <div data-reveal="right" class="pb-1">
-        <div class="flex items-center gap-3 mb-2">
-          <div class="flex -space-x-1.5">
-            {['S','M','J','L'].map(l => (
-              <div class="w-6 h-6 rounded-full bg-brand-navy border-2 border-brand-off-white flex items-center justify-center text-white text-[9px] font-bold">{l}</div>
-            ))}
+      <div data-reveal="right" class="section-header__aside">
+        <div class="services__client-row">
+          <div class="services__avatars" aria-hidden="true">
+            {['S','M','J','L'].map(l => <div class="services__avatar">{l}</div>)}
           </div>
-          <span class="text-[13px] text-brand-gray">500+ active clients</span>
+          <span class="services__client-count">500+ active clients</span>
         </div>
-        <p class="text-brand-gray text-[14px] max-w-[280px] leading-relaxed">
-          Average combined saving of <strong class="text-brand-navy">£12,400/year</strong> per client.
+        <p class="services__client-copy">
+          Average combined saving of <strong>£12,400/year</strong> per client.
         </p>
       </div>
     </div>
 
-    <!-- Services grid — all 6 with images and prominent savings -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {services.map(({ name, description, tag, saving, savingLabel, reduction, image }, i) => (
-        <div
-          data-reveal
-          data-delay={String((i % 3) + 1)}
-          class="card-lift group relative bg-white rounded-2xl overflow-hidden border border-black/7 cursor-pointer"
-        >
-          <!-- Image with overlay -->
-          <div class="relative h-44 overflow-hidden bg-brand-navy-mid">
-            <img
-              src={image}
-              alt={name}
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-85"
-              loading="lazy"
-            />
-            <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(15,25,35,0.25) 0%, rgba(15,25,35,0.65) 100%);"></div>
-
-            <!-- Prominent savings badge overlaid on image -->
-            <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+    <div class="card-grid">
+      {services.map(({ name, href, description, tag, saving, savingLabel, reduction, image }, i) => (
+        <div data-reveal data-delay={String((i % 3) + 1)} class="services__card card-lift">
+          <div class="services__image-wrap">
+            <OptimizedImage src={image} alt={name} class="services__image" />
+            <div class="services__saving">
               <div>
-                <div class="font-heading font-bold text-white leading-none tracking-[-0.04em]" style="font-size: 2.2rem;">{saving}</div>
-                <div class="text-white/60 text-[11px] uppercase tracking-[0.1em] mt-0.5">{savingLabel}</div>
+                <div class="services__saving-value">{saving}</div>
+                <div class="services__saving-label">{savingLabel}</div>
               </div>
-              {tag && (
-                <span class="px-2.5 py-1 bg-brand-teal text-white text-[10px] font-semibold tracking-wider uppercase rounded-md">
-                  {tag}
-                </span>
-              )}
+              {tag && <span class="services__tag">{tag}</span>}
             </div>
           </div>
 
-          <!-- Content -->
-          <div class="p-6">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-heading font-bold text-[1.15rem] text-brand-navy tracking-[-0.025em]">{name}</h3>
-              <span class="text-brand-teal text-[11.5px] font-semibold bg-brand-teal/8 px-2.5 py-1 rounded-full flex-shrink-0">{reduction}</span>
+          <div class="services__body">
+            <div class="services__card-header">
+              <h3 class="services__card-title">{name}</h3>
+              <span class="services__reduction">{reduction}</span>
             </div>
-            <p class="text-brand-gray text-[13.5px] leading-relaxed mb-5">{description}</p>
-            <div class="flex items-center gap-1.5 text-[12.5px] font-semibold text-brand-navy group-hover:text-brand-teal transition-colors duration-200">
+            <p class="services__description">{description}</p>
+            <div class="services__learn-more">
               Learn more
-              <svg class="w-3 h-3 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
-            <!-- Hidden href per service -->
-            <a class="absolute inset-0" href={`/services/${name.toLowerCase().replace(/\s+/g, '-').replace('&', '').replace('--', '-')}`} aria-label={`Learn more about ${name}`}></a>
+            <a class="services__overlay-link" href={href} aria-label={`Learn more about ${name}`}></a>
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Bottom CTA strip -->
-    <div data-reveal class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-5 p-7 rounded-2xl bg-white border border-black/6">
+    <div data-reveal class="services__cta">
       <div>
-        <p class="font-heading font-semibold text-brand-navy text-[1.05rem] tracking-[-0.02em]">Ready to find out how much you could save?</p>
-        <p class="text-brand-gray text-[13.5px] mt-1">Free review. No obligation. Most clients see results within 30 days.</p>
+        <p class="services__cta-title">Ready to find out how much you could save?</p>
+        <p class="services__cta-copy">Free review. No obligation. Most clients see results within 30 days.</p>
       </div>
-      <a href="#contact" class="btn-primary flex-shrink-0" style="font-size: 14px;">
+      <a href="/contact" class="button button--primary">
         Get free savings review
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-
   </div>
 </section>

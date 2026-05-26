@@ -27,60 +27,42 @@ const steps = [
 ];
 ---
 
-<section id="how-it-works" class="py-36 bg-brand-off-white relative overflow-hidden">
-  <!-- Teal glow bottom left -->
-  <div class="absolute bottom-0 left-0 w-[600px] h-[400px] bg-brand-teal/4 rounded-full blur-[120px] pointer-events-none"></div>
-
-  <div class="relative max-w-[1360px] mx-auto px-8 xl:px-12">
-
-    <!-- Header -->
-    <div class="max-w-[680px] mb-20">
+<section id="how-it-works" class="section section--large how-it-works">
+  <div class="how-it-works__glow"></div>
+  <div class="container">
+    <div class="how-it-works__header">
       <p data-reveal class="eyebrow">How It Works</p>
-      <h2 data-reveal data-delay="1" class="font-heading font-bold text-[clamp(2.4rem,4.5vw,4rem)] text-brand-navy tracking-[-0.035em] leading-[1.02] mb-4">
+      <h2 data-reveal data-delay="1" class="section-heading">
         Four steps.<br />Most clients save within 30 days.
       </h2>
-      <p data-reveal data-delay="2" class="text-brand-gray text-[15px] leading-relaxed">
+      <p data-reveal data-delay="2" class="section-copy">
         Designed to be painless. Most clients are fully onboarded with costs already reduced within four weeks.
       </p>
     </div>
 
-    <!-- Steps — large editorial numbered layout -->
-    <div class="space-y-0 divide-y divide-black/6">
+    <div class="process-list process-list--editorial">
       {steps.map(({ n, title, body, time }, i) => (
-        <div
-          data-reveal="fade"
-          data-delay={String((i % 2) + 1)}
-          class="group grid grid-cols-[80px_1fr_auto] lg:grid-cols-[120px_1fr_280px] items-center gap-6 lg:gap-12 py-9 hover:bg-white transition-colors duration-300 -mx-8 px-8 xl:-mx-12 xl:px-12 rounded-xl cursor-default"
-        >
-          <!-- Number -->
-          <div class="font-heading font-bold text-[2.8rem] lg:text-[4rem] text-black/8 group-hover:text-brand-teal/25 transition-colors duration-300 leading-none tabular-nums tracking-[-0.04em]">
-            {n}
-          </div>
-
-          <!-- Content -->
+        <article data-reveal="fade" data-delay={String((i % 2) + 1)} class="process-step process-step--large">
+          <div class="process-step__number">{n}</div>
           <div>
-            <h3 class="font-heading font-bold text-[1.3rem] lg:text-[1.5rem] text-brand-navy tracking-[-0.025em] mb-2 group-hover:text-brand-teal transition-colors duration-300">{title}</h3>
-            <p class="text-brand-gray text-[14px] leading-relaxed max-w-[520px]">{body}</p>
+            <h3 class="process-step__title">{title}</h3>
+            <p class="process-step__copy">{body}</p>
           </div>
-
-          <!-- Time badge -->
-          <div class="hidden lg:flex flex-col items-end">
-            <span class="text-[11px] uppercase tracking-[0.12em] text-brand-gray-light mb-1">Timeline</span>
-            <span class="font-heading font-semibold text-brand-navy text-[15px] tracking-[-0.01em]">{time}</span>
-            <div class="w-8 h-px bg-brand-teal/40 mt-2 transition-all duration-300 group-hover:w-16 group-hover:bg-brand-teal"></div>
+          <div class="process-step__timeline">
+            <div class="process-step__timeline-label">Timeline</div>
+            <div class="process-step__timeline-value">{time}</div>
+            <div class="process-step__rule"></div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
 
-    <!-- CTA -->
-    <div data-reveal class="mt-16 flex flex-wrap items-center gap-5">
-      <a href="#contact" class="btn-primary">
+    <div data-reveal class="how-it-works__cta">
+      <a href="/contact" class="button button--primary">
         Start your free review
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg class="icon icon--small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <span class="text-brand-gray-light text-[13px]">No commitment required</span>
+      <span class="how-it-works__note">No commitment required</span>
     </div>
-
   </div>
 </section>

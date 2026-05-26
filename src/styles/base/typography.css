@@ -1,0 +1,73 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.section-heading {
+  max-width: 780px;
+  font-size: var(--font-size-2xl);
+  letter-spacing: -0.035em;
+}
+
+.section-heading--light {
+  color: var(--color-white);
+}
+
+.section-heading__accent {
+  color: var(--color-secondary);
+}
+
+.section-copy {
+  max-width: 520px;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+.section-heading + .section-copy,
+.section-heading + p,
+.section-heading + div.section-copy {
+  margin-top: clamp(1rem, 2vw, 1.25rem);
+}
+
+.section-copy--light {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.eyebrow--muted {
+  color: rgba(59, 169, 165, 0.72);
+}

@@ -1,0 +1,112 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import {
+  distributionCentreExterior,
+  recyclingMaterials,
+  siteEnergyAudit,
+  stockroomInventory,
+  warehouseDeskOperations,
+  wasteCollectionTrucks,
+} from '../../assets/images';
+
+const benefits = [
+  { title: 'Waste contract audit', copy: 'We review collection frequency, container mix, disposal routes, charges and contract terms to identify unnecessary spend.' },
+  { title: 'Carrier compliance check', copy: 'We help confirm that suppliers, duty of care records and service arrangements match the standards your business needs.' },
+  { title: 'Collection and bin optimisation', copy: 'We compare your actual waste profile against your current service so collections, container sizes and recycling streams fit the site.' },
+  { title: 'Supplier tender and consolidation', copy: 'We benchmark local and national waste providers, then help simplify suppliers, invoices and service levels across your locations.' },
+];
+
+const commonProblems = [
+  { quote: '"We are paying for collections even when bins are half empty."', answer: 'Collection frequency often drifts away from real site demand. We check whether your schedule and container mix are still right-sized.' },
+  { quote: '"Every site has a different supplier and nobody owns the process."', answer: 'Multi-site waste portfolios become messy fast. We consolidate where possible and make service levels easier to manage.' },
+  { quote: '"Our recycling rate is poor but we do not know where to start."', answer: 'We identify practical stream changes, container changes and supplier options that can improve segregation without adding complexity.' },
+  { quote: '"We are not sure our duty of care paperwork is complete."', answer: 'We help review supplier records, transfer notes and service arrangements so compliance gaps can be addressed.' },
+  { quote: '"Waste prices went up and we just accepted it."', answer: 'Waste renewals are often accepted without tender. We benchmark the market and challenge charges before they become normal.' },
+  { quote: '"The site keeps changing, but the bins never did."', answer: 'Operational changes usually affect waste volume and collection needs. We reset the service around how the site now works.' },
+];
+
+const process = [
+  { number: '01', title: 'Send us your waste invoices', copy: 'We review contracts, collection schedules, container types, sites and current supplier charges.', timeline: '24 hours' },
+  { number: '02', title: 'We audit service levels', copy: 'We compare collections, containers, waste streams and compliance records against actual operational needs.', timeline: '2-3 days' },
+  { number: '03', title: 'We tender and optimise', copy: 'We benchmark suppliers, identify service changes and present a practical savings plan.', timeline: '1-2 weeks' },
+  { number: '04', title: 'We coordinate the change', copy: 'We help set up collections, paperwork, supplier handover and ongoing review points.', timeline: '2-4 weeks' },
+];
+
+const faqs = [
+  { question: 'Can you reduce collection frequency?', answer: 'Often, yes. We check whether bins, waste streams and collection schedules match actual site demand.' },
+  { question: 'Do you support recycling and ESG goals?', answer: 'Yes. We can factor recycling streams, landfill diversion and reporting needs into the supplier recommendation.' },
+  { question: 'Can you manage multiple sites?', answer: 'Yes. Multi-site waste contracts are a strong fit because consolidation and standardisation can remove a lot of cost.' },
+  { question: 'Do you review compliance paperwork?', answer: 'Yes. We can help check supplier records, duty of care documents and transfer note processes.' },
+  { question: 'Will changing supplier disrupt collections?', answer: 'The aim is to plan handover carefully so service continues without gaps or missed collections.' },
+  { question: 'What do you need to start?', answer: 'Recent invoices, a supplier contract if available, and a rough view of your current collection schedule.' },
+];
+
+const related = [
+  { name: 'Gas', href: '/services/gas', saving: '£4,200 avg. saving', image: siteEnergyAudit },
+  { name: 'Electricity', href: '/services/electric', saving: '£5,800 avg. saving', image: warehouseDeskOperations },
+  { name: 'Water', href: '/services/water', saving: '£1,600 avg. saving', image: distributionCentreExterior },
+  { name: 'Asset Management', href: '/services/asset-management', saving: '18% efficiency gain', image: stockroomInventory },
+];
+---
+
+<ServicePage
+  pageTitle="Commercial Waste Management | Utility 1 - Reduce Waste Costs"
+  pageDescription="We audit commercial waste contracts, collections, compliance and supplier pricing to reduce costs and improve service control."
+  title="Make waste costs"
+  accent="easier to control."
+  eyebrow="Commercial Waste"
+  breadcrumb="Commercial Waste"
+  description="Waste contracts can quietly drift out of shape as sites change. We audit collections, containers, suppliers and compliance records so your service matches what the business actually needs."
+  image={wasteCollectionTrucks}
+  ctaLabel="Get a free waste audit"
+  stats={[
+    { value: '35%', label: 'avg. waste cost reduction' },
+    { value: '£2,100', label: 'avg. annual saving' },
+    { value: '300+', label: 'waste audits completed' },
+  ]}
+  problemStats={[
+    { value: '35%', label: 'average reduction from waste contract reviews' },
+    { value: '2 days', label: 'typical monthly admin saved after consolidation' },
+    { value: '5+', label: 'sites where supplier consolidation usually pays off' },
+    { value: '100%', label: 'duty of care records checked during review' },
+  ]}
+  whatWeDoTitle="We right-size the service.<br />Then we tender the market."
+  whatWeDoCopy="Waste costs depend on more than the headline collection price. We look at service frequency, container use, compliance, supplier terms and site requirements together."
+  benefits={benefits}
+  featureImage={recyclingMaterials}
+  featureImageAlt="Commercial waste collection containers"
+  auditCard={{ eyebrow: 'Recent waste audit', value: '£12,600', copy: 'saved across six operating sites', note: '31% collection reduction' }}
+  commonProblemsEyebrow="Common Waste Problems"
+  commonProblemsTitle="Collections change. Contracts often do not."
+  commonProblems={commonProblems}
+  caseStudy={{
+    eyebrow: 'Waste Case Study',
+    title: 'A facilities group had six sites on three separate waste suppliers.',
+    copy: [
+      'Each site had different container sizes, collection days and renewal dates. Nobody had a consolidated view of what was being collected or why.',
+      'We reviewed invoices, container sizes and collection frequency, then identified several half-empty collections and duplicated charges.',
+      'The portfolio was consolidated to one provider with a revised schedule and clearer duty of care records. Service levels improved while annual cost reduced.',
+    ],
+    quote: '"The saving was good, but the admin reduction was just as valuable. We finally know what every site is paying for." - Operations Manager',
+    image: wasteCollectionTrucks,
+    imageAlt: 'Waste and recycling site',
+    savingLabel: 'Annual waste saving',
+    savingValue: '£12,600',
+    savingNote: '31%',
+    stats: [
+      { value: '6', label: 'sites audited' },
+      { value: '£12,600', label: 'annual saving' },
+      { value: '3 weeks', label: 'to completion' },
+    ],
+    ctaLabel: 'Start your waste audit',
+  }}
+  processTitle="From collection review to<br />cleaner supplier control."
+  process={process}
+  faqs={faqs}
+  related={related}
+  contactEyebrow="Free Waste Audit"
+  contactTitle="Send us your waste invoices."
+  contactCopy="We will review service levels, supplier charges and contract terms, then come back with clear opportunities to reduce cost and improve control."
+  formTitle="Request your free waste audit"
+  spendLabel="Annual waste spend (approx.)"
+/>

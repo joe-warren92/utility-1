@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+import { getCollection } from 'astro:content';
+import { formatBlogDate, sortBlogPosts, toBlogSummary } from '../../data/blog';
+
+const posts = sortBlogPosts(await getCollection('blog')).map(toBlogSummary);
+const featuredPost = posts.find((post) => post.featured) ?? posts[0];
+const remainingPosts = posts.filter((post) => post.slug !== featuredPost.slug);
+const categories = Array.from(new Set(posts.map((post) => post.category)));
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Utility 1 Blog',
+  description: 'Commercial utility insights, buying guides and practical advice from Utility 1.',
+  url: '/blog',
+};
+---
+
+<Layout
+  title="Commercial Utility Blog | Utility 1"
+  description="Commercial utility insights, buying guides and practical advice for reducing gas, electricity, water, waste and merchant service costs."
+  canonical="/blog"
+  jsonLd={blogJsonLd}
+>
+  <Nav />
+
+  <main class="blog-archive">
+    <section class="blog-archive-hero">
+      <div class="blog-archive-hero__texture"></div>
+      <div class="container">
+        <nav data-reveal class="blog-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>Blog</span>
+        </nav>
+        <div class="blog-archive-hero__grid">
+          <div>
+            <p data-reveal class="eyebrow eyebrow--muted">Insights &amp; Updates</p>
+            <h1 data-reveal data-delay="1" class="blog-archive-hero__title">Commercial utility insight for sharper buying decisions.</h1>
+          </div>
+          <p data-reveal="right" class="blog-archive-hero__copy">
+            Practical guidance on energy procurement, contract renewals, waste management, water billing and cost control for UK businesses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-archive-section blog-archive-section--white">
+      <div class="container">
+        <a data-reveal href={`/blog/${featuredPost.slug}`} class="blog-featured-card card-lift">
+          <div class="blog-featured-card__media">
+            <OptimizedImage src={featuredPost.image} alt={featuredPost.imageAlt} class="blog-featured-card__image" />
+          </div>
+          <div class="blog-featured-card__body">
+            <span class="blog-card__category">{featuredPost.category}</span>
+            <h2>{featuredPost.title}</h2>
+            <p>{featuredPost.excerpt}</p>
+            <div class="blog-card__meta">
+              <time datetime={featuredPost.date}>{formatBlogDate(featuredPost.date)}</time>
+              <span>{featuredPost.readTime} read</span>
+              <span>{featuredPost.author}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="blog-archive-section blog-archive-section--soft">
+      <div class="container">
+        <div class="blog-filter-row">
+          <div>
+            <p data-reveal class="eyebrow">All Articles</p>
+            <h2 data-reveal data-delay="1" class="blog-section-heading">Latest guidance</h2>
+          </div>
+          <div data-reveal="right" class="blog-category-list" aria-label="Article categories">
+            {categories.map((category) => <span>{category}</span>)}
+          </div>
+        </div>
+
+        <div class="blog-card-grid">
+          {remainingPosts.map((post, i) => (
+            <a data-reveal data-delay={String(i + 1)} href={`/blog/${post.slug}`} class="blog-card card-lift">
+              <OptimizedImage src={post.image} alt={post.imageAlt} class="blog-card__image" />
+              <div class="blog-card__body">
+                <span class="blog-card__category">{post.category}</span>
+                <h3>{post.title}</h3>
+                <p>{post.excerpt}</p>
+                <div class="blog-card__meta">
+                  <time datetime={post.date}>{formatBlogDate(post.date)}</time>
+                  <span>{post.readTime} read</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
