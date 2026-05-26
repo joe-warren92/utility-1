@@ -52,7 +52,7 @@ const blogJsonLd = {
       <div class="container">
         <a data-reveal href={`/blog/${featuredPost.slug}`} class="blog-featured-card card-lift">
           <div class="blog-featured-card__media">
-            <OptimizedImage src={featuredPost.image} alt={featuredPost.imageAlt} class="blog-featured-card__image" />
+            <OptimizedImage src={featuredPost.image} alt={featuredPost.imageAlt} class="blog-featured-card__image" sizes="(min-width: 980px) 50vw, 100vw" />
           </div>
           <div class="blog-featured-card__body">
             <span class="blog-card__category">{featuredPost.category}</span>
@@ -83,7 +83,7 @@ const blogJsonLd = {
         <div class="blog-card-grid">
           {remainingPosts.map((post, i) => (
             <a data-reveal data-delay={String(i + 1)} href={`/blog/${post.slug}`} class="blog-card card-lift">
-              <OptimizedImage src={post.image} alt={post.imageAlt} class="blog-card__image" />
+              <OptimizedImage src={post.image} alt={post.imageAlt} class="blog-card__image" sizes="(min-width: 1000px) 30vw, 100vw" widths={[360, 520, 640, 768, 1024]} />
               <div class="blog-card__body">
                 <span class="blog-card__category">{post.category}</span>
                 <h3>{post.title}</h3>

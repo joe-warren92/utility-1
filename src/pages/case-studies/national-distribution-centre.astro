@@ -150,6 +150,8 @@ const moreCases = [
           class="case-detail-hero__image"
           loading="eager"
           fetchpriority="high"
+          sizes="100vw"
+          widths={[640, 960, 1280, 1440, 1600]}
         />
         <div class="case-detail-hero__overlay case-detail-hero__overlay--side"></div>
         <div class="case-detail-hero__overlay case-detail-hero__overlay--bottom"></div>
@@ -263,7 +265,7 @@ const moreCases = [
           {challenges.map(({ number, title, body, cost, costLabel, image }, i) => (
             <article data-reveal data-delay={String(i + 1)} class="case-challenge-card card-lift">
               <div class="case-challenge-card__media">
-                <OptimizedImage src={image} alt={title} class="case-challenge-card__image" />
+                <OptimizedImage src={image} alt={title} class="case-challenge-card__image" sizes="(min-width: 1000px) 30vw, 100vw" widths={[360, 520, 640, 768, 1024]} />
                 <div class="case-challenge-card__overlay"></div>
                 <div class="case-challenge-card__meta">
                   <span class="case-challenge-card__number">{number}</span>
@@ -291,6 +293,7 @@ const moreCases = [
             alt="Operations team reviewing contracts"
             class="case-approach__image"
             loading="lazy"
+            sizes="(min-width: 980px) 45vw, 100vw"
           />
           <div class="case-approach__overlay"></div>
           <figcaption class="case-approach__quote">
@@ -415,7 +418,7 @@ const moreCases = [
         <div class="case-more__grid">
           {moreCases.map(({ image, sector, metric, title, savings, href }, i) => (
             <a data-reveal data-delay={String(i + 1)} href={href} class="case-more-card card-lift">
-              <OptimizedImage src={image} alt={title} class="case-more-card__image" />
+              <OptimizedImage src={image} alt={title} class="case-more-card__image" sizes="(min-width: 1000px) 30vw, 100vw" widths={[360, 520, 640, 768, 1024]} />
               <div class="case-more-card__overlay"></div>
               <div class="case-more-card__tags">
                 <span>{sector}</span>

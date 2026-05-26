@@ -1,5 +1,7 @@
 ---
-import '../styles/main.css';
+import criticalCss from '../styles/critical.css?inline';
+import mainStylesUrl from '../styles/main.css?url';
+import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 export interface Props {
@@ -11,6 +13,9 @@ export interface Props {
   publishedTime?: string;
   modifiedTime?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  preloadImage?: ImageMetadata;
+  preloadImageSizes?: string;
+  preloadImageWidths?: number[];
 }
 
 const {
@@ -22,6 +27,9 @@ const {
   publishedTime,
   modifiedTime,
   jsonLd,
+  preloadImage,
+  preloadImageSizes = '100vw',
+  preloadImageWidths = [640, 960, 1280, 1440, 1600],
 } = Astro.props;
 
 const siteUrl = Astro.site ?? Astro.url.origin;
@@ -29,6 +37,19 @@ const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteUrl).href;
 const imagePath = typeof image === 'string' ? image : image.src;
 const imageUrl = new URL(imagePath, siteUrl).href;
 const structuredData = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+const preloadSources = preloadImage
+  ? await Promise.all(
+      preloadImageWidths.map((width) =>
+        getImage({
+          src: preloadImage,
+          width,
+          format: 'avif',
+        })
+      )
+    )
+  : [];
+const preloadSrcset = preloadSources.map((source, index) => `${source.src} ${preloadImageWidths[index]}w`).join(', ');
+const preloadHref = preloadSources[Math.min(preloadSources.length - 1, 3)]?.src;
 ---
 
 <!doctype html>
@@ -52,6 +73,19 @@ const structuredData = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {preloadHref && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadHref}
+        imagesrcset={preloadSrcset}
+        imagesizes={preloadImageSizes}
+        fetchpriority="high"
+      />
+    )}
+    <style is:inline set:html={criticalCss} />
+    <link rel="stylesheet" href={mainStylesUrl} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={mainStylesUrl} /></noscript>
     {structuredData.map((item) => (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />
     ))}

@@ -13,11 +13,14 @@ import About from '../components/About.astro';
 import Insights from '../components/Insights.astro';
 import FinalCta from '../components/FinalCta.astro';
 import Footer from '../components/Footer.astro';
+import { wasteCollectionTrucks } from '../assets/images';
 ---
 
 <Layout
   title="Utility 1 — Cut Commercial Utility Costs by Up to 28%"
   description="Utility 1 audits, renegotiates and manages all your commercial utilities. Gas, electricity, water and waste — one partner, one invoice, real savings."
+  preloadImage={wasteCollectionTrucks}
+  preloadImageSizes="100vw"
 >
   <Nav />
   <Hero />

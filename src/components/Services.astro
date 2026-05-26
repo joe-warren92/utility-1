@@ -95,7 +95,7 @@ const services = [
       {services.map(({ name, href, description, tag, saving, savingLabel, reduction, image }, i) => (
         <div data-reveal data-delay={String((i % 3) + 1)} class="services__card card-lift">
           <div class="services__image-wrap">
-            <OptimizedImage src={image} alt={name} class="services__image" />
+            <OptimizedImage src={image} alt={name} class="services__image" sizes="(min-width: 980px) 30vw, 100vw" widths={[360, 520, 640, 768, 1024]} />
             <div class="services__saving">
               <div>
                 <div class="services__saving-value">{saving}</div>

@@ -1,13 +1,5 @@
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/inter-300.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
   src: url("/fonts/inter-400.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -32,24 +24,8 @@
 
 @font-face {
   font-family: "DM Sans";
-  src: url("/fonts/dm-sans-300.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DM Sans";
   src: url("/fonts/dm-sans-400.ttf") format("truetype");
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/dm-sans-500.ttf") format("truetype");
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -66,14 +42,6 @@
   font-family: "DM Sans";
   src: url("/fonts/dm-sans-700.ttf") format("truetype");
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/dm-sans-800.ttf") format("truetype");
-  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }

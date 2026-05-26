@@ -102,7 +102,15 @@ const formId = breadcrumb.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   <main class="service-page">
     <section class="service-page-hero">
       <div class="service-page-hero__media">
-        <OptimizedImage src={image} alt="" class="service-page-hero__image" loading="eager" fetchpriority="high" />
+        <OptimizedImage
+          src={image}
+          alt=""
+          class="service-page-hero__image"
+          loading="eager"
+          fetchpriority="high"
+          sizes="100vw"
+          widths={[640, 960, 1280, 1440, 1600]}
+        />
         <div class="service-page-hero__overlay service-page-hero__overlay--side"></div>
         <div class="service-page-hero__overlay service-page-hero__overlay--bottom"></div>
       </div>
@@ -183,7 +191,7 @@ const formId = breadcrumb.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
         <aside data-reveal="right" class="service-feature" aria-label="Service highlight">
           <div class="service-feature__image-wrap">
-            <OptimizedImage src={featureImage} alt={featureImageAlt} class="service-feature__image" />
+            <OptimizedImage src={featureImage} alt={featureImageAlt} class="service-feature__image" sizes="(min-width: 1100px) 46vw, 100vw" />
             <div class="service-feature__overlay"></div>
           </div>
           <div class="service-feature__result-card">
@@ -225,7 +233,7 @@ const formId = breadcrumb.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     <section class="service-section service-section--white">
       <div class="container service-case">
         <div data-reveal class="service-case__media">
-          <OptimizedImage src={caseStudy.image} alt={caseStudy.imageAlt} class="service-case__image" />
+          <OptimizedImage src={caseStudy.image} alt={caseStudy.imageAlt} class="service-case__image" sizes="(min-width: 900px) 38vw, 100vw" />
           <div class="service-case__overlay"></div>
           <div class="service-case__saving">
             <div>
@@ -323,7 +331,7 @@ const formId = breadcrumb.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         <div class="service-related__grid">
           {related.map(({ name, href, saving, image }, i) => (
             <a data-reveal data-delay={String(i + 1)} href={href} class="service-related-card card-lift">
-              <OptimizedImage src={image} alt={name} class="service-related-card__image" />
+              <OptimizedImage src={image} alt={name} class="service-related-card__image" sizes="(min-width: 1000px) 30vw, 100vw" widths={[360, 520, 640, 768, 1024]} />
               <div class="service-related-card__overlay"></div>
               <div class="service-related-card__content">
                 <h3>{name}</h3>

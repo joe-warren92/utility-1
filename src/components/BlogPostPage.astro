@@ -56,7 +56,15 @@ const articleJsonLd = {
     <article>
       <header class="blog-post-hero">
         <div class="blog-post-hero__media">
-          <OptimizedImage src={post.image} alt={post.imageAlt} class="blog-post-hero__image" loading="eager" fetchpriority="high" />
+          <OptimizedImage
+            src={post.image}
+            alt={post.imageAlt}
+            class="blog-post-hero__image"
+            loading="eager"
+            fetchpriority="high"
+            sizes="100vw"
+            widths={[640, 960, 1280, 1440, 1600]}
+          />
           <div class="blog-post-hero__overlay"></div>
         </div>
 
@@ -123,7 +131,7 @@ const articleJsonLd = {
         <div class="blog-card-grid">
           {relatedPosts.map((item, i) => (
             <a data-reveal data-delay={String(i + 1)} href={`/blog/${item.slug}`} class="blog-card card-lift">
-              <OptimizedImage src={item.image} alt={item.imageAlt} class="blog-card__image" />
+              <OptimizedImage src={item.image} alt={item.imageAlt} class="blog-card__image" sizes="(min-width: 1000px) 30vw, 100vw" widths={[360, 520, 640, 768, 1024]} />
               <div class="blog-card__body">
                 <span class="blog-card__category">{item.category}</span>
                 <h3>{item.title}</h3>
