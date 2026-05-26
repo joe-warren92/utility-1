@@ -91,21 +91,9 @@
 }
 
 .case-detail-breadcrumb {
-  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2.5rem;
   color: rgba(255, 255, 255, 0.36);
   font-size: 0.75rem;
-}
-
-.case-detail-breadcrumb a {
-  transition: color var(--transition-base);
-}
-
-.case-detail-breadcrumb a:hover,
-.case-detail-breadcrumb span:last-child {
-  color: var(--color-secondary);
 }
 
 .case-detail-hero__grid {

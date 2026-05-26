@@ -23,20 +23,6 @@
   position: relative;
 }
 
-.legal-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2.5rem;
-  color: rgba(255, 255, 255, 0.38);
-  font-size: var(--font-size-xs);
-}
-
-.legal-breadcrumb a,
-.legal-breadcrumb span:last-child {
-  color: var(--color-secondary);
-}
-
 .legal-hero__title {
   max-width: 780px;
   margin-top: 1rem;

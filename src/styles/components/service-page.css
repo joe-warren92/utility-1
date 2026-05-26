@@ -44,21 +44,9 @@
 }
 
 .service-page-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
   margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.35);
   font-size: 0.75rem;
-}
-
-.service-page-breadcrumb a {
-  transition: color var(--transition-base);
-}
-
-.service-page-breadcrumb a:hover,
-.service-page-breadcrumb span:last-child {
-  color: var(--color-secondary);
 }
 
 .service-page-hero__content {

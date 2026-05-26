@@ -4,6 +4,6 @@
 }
 
 .container--narrow {
-  width: min(100% - (var(--container-padding) * 2), 980px);
+  width: min(100% - (var(--container-padding) * 2), var(--container-width-narrow));
   margin-inline: auto;
 }

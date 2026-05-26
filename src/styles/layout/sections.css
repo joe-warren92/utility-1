@@ -21,6 +21,25 @@
   color: var(--color-white);
 }
 
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: var(--font-size-xs);
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.62);
+  transition: color var(--transition-base);
+}
+
+.breadcrumb a:hover,
+.breadcrumb span:last-child {
+  color: var(--color-secondary);
+}
+
 .section-header {
   display: flex;
   align-items: end;

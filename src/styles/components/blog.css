@@ -1,17 +1,3 @@
-.blog-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 2.5rem;
-  color: rgba(255, 255, 255, 0.38);
-  font-size: var(--font-size-xs);
-}
-
-.blog-breadcrumb a,
-.blog-breadcrumb span:last-child {
-  color: var(--color-secondary);
-}
-
 .blog-archive-hero,
 .blog-post-hero {
   position: relative;
